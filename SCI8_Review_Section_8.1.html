@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 8 | 8.1 Exothermic Reactions</title>
+<style>
+:root {
+  --primary: #007D8C;
+  --primary-dark: #005F6B;
+  --primary-light: #EAF8FA;
+
+  --blue: #1F6FB2;
+  --blue-light: #EAF3FC;
+
+  --green: #2E7D32;
+  --green-light: #EDF8EE;
+
+  --orange: #F39C12;
+  --orange-light: #FFF4E6;
+
+  --purple: #7E57C2;
+  --purple-light: #F3ECFD;
+
+  --red: #D84343;
+  --red-light: #FDECEC;
+
+  --grey: #666666;
+  --grey-light: #F5F5F5;
+
+  --background: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #E1E5EA;
+  --text: #1F2937;
+  --muted: #6B7280;
+
+  --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+/* ---------- Hero ---------- */
+.hero-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 28px 20px 20px;
+  margin-bottom: 16px;
+}
+.hero-eyebrow { font-size: 13px; letter-spacing: 0.06em; opacity: 0.9; text-transform: uppercase; }
+.hero-title { font-size: clamp(26px, 5vw, 36px); margin: 6px 0 2px; font-weight: 700; }
+.hero-subtitle { font-size: 15px; opacity: 0.95; margin-bottom: 12px; }
+.hero-topics { font-size: 14px; opacity: 0.9; }
+.badges { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.source-badge {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* ---------- Nav ---------- */
+.nav-strip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+}
+.nav-strip a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.nav-strip a:hover, .nav-strip a:focus { border-color: var(--primary); outline: none; }
+
+/* ---------- Sections ---------- */
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 22px 26px;
+  margin-bottom: 22px;
+}
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.section-header .icon { font-size: 24px; }
+.section-header h2 { font-size: 22px; margin: 0; color: var(--primary-dark); }
+.section-sub { color: var(--muted); font-size: 14px; margin: 0 0 16px 34px; }
+
+p { margin: 0 0 12px; }
+
+/* ---------- Callouts ---------- */
+.callout {
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 12px 0;
+  font-size: 15px;
+  border-left: 4px solid;
+}
+.callout .callout-label { font-weight: 700; display: block; margin-bottom: 4px; font-size: 13px; }
+.callout.info { background: var(--blue-light); border-color: var(--blue); }
+.callout.success { background: var(--green-light); border-color: var(--green); }
+.callout.warning { background: var(--orange-light); border-color: var(--orange); }
+.callout.misconception { background: var(--red-light); border-color: var(--red); }
+.callout.realworld { background: var(--orange-light); border-color: var(--orange); }
+.callout.examtip { background: var(--purple-light); border-color: var(--purple); }
+
+/* ---------- Objectives ---------- */
+.roadmap-list { list-style: none; padding: 0; margin: 0; }
+.roadmap-list li {
+  padding: 10px 12px;
+  background: var(--primary-light);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.roadmap-list li::before { content: "🎯"; }
+
+/* ---------- Vocabulary ---------- */
+.vocab-groupname { color: var(--green); font-weight: 700; margin: 18px 0 10px; font-size: 16px; }
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+.vocab-card {
+  background: var(--green-light);
+  border: 1px solid #cfe9d1;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.vocab-word { font-size: 18px; font-weight: 700; color: var(--green); }
+.vocab-ipa { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+.vocab-row { font-size: 14.5px; margin-bottom: 4px; }
+.vocab-row b { color: var(--text); }
+.vocab-vn { font-style: italic; color: var(--primary-dark); }
+
+/* ---------- Concept cards ---------- */
+.concept-card {
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--blue);
+  background: var(--blue-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.concept-card h3 { margin: 0 0 8px; color: var(--blue); font-size: 18px; }
+
+/* ---------- Diagrams ---------- */
+.diagram-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 18px;
+  background: var(--surface);
+}
+.diagram-card h3 { margin: 0 0 10px; font-size: 17px; color: var(--primary-dark); }
+.diagram-svg-wrap { text-align: center; margin: 10px 0; }
+.diagram-svg-wrap svg { max-width: 100%; height: auto; }
+.diagram-caption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 4px; }
+
+/* ---------- Thinking ---------- */
+.thinking-card {
+  border: 1px solid var(--border);
+  background: var(--green-light);
+  border-left: 5px solid var(--green);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.thinking-card h3 { margin: 0 0 8px; color: var(--green); font-size: 17px; }
+.think-q { background: #fff; border-radius: 8px; padding: 10px 12px; margin-top: 8px; border: 1px dashed #b7dcb9; }
+
+/* ---------- Real world ---------- */
+.realworld-card {
+  border: 1px solid var(--border);
+  background: var(--orange-light);
+  border-left: 5px solid var(--orange);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.realworld-card h3 { margin: 0 0 6px; color: #b9700a; font-size: 16px; }
+
+/* ---------- Workbook ---------- */
+.workbook-card {
+  border: 1px solid var(--border);
+  background: var(--orange-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.workbook-card h3 { margin: 0 0 6px; color: #b9700a; }
+
+/* ---------- Flashcards ---------- */
+.flashcard-zone { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.flashcard {
+  width: 100%;
+  max-width: 460px;
+  min-height: 170px;
+  perspective: 1200px;
+  cursor: pointer;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  border: 2px solid var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.flashcard-front { background: var(--purple-light); color: var(--text); }
+.flashcard-back { background: var(--purple); color: #fff; transform: rotateY(180deg); }
+.flashcard-tag { position: absolute; top: 8px; left: 12px; font-size: 11px; font-weight: 700; opacity: 0.7; text-transform: uppercase; }
+.flash-controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.flash-counter { font-size: 13px; color: var(--muted); }
+
+/* ---------- Buttons ---------- */
+button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  min-height: 40px;
+}
+button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--grey-light); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: #ececec; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-success:hover { background: #245e27; }
+.btn-neutral { background: var(--purple-light); color: var(--purple); }
+
+/* ---------- Quiz ---------- */
+.quiz-card {
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--purple);
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.quiz-tag { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; margin-bottom: 4px; }
+.quiz-q { font-weight: 600; margin-bottom: 10px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.quiz-option {
+  text-align: left;
+  background: var(--grey-light);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.quiz-option:hover { background: #efefef; }
+.quiz-option.selected { border-color: var(--purple); background: var(--purple-light); }
+.quiz-option.correct { background: var(--green-light); border-color: var(--green); }
+.quiz-option.incorrect { background: var(--red-light); border-color: var(--red); }
+.quiz-feedback { font-size: 14px; padding: 10px; border-radius: 8px; margin-top: 6px; display: none; }
+.quiz-feedback.show { display: block; }
+.quiz-feedback.correct-fb { background: var(--green-light); color: #205323; }
+.quiz-feedback.incorrect-fb { background: var(--orange-light); color: #7a4b00; }
+#quizScoreBox {
+  background: var(--purple-light);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  font-weight: 700;
+  display: none;
+}
+
+/* ---------- Teach-back ---------- */
+.teachback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.tb-card { border-radius: 10px; padding: 14px 16px; border: 2px solid; }
+.tb-bronze { border-color: #cd7f32; background: #fdf3e9; }
+.tb-silver { border-color: #9aa0a6; background: #f3f4f5; }
+.tb-gold { border-color: #d4af37; background: #fdf8e5; }
+.tb-platinum { border-color: var(--purple); background: var(--purple-light); }
+.tb-level { font-weight: 800; font-size: 15px; margin-bottom: 6px; }
+.tb-item { font-size: 13.5px; margin: 4px 0; }
+.tb-item b { display: block; font-size: 12px; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- Exam ---------- */
+.exam-card {
+  border: 1px solid var(--border);
+  background: var(--purple-light);
+  border-left: 5px solid var(--purple);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.exam-card h3 { margin: 0 0 6px; color: var(--purple); font-size: 16px; }
+
+/* ---------- Parent ---------- */
+.parent-card {
+  border: 1px solid var(--border);
+  background: var(--grey-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.parent-card ol { padding-left: 20px; margin: 0; }
+.parent-card li { margin-bottom: 10px; }
+
+/* ---------- Reflection ---------- */
+.reflection-card { background: var(--primary-light); border-radius: 10px; padding: 16px 18px; }
+.reflect-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 15px; }
+.reflect-row input[type="checkbox"] { width: 18px; height: 18px; }
+.confidence-scale { display: flex; gap: 8px; margin: 8px 0 14px; }
+.confidence-scale button {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text);
+  min-height: 44px;
+}
+.confidence-scale button.active { background: var(--primary); color: #fff; }
+textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  min-height: 60px;
+}
+
+/* ---------- Metadata ---------- */
+.metadata-footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .nav-strip, .flash-controls, .quiz-options button, button { display: none !important; }
+  .section-card { box-shadow: none; border: 1px solid #ccc; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero-header">
+  <div class="hero-eyebrow">Cambridge Lower Secondary Science • Stage 8</div>
+  <h1 class="hero-title">Unit 8 · Section 8.1</h1>
+  <div class="hero-subtitle">Exothermic Reactions</div>
+  <div class="hero-topics">Combustion • Fuel • Oxidation • Energy Changes • Fair Testing</div>
+  <div class="badges">
+    <span class="source-badge">✓ Learner Book Verified</span>
+    <span class="source-badge">✓ Workbook Verified</span>
+    <span class="source-badge">✓ Answer Key Verified</span>
+    <span class="source-badge">✓ Progression Tests Reviewed</span>
+  </div>
+</header>
+
+<nav class="nav-strip" aria-label="Section navigation">
+  <a href="#roadmap">🗺 Roadmap</a>
+  <a href="#vocabulary">📚 Vocabulary</a>
+  <a href="#concepts">💡 Concepts</a>
+  <a href="#diagrams">🖼 Diagrams</a>
+  <a href="#thinking">🧠 Thinking</a>
+  <a href="#realworld">🌍 Real World</a>
+  <a href="#flashcards">🔁 Flashcards</a>
+  <a href="#quiz">📝 Quiz</a>
+  <a href="#workbook">📓 Workbook</a>
+  <a href="#teachback">🎓 Teach-Back</a>
+  <a href="#exam">🎯 Exam Skills</a>
+  <a href="#parent">👨‍👩‍👧 Parent Check</a>
+  <a href="#reflection">🔄 Reflection</a>
+</nav>
+
+<!-- ROADMAP -->
+<section class="section-card" id="roadmap">
+  <div class="section-header"><span class="icon">🗺</span><h2>Section Roadmap</h2></div>
+  <p class="section-sub">What this lesson is about, and why it matters</p>
+
+  <p>In this section, you will learn about chemical reactions that <b>give out energy</b>. You already know that burning changes carbon and oxygen into carbon dioxide. In this lesson, you will find out <i>why</i> burning — and several other reactions — release energy, and how scientists compare how much energy different reactions release.</p>
+
+  <div class="callout info">
+    <span class="callout-label">Why it matters</span>
+    Reactions that release energy are everywhere: cooking, car engines, hand warmers, rockets and even your own body all rely on exothermic reactions. Understanding them helps you explain temperature changes you observe in the lab and in daily life.
+  </div>
+
+  <h3 style="margin-top:20px; font-size:16px; color:var(--primary-dark);">By the end of this lesson, I can...</h3>
+  <ul class="roadmap-list">
+    <li>Explain what an exothermic reaction is and describe the energy change that happens.</li>
+    <li>Describe what is needed for combustion (burning) to take place.</li>
+    <li>Recognise oxidation reactions and describe reactions of metals with oxygen, water and acid.</li>
+    <li>Interpret temperature data from an investigation and compare results fairly.</li>
+    <li>Identify variables in an investigation and explain how to make results reliable.</li>
+  </ul>
+</section>
+
+<!-- VOCABULARY -->
+<section class="section-card" id="vocabulary">
+  <div class="section-header"><span class="icon">📚</span><h2>Vocabulary Master Pack</h2></div>
+  <p class="section-sub">Learn these words first — they will help you read the lesson confidently</p>
+
+  <div class="vocab-groupname">A. Core Science Vocabulary</div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="vocab-word">exothermic reaction</div>
+      <div class="vocab-ipa">/ˌek.səʊˈθɜː.mɪk riˈæk.ʃən/ · ex-o-ther-mic re-ac-tion</div>
+      <div class="vocab-row"><b>Simple meaning:</b> a reaction that gives out heat.</div>
+      <div class="vocab-row"><b>Scientific meaning:</b> a chemical reaction in which thermal energy is transferred to the surroundings, so the temperature rises.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: phản ứng tỏa nhiệt</div>
+      <div class="vocab-row"><b>Example:</b> "Burning wood is an exothermic reaction because the temperature increases."</div>
+      <div class="vocab-row"><b>Memory tip:</b> "exo-" means <i>out</i> — energy goes <i>out</i> of the reaction.</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">combustion</div>
+      <div class="vocab-ipa">/kəmˈbʌs.tʃən/ · com-bus-tion</div>
+      <div class="vocab-row"><b>Simple meaning:</b> burning.</div>
+      <div class="vocab-row"><b>Scientific meaning:</b> another word for burning — a fuel reacts with oxygen and releases energy.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: sự đốt cháy</div>
+      <div class="vocab-row"><b>Example:</b> "The combustion of charcoal releases thermal, light and sound energy."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">fuel</div>
+      <div class="vocab-ipa">/ˈfjuː.əl/ · fu-el</div>
+      <div class="vocab-row"><b>Simple meaning:</b> something that burns to release energy.</div>
+      <div class="vocab-row"><b>Scientific meaning:</b> a substance with a store of chemical energy that reacts with oxygen during combustion.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: nhiên liệu</div>
+      <div class="vocab-row"><b>Example:</b> "Coal, wood, oil and natural gas are all fuels."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">oxidation reaction</div>
+      <div class="vocab-ipa">/ˌɒk.sɪˈdeɪ.ʃən riˈæk.ʃən/</div>
+      <div class="vocab-row"><b>Simple meaning:</b> a reaction where a substance joins with oxygen.</div>
+      <div class="vocab-row"><b>Scientific meaning:</b> any reaction in which a substance combines with oxygen to form an oxide.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: phản ứng oxi hóa</div>
+      <div class="vocab-row"><b>Example:</b> "Burning magnesium is an oxidation reaction because it forms magnesium oxide."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">dissipate</div>
+      <div class="vocab-ipa">/ˈdɪs.ɪ.peɪt/ · dis-si-pate</div>
+      <div class="vocab-row"><b>Simple meaning:</b> to spread out and gradually disappear.</div>
+      <div class="vocab-row"><b>Scientific meaning:</b> energy spreads out into the surroundings, becoming harder to make use of.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: tiêu tán</div>
+      <div class="vocab-row"><b>Example:</b> "Thermal energy dissipates into the air after the reaction finishes."</div>
+    </div>
+  </div>
+
+  <div class="vocab-groupname">B. Reading Support Vocabulary</div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="vocab-word">preliminary work</div>
+      <div class="vocab-ipa">/prɪˈlɪm.ɪ.nər.i wɜːk/</div>
+      <div class="vocab-row"><b>Simple meaning:</b> a small test done before the main investigation, to help you plan it well.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: công việc thử nghiệm sơ bộ</div>
+      <div class="vocab-row"><b>Example:</b> "Preliminary work helped them choose a sensible range of lengths of ribbon to test."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">rearrange</div>
+      <div class="vocab-ipa">/ˌriː.əˈreɪndʒ/</div>
+      <div class="vocab-row"><b>Simple meaning:</b> to arrange again, in a different way.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: sắp xếp lại</div>
+      <div class="vocab-row"><b>Example:</b> "During a reaction, atoms rearrange to form new substances."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">apparatus</div>
+      <div class="vocab-ipa">/ˌæp.əˈreɪ.təs/</div>
+      <div class="vocab-row"><b>Simple meaning:</b> the equipment used in an experiment.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: dụng cụ thí nghiệm</div>
+      <div class="vocab-row"><b>Example:</b> "The apparatus included a thermometer, a test tube and a stand."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">ribbon</div>
+      <div class="vocab-ipa">/ˈrɪb.ən/</div>
+      <div class="vocab-row"><b>Simple meaning:</b> a long, thin, flat strip of material.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: dải mỏng</div>
+      <div class="vocab-row"><b>Example:</b> "A short piece of magnesium ribbon was placed into the acid."</div>
+    </div>
+  </div>
+
+  <div class="vocab-groupname">C. Scientific Skills Vocabulary</div>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <div class="vocab-word">independent variable</div>
+      <div class="vocab-row"><b>Meaning:</b> the one thing you deliberately change in an investigation.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: biến độc lập</div>
+      <div class="vocab-row"><b>Example:</b> "The length of magnesium ribbon was the independent variable."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">dependent variable</div>
+      <div class="vocab-row"><b>Meaning:</b> the thing you measure to see if it has changed.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: biến phụ thuộc</div>
+      <div class="vocab-row"><b>Example:</b> "The change in temperature was the dependent variable."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">control variable</div>
+      <div class="vocab-row"><b>Meaning:</b> something that must be kept the same so the test stays fair.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: biến kiểm soát</div>
+      <div class="vocab-row"><b>Example:</b> "The type and volume of acid were control variables."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">reliable</div>
+      <div class="vocab-row"><b>Meaning:</b> results you can trust because they would probably be similar if you repeated the test.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: đáng tin cậy</div>
+      <div class="vocab-row"><b>Example:</b> "Repeating the experiment makes the results more reliable."</div>
+    </div>
+    <div class="vocab-card">
+      <div class="vocab-word">fair test</div>
+      <div class="vocab-row"><b>Meaning:</b> an investigation where only the independent variable is changed, and everything else is controlled.</div>
+      <div class="vocab-row vocab-vn">Vietnamese: thí nghiệm công bằng</div>
+      <div class="vocab-row"><b>Example:</b> "It was not a fair test because the two metals had different masses."</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="section-card" id="concepts">
+  <div class="section-header"><span class="icon">💡</span><h2>Core Concepts</h2></div>
+  <p class="section-sub">Understand the main ideas, one step at a time</p>
+
+  <div class="concept-card">
+    <h3>1. What does combustion need?</h3>
+    <p><b>Main idea:</b> Combustion (burning) needs three things at the same time: a <b>fuel</b>, <b>oxygen</b>, and enough <b>heat</b> to start the reaction.</p>
+    <p><b>Explanation:</b> If any one of these three things is missing, burning cannot happen or will stop. This is why blowing out a candle removes heat, and why putting a lid on a pan fire cuts off the oxygen.</p>
+    <p><b>Example:</b> Carbon burning in air: carbon + oxygen → carbon dioxide.</p>
+    <div class="callout misconception"><span class="callout-label">Common misunderstanding</span>Some students think burning only needs a match. A lit match provides the starting heat, but the fuel and oxygen must already be present for burning to continue.</div>
+  </div>
+
+  <div class="concept-card">
+    <h3>2. What happens in an exothermic reaction?</h3>
+    <p><b>Main idea:</b> In an exothermic reaction, stored chemical energy in the reactants changes into thermal, light and sound energy, which dissipates into the surroundings.</p>
+    <p><b>Explanation:</b> As atoms rearrange to form new substances, energy is released rather than absorbed. This is why the temperature of the surroundings rises during the reaction.</p>
+    <p><b>Example:</b> When magnesium ribbon burns, chemical energy changes into thermal and light energy — you can feel the heat and see the bright light.</p>
+  </div>
+
+  <div class="concept-card">
+    <h3>3. Oxidation reactions</h3>
+    <p><b>Main idea:</b> Whenever a substance combines with oxygen, an oxide is formed. This is called an oxidation reaction, and it is exothermic.</p>
+    <p><b>Explanation:</b> The name of the oxide usually matches the metal: magnesium + oxygen → magnesium oxide.</p>
+    <p><b>Example:</b> Burning magnesium ribbon in air produces magnesium oxide and releases heat and light.</p>
+  </div>
+
+  <div class="concept-card">
+    <h3>4. Exothermic reactions with water and with acid</h3>
+    <p><b>Main idea:</b> Some metals react exothermically with water, and many metals react exothermically with acids.</p>
+    <p><b>Explanation:</b> In both cases, the bonds in the reactants break and the atoms rearrange into new products. Hydrogen gas is usually one of the products.</p>
+    <p><b>Example:</b> potassium + water → potassium hydroxide + hydrogen. <br>magnesium + hydrochloric acid → magnesium chloride + hydrogen.</p>
+  </div>
+
+  <div class="concept-card">
+    <h3>5. Comparing energy released fairly</h3>
+    <p><b>Main idea:</b> To compare how much energy two reactions release, scientists compare the <b>rise</b> in temperature (end temperature minus start temperature), not just the final temperature.</p>
+    <p><b>Explanation:</b> If two reactions start at different temperatures, the one with the higher final temperature is not necessarily the one that released more energy.</p>
+    <div class="callout misconception"><span class="callout-label">Common misunderstanding</span>Thinking that a higher <i>final</i> temperature always means more energy was released. Always check the <i>increase</i> in temperature, since starting temperatures can differ.</div>
+  </div>
+</section>
+
+<!-- DIAGRAMS -->
+<section class="section-card" id="diagrams">
+  <div class="section-header"><span class="icon">🖼</span><h2>Diagram Mastery</h2></div>
+  <p class="section-sub">Use these diagrams to understand combustion and investigations visually</p>
+
+  <div class="diagram-card">
+    <h3>The Fire Triangle</h3>
+    <div class="diagram-svg-wrap">
+      <svg viewBox="0 0 320 260" role="img" aria-labelledby="fireTriTitle fireTriDesc">
+        <title id="fireTriTitle">The fire triangle</title>
+        <desc id="fireTriDesc">A triangle showing that combustion needs fuel, oxygen and heat together.</desc>
+        <polygon points="160,20 30,230 290,230" fill="none" stroke="#D84343" stroke-width="5" stroke-linejoin="round"/>
+        <text x="160" y="14" text-anchor="middle" font-size="15" font-weight="700" fill="#1F2937">Combustion needs all three</text>
+        <text x="95" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#1F6FB2" transform="rotate(-58 95 140)">OXYGEN</text>
+        <text x="230" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#F39C12" transform="rotate(58 230 140)">HEAT</text>
+        <text x="160" y="218" text-anchor="middle" font-size="15" font-weight="700" fill="#2E7D32">FUEL</text>
+        <circle cx="160" cy="150" r="26" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+        <text x="160" y="155" text-anchor="middle" font-size="20">🔥</text>
+      </svg>
+    </div>
+    <p><b>What it shows:</b> The three things needed for combustion — fuel, oxygen and heat — placed on the sides of a triangle.</p>
+    <p><b>What to notice:</b> If one side of the triangle is "removed" (missing), the fire in the middle cannot exist.</p>
+    <p><b>Common mistake:</b> Forgetting that oxygen must be present — thinking a fuel will burn in any gas.</p>
+  </div>
+
+  <div class="diagram-card">
+    <h3>Word Equation Model: Carbon + Oxygen</h3>
+    <div class="diagram-svg-wrap">
+      <svg viewBox="0 0 380 130" role="img" aria-labelledby="ceqTitle ceqDesc">
+        <title id="ceqTitle">Particle model for carbon burning in oxygen</title>
+        <desc id="ceqDesc">One black carbon particle plus two joined red oxygen particles react to form carbon dioxide, shown as one black particle joined to two red particles.</desc>
+        <circle cx="35" cy="55" r="16" fill="#444"/>
+        <text x="35" y="90" text-anchor="middle" font-size="12">carbon</text>
+        <text x="70" y="60" font-size="20" fill="#1F2937">+</text>
+        <circle cx="105" cy="55" r="14" fill="#D84343"/>
+        <circle cx="131" cy="55" r="14" fill="#D84343"/>
+        <text x="118" y="90" text-anchor="middle" font-size="12">oxygen</text>
+        <text x="160" y="60" font-size="20" fill="#1F2937">→</text>
+        <circle cx="230" cy="55" r="14" fill="#D84343"/>
+        <circle cx="256" cy="55" r="16" fill="#444"/>
+        <circle cx="282" cy="55" r="14" fill="#D84343"/>
+        <text x="256" y="90" text-anchor="middle" font-size="12">carbon dioxide</text>
+      </svg>
+    </div>
+    <p><b>What it shows:</b> One carbon atom joins with two oxygen atoms to make one particle of carbon dioxide.</p>
+    <p><b>What to notice:</b> The same atoms are present before and after the reaction — they are simply rearranged.</p>
+    <p><b>Common mistake:</b> Thinking that atoms are destroyed during burning. In fact, mass and atoms are conserved.</p>
+  </div>
+
+  <div class="diagram-card">
+    <h3>Investigation Apparatus: Measuring Temperature Rise</h3>
+    <div class="diagram-svg-wrap">
+      <svg viewBox="0 0 260 260" role="img" aria-labelledby="appTitle appDesc">
+        <title id="appTitle">Apparatus for measuring temperature rise</title>
+        <desc id="appDesc">A test tube held in a stand contains dilute hydrochloric acid and a piece of magnesium ribbon, with a thermometer inserted into the liquid.</desc>
+        <rect x="60" y="230" width="140" height="14" fill="#888"/>
+        <rect x="65" y="150" width="10" height="90" fill="#888"/>
+        <rect x="185" y="150" width="10" height="90" fill="#888"/>
+        <rect x="65" y="150" width="130" height="10" fill="#888"/>
+        <path d="M100 90 L100 210 Q100 225 115 225 L145 225 Q160 225 160 210 L160 90 Z" fill="#eaf3fc" stroke="#1F6FB2" stroke-width="2"/>
+        <rect x="126" y="30" width="8" height="185" fill="#D84343" opacity="0.85"/>
+        <circle cx="130" cy="215" r="9" fill="#D84343"/>
+        <rect x="120" y="20" width="20" height="18" rx="4" fill="#fff" stroke="#1F2937" stroke-width="2"/>
+        <text x="130" y="14" text-anchor="middle" font-size="11" fill="#1F2937">thermometer</text>
+        <text x="45" y="205" text-anchor="end" font-size="11" fill="#1F2937">dilute</text>
+        <text x="45" y="217" text-anchor="end" font-size="11" fill="#1F2937">hydrochloric acid</text>
+        <text x="215" y="205" text-anchor="start" font-size="11" fill="#1F2937">magnesium</text>
+        <text x="215" y="217" text-anchor="start" font-size="11" fill="#1F2937">ribbon</text>
+        <text x="130" y="256" text-anchor="middle" font-size="11" fill="#1F2937">test-tube stand</text>
+      </svg>
+    </div>
+    <p><b>What it shows:</b> A thermometer placed in a test tube of dilute acid, ready to measure temperature before and after adding magnesium ribbon.</p>
+    <p><b>What to notice:</b> The thermometer bulb must stay in the liquid so it reads the temperature of the reacting mixture, not the air.</p>
+    <p><b>Common mistake:</b> Reading the start temperature and the end temperature using different parts of the thermometer scale, or lifting the bulb out of the liquid.</p>
+  </div>
+</section>
+
+<!-- THINKING -->
+<section class="section-card" id="thinking">
+  <div class="section-header"><span class="icon">🧠</span><h2>Scientific Thinking</h2></div>
+  <p class="section-sub">Think like a scientist about evidence and fair testing</p>
+
+  <div class="thinking-card">
+    <h3>Interpreting Evidence: Sofia and Marcus</h3>
+    <p>Sofia measured 10 cm³ of hydrochloric acid, starting at 18 °C, and it reached 42 °C after adding magnesium. Marcus did the same experiment, starting at 21 °C and reaching 45 °C.</p>
+    <div class="think-q">Marcus thought his reaction released <i>more</i> energy because his end temperature was higher. Sofia thought both reactions released the <i>same</i> amount of energy. <br><br><b>Think:</b> Calculate the temperature <i>rise</i> for each experiment. What does comparing the rise (rather than the final value) tell you about whose reasoning is stronger?</div>
+  </div>
+
+  <div class="thinking-card">
+    <h3>Comparing Observations: Metal X and Metal Y</h3>
+    <p>Zara tested metal X with hydrochloric acid; Arun tested metal Y with hydrochloric acid. Both used 10 cm³ of acid and saw bubbles of gas.</p>
+    <div class="think-q"><b>Think:</b> What is the one variable Zara and Arun deliberately changed? What variables must stay the same for their comparison to be a fair test? If you noticed one description said a "small" piece of metal while the other did not specify a mass, what problem could that cause for their conclusion?</div>
+  </div>
+
+  <div class="thinking-card">
+    <h3>Choosing How to Present Data</h3>
+    <p>Amal tested four different metals (A, B, C, D) with hydrochloric acid and recorded the rise in temperature for each.</p>
+    <div class="think-q"><b>Think:</b> Is "type of metal" a continuous variable (like time or temperature) or a discrete/category variable? Which type of graph — bar chart or line graph — suits data with discrete categories, and why?</div>
+  </div>
+</section>
+
+<!-- REAL WORLD -->
+<section class="section-card" id="realworld">
+  <div class="section-header"><span class="icon">🌍</span><h2>Real World Science</h2></div>
+  <p class="section-sub">Where does this science appear in everyday life?</p>
+
+  <div class="realworld-card">
+    <h3>🧤 Chemical Hand Warmers</h3>
+    <p><b>Situation:</b> Small pouches used in cold weather get warm when shaken or opened.<br><b>Scientific connection:</b> Iron powder inside reacts with oxygen — an oxidation reaction — releasing thermal energy.<br><b>Why it matters:</b> This shows how the same reaction you studied (a metal combining with oxygen) can be used to keep people warm.</p>
+  </div>
+
+  <div class="realworld-card">
+    <h3>🚀 Hydrogen-Powered Rockets</h3>
+    <p><b>Situation:</b> Model rockets and real spacecraft can use hydrogen fuel.<br><b>Scientific connection:</b> Hydrogen combines with oxygen in an exothermic combustion reaction, releasing a large amount of energy very quickly.<br><b>Why it matters:</b> The rapid release of thermal, light and kinetic energy is what pushes the rocket forward.</p>
+  </div>
+
+  <div class="realworld-card">
+    <h3>🎆 Fireworks</h3>
+    <p><b>Situation:</b> Fireworks explode with bright light, loud sound and heat.<br><b>Scientific connection:</b> Fuel inside the firework combusts rapidly, an exothermic reaction that releases chemical energy as light, sound and thermal energy almost instantly.<br><b>Why it matters:</b> It shows that exothermic reactions can release several types of energy at once, not just heat.</p>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="section-card" id="flashcards">
+  <div class="section-header"><span class="icon">🔁</span><h2>Interactive Flashcards</h2></div>
+  <p class="section-sub">Click or press Enter on a card to flip it. Try to recall the answer before flipping.</p>
+
+  <div class="flashcard-zone">
+    <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flashcard, press to flip">
+      <div class="flashcard-inner" id="flashcardInner">
+        <div class="flashcard-face flashcard-front">
+          <span class="flashcard-tag">Question</span>
+          <span id="flashFrontText"></span>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <span class="flashcard-tag">Answer</span>
+          <span id="flashBackText"></span>
+        </div>
+      </div>
+    </div>
+    <div class="flash-counter" id="flashCounter">Card 1 of 12</div>
+    <div class="flash-controls">
+      <button class="btn-secondary" id="flashPrev" type="button">◀ Previous</button>
+      <button class="btn-primary" id="flashFlip" type="button">Flip Card</button>
+      <button class="btn-secondary" id="flashNext" type="button">Next ▶</button>
+      <button class="btn-neutral" id="flashShuffle" type="button">🔀 Shuffle</button>
+      <button class="btn-neutral" id="flashReset" type="button">↺ Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section-card" id="quiz">
+  <div class="section-header"><span class="icon">📝</span><h2>Interactive Mini Quiz</h2></div>
+  <p class="section-sub">Choose your answer, then check it. Read the feedback carefully.</p>
+  <div id="quizContainer"></div>
+  <button class="btn-success" id="quizSubmit" type="button">Finish Quiz &amp; Show Score</button>
+  <div id="quizScoreBox"></div>
+</section>
+
+<!-- WORKBOOK -->
+<section class="section-card" id="workbook">
+  <div class="section-header"><span class="icon">📓</span><h2>Workbook Preview</h2></div>
+  <p class="section-sub">Get ready for Exercise 8.1A and 8.1B — no answers here, just useful thinking support</p>
+
+  <div class="workbook-card">
+    <h3>Exercise 8.1A — Investigating an Exothermic Reaction</h3>
+    <p><b>Learning objective:</b> Identify variables and interpret results from an investigation into how the length of magnesium ribbon affects temperature rise.</p>
+    <p><b>Hint 1:</b> Ask yourself — what is Sofia and Marcus deliberately changing between test tubes? That is your independent variable.</p>
+    <p><b>Hint 2:</b> Ask yourself — what has to stay exactly the same in every test tube for the comparison to be fair (for example, the acid used)?</p>
+    <p><b>Thinking tip:</b> When results seem to show "very little difference," think carefully about whether a wider range of values might reveal a clearer pattern.</p>
+  </div>
+
+  <div class="workbook-card">
+    <h3>Exercise 8.1B — Investigating Exothermic Reactions Between Metals and Acid</h3>
+    <p><b>Learning objective:</b> Evaluate whether an investigation comparing metal X and metal Y was set up as a fair test.</p>
+    <p><b>Hint 1:</b> Look closely at how each metal sample is described. Are both amounts described in exactly the same way?</p>
+    <p><b>Hint 2:</b> If one variable was not properly controlled, think about what that means for how reliable the conclusion is.</p>
+    <p><b>Thinking tip:</b> A fair conclusion can only be drawn when every variable except the one being investigated is controlled.</p>
+  </div>
+
+  <div class="callout warning"><span class="callout-label">Remember</span>Try every question in your Workbook by yourself first. Use this preview only to get ready — your teacher or parent has the answers for after you finish.</div>
+</section>
+
+<!-- TEACH-BACK -->
+<section class="section-card" id="teachback">
+  <div class="section-header"><span class="icon">🎓</span><h2>Teach-Back Challenge</h2></div>
+  <p class="section-sub">The best way to know you understand something is to explain it yourself</p>
+
+  <div class="teachback-grid">
+    <div class="tb-card tb-bronze">
+      <div class="tb-level">🥉 Bronze</div>
+      <div class="tb-item"><b>Goal</b>Recall key facts</div>
+      <div class="tb-item"><b>Task</b>Define "exothermic reaction" and name the three things needed for combustion.</div>
+      <div class="tb-item"><b>Success looks like</b>You can say the definition and list fuel, oxygen and heat without looking at your notes.</div>
+    </div>
+    <div class="tb-card tb-silver">
+      <div class="tb-level">🥈 Silver</div>
+      <div class="tb-item"><b>Goal</b>Explain in your own words</div>
+      <div class="tb-item"><b>Task</b>Explain why burning releases energy, using the idea that atoms rearrange.</div>
+      <div class="tb-item"><b>Success looks like</b>You use the words "rearrange" and "energy" correctly, without copying the lesson text.</div>
+    </div>
+    <div class="tb-card tb-gold">
+      <div class="tb-level">🥇 Gold</div>
+      <div class="tb-item"><b>Goal</b>Apply understanding</div>
+      <div class="tb-item"><b>Task</b>Describe an investigation into a metal reacting with acid, including what evidence shows the reaction is exothermic.</div>
+      <div class="tb-item"><b>Success looks like</b>You mention temperature rise as the evidence, and describe a sensible method.</div>
+    </div>
+    <div class="tb-card tb-platinum">
+      <div class="tb-level">🏆 Platinum</div>
+      <div class="tb-item"><b>Goal</b>Teach and reason</div>
+      <div class="tb-item"><b>Task</b>Teach a younger student why comparing the <i>rise</i> in temperature (not the final temperature) is the fair way to compare two experiments. Correct the mistaken idea that a higher final temperature always means more energy was released.</div>
+      <div class="tb-item"><b>Success looks like</b>You explain the reasoning clearly, using accurate vocabulary, and correct the misconception without being told to.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM INTELLIGENCE -->
+<section class="section-card" id="exam">
+  <div class="section-header"><span class="icon">🎯</span><h2>Exam Intelligence</h2></div>
+  <p class="section-sub">Skills seen in Cambridge assessment materials for this topic</p>
+
+  <div class="exam-card">
+    <h3>📊 Completing Temperature-Change Tables</h3>
+    <p>Progression Test questions have asked students to complete a table by calculating the temperature change (end temperature − start temperature). Always show your subtraction clearly and include the unit, °C.</p>
+  </div>
+
+  <div class="exam-card">
+    <h3>🔤 Command Word: "Explain why..."</h3>
+    <p>This command word appears when you must give a reason using scientific vocabulary, not just describe. For example: "Explain why the same volume of acid is used each time" expects an answer about fair testing and control variables.</p>
+  </div>
+
+  <div class="exam-card">
+    <h3>⚖️ Deciding Endothermic or Exothermic from Data</h3>
+    <p>Some questions give a start and end temperature and ask you to circle "endothermic" or "exothermic" and explain your choice. Base your answer on whether the temperature increased (exothermic) or decreased (endothermic).</p>
+  </div>
+
+  <div class="exam-card">
+    <h3>📏 Explaining Measurements Taken</h3>
+    <p>Questions may ask what measurements you would take to find out which reaction releases the most heat. A strong answer mentions measuring temperature before and after the reaction for each substance tested.</p>
+  </div>
+
+  <div class="callout examtip"><span class="callout-label">Exam tip</span>When asked to explain a control variable (such as using the same volume of acid), always link your answer to the idea of a fair test — otherwise it is difficult to gain full marks.</div>
+</section>
+
+<!-- PARENT CHECK -->
+<section class="section-card" id="parent">
+  <div class="section-header"><span class="icon">👨‍👩‍👧</span><h2>Parent Check</h2></div>
+  <p class="section-sub">A few questions parents can ask out loud — no answers provided</p>
+  <div class="parent-card">
+    <ol>
+      <li>Can you explain, in your own words, what an exothermic reaction is?</li>
+      <li>What three things are needed for combustion to happen?</li>
+      <li>Why do scientists compare the <i>rise</i> in temperature rather than just the final temperature?</li>
+      <li>Can you give an example of an oxidation reaction from this lesson?</li>
+      <li>If two students get different final temperatures in an experiment, does that always mean one reaction released more energy? Why or why not?</li>
+      <li>Can you name one everyday product or situation that uses an exothermic reaction?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="section-card" id="reflection">
+  <div class="section-header"><span class="icon">🔄</span><h2>Reflection</h2></div>
+  <p class="section-sub">Check in with yourself before moving on</p>
+
+  <div class="reflection-card">
+    <div class="reflect-row"><input type="checkbox" id="r1"><label for="r1">I can explain what an exothermic reaction is.</label></div>
+    <div class="reflect-row"><input type="checkbox" id="r2"><label for="r2">I can describe what combustion needs.</label></div>
+    <div class="reflect-row"><input type="checkbox" id="r3"><label for="r3">I understand why we compare the rise in temperature, not just the final value.</label></div>
+    <div class="reflect-row"><input type="checkbox" id="r4"><label for="r4">I know all the Core Science Vocabulary words.</label></div>
+    <div class="reflect-row"><input type="checkbox" id="r5"><label for="r5">I am ready to try the Workbook independently.</label></div>
+
+    <p style="margin-top:16px; font-weight:600;">How confident do you feel about this section?</p>
+    <div class="confidence-scale" id="confidenceScale">
+      <button type="button" data-v="1">😕 Not yet</button>
+      <button type="button" data-v="2">🙂 Getting there</button>
+      <button type="button" data-v="3">😄 Confident</button>
+    </div>
+
+    <p style="font-weight:600; margin-bottom:6px;">Which vocabulary word is still tricky? (optional)</p>
+    <textarea placeholder="Write here..."></textarea>
+
+    <p style="font-weight:600; margin:14px 0 6px;">One question I still have:</p>
+    <textarea placeholder="Write here..."></textarea>
+  </div>
+</section>
+
+<footer class="metadata-footer">
+  Project: Cambridge Lower Secondary Science Stage 8 Self-Study Coach · Unit 8: Chemical Reactions · Section 8.1: Exothermic Reactions<br>
+  Output: O1 — Section Review HTML · UI Version 2.1 · Project Version 1.0<br>
+  Generated: 31 July 2026<br>
+  Sources used: Learner Book 8.1, Workbook Exercises 8.1A &amp; 8.1B, Learner Book Answer Key (Topic 8.1), Workbook Answer Key (Topic 8.1), Progression Test Papers (2020 Paper 2, 2026 Paper 2)
+</footer>
+
+</main>
+
+<script>
+// ---------- Flashcards ----------
+const flashData = [
+  {f: "What does 'exothermic reaction' mean?", b: "A chemical reaction that gives out thermal energy to the surroundings, so the temperature rises."},
+  {f: "What is another word for burning?", b: "Combustion."},
+  {f: "What is a fuel?", b: "A substance with a store of chemical energy that reacts with oxygen during combustion."},
+  {f: "What is an oxidation reaction?", b: "Any reaction where a substance combines with oxygen to form an oxide."},
+  {f: "What three things does combustion need?", b: "Fuel, oxygen, and heat."},
+  {f: "In an exothermic reaction, chemical energy changes into which types of energy?", b: "Thermal, light and sound energy."},
+  {f: "Complete: carbon + oxygen →", b: "carbon dioxide"},
+  {f: "Complete: potassium + water →", b: "potassium hydroxide + hydrogen"},
+  {f: "Complete: magnesium + hydrochloric acid →", b: "magnesium chloride + hydrogen"},
+  {f: "What is the independent variable in an investigation?", b: "The one thing you deliberately change."},
+  {f: "How can you make an investigation more reliable?", b: "Repeat the experiment and check the results are similar."},
+  {f: "If two experiments have different final temperatures, does that always mean one released more energy?", b: "No — you must compare the rise in temperature, since starting temperatures may differ."},
+  {f: "Name one everyday product that uses an exothermic reaction.", b: "Any sensible answer, e.g. a chemical hand warmer."},
+  {f: "True or False: All chemical reactions are exothermic.", b: "False — some reactions are endothermic and absorb energy."}
+];
+let flashOrder = flashData.map((_, i) => i);
+let flashIndex = 0;
+
+const flashcardEl = document.getElementById('flashcard');
+const flashcardInner = document.getElementById('flashcardInner');
+const flashFrontText = document.getElementById('flashFrontText');
+const flashBackText = document.getElementById('flashBackText');
+const flashCounter = document.getElementById('flashCounter');
+
+function renderFlashcard() {
+  const item = flashData[flashOrder[flashIndex]];
+  flashFrontText.textContent = item.f;
+  flashBackText.textContent = item.b;
+  flashcardEl.classList.remove('flipped');
+  flashCounter.textContent = `Card ${flashIndex + 1} of ${flashData.length}`;
+}
+function flipFlashcard() { flashcardEl.classList.toggle('flipped'); }
+flashcardEl.addEventListener('click', flipFlashcard);
+flashcardEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipFlashcard(); } });
+document.getElementById('flashFlip').addEventListener('click', flipFlashcard);
+document.getElementById('flashPrev').addEventListener('click', () => { flashIndex = (flashIndex - 1 + flashData.length) % flashData.length; renderFlashcard(); });
+document.getElementById('flashNext').addEventListener('click', () => { flashIndex = (flashIndex + 1) % flashData.length; renderFlashcard(); });
+document.getElementById('flashShuffle').addEventListener('click', () => {
+  for (let i = flashOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [flashOrder[i], flashOrder[j]] = [flashOrder[j], flashOrder[i]];
+  }
+  flashIndex = 0; renderFlashcard();
+});
+document.getElementById('flashReset').addEventListener('click', () => {
+  flashOrder = flashData.map((_, i) => i); flashIndex = 0; renderFlashcard();
+});
+renderFlashcard();
+
+// ---------- Quiz ----------
+const quizData = [
+  {level:"Recall", type:"mc", q:"Which three things are needed for combustion to take place?",
+   options:["Fuel, water and light","Fuel, oxygen and heat","Oxygen, water and salt","Heat, salt and fuel"], correct:1,
+   fbCorrect:"Great thinking! Combustion needs fuel, oxygen and heat together.",
+   fbIncorrect:"Think about the fire triangle — one part is missing from your answer."},
+  {level:"Understand", type:"tf", q:"True or False: An exothermic reaction absorbs energy from the surroundings.",
+   options:["True","False"], correct:1,
+   fbCorrect:"Correct! Exothermic reactions release energy — the surroundings get warmer.",
+   fbIncorrect:"Look again at the word 'exo' — it means energy goes OUT, not in."},
+  {level:"Recall", type:"mc", q:"Complete the word equation: carbon + oxygen →", 
+   options:["carbon monoxide","carbon dioxide","carbon oxide","carbonic acid"], correct:1,
+   fbCorrect:"Correct! Carbon combines with oxygen to form carbon dioxide.",
+   fbIncorrect:"Think about the reaction you saw in Getting Started."},
+  {level:"Understand", type:"mc", q:"Which of these is an oxidation reaction?",
+   options:["Ice melting into water","Magnesium burning in air","Water freezing into ice","Sugar dissolving in water"], correct:1,
+   fbCorrect:"Excellent observation! Magnesium combines with oxygen, forming magnesium oxide.",
+   fbIncorrect:"Look for the option where a substance combines with oxygen."},
+  {level:"Analyse", type:"mc", q:"Sofia: 18 °C → 42 °C. Marcus: 21 °C → 45 °C. Whose reasoning is correct about the energy released?",
+   options:["Marcus, because his final temperature is higher","Sofia, because both temperature rises are the same (24 °C)","Neither, because the acid volumes were different","Marcus, because he started at a higher temperature"], correct:1,
+   fbCorrect:"Exactly! Both experiments show a rise of 24 °C, so the same amount of energy was released.",
+   fbIncorrect:"Try comparing the two ideas again — calculate the temperature rise for each experiment."},
+  {level:"Apply", type:"mc", q:"Amal tests four different metals with acid. Which type of graph should he use to present his results?",
+   options:["Line graph","Bar chart","Scatter graph","Pie chart"], correct:1,
+   fbCorrect:"Correct! Metal type is a discrete (category) variable, so a bar chart is best.",
+   fbIncorrect:"Think about whether 'type of metal' is a continuous variable or a set of separate categories."},
+  {level:"Understand", type:"mc", q:"In an investigation testing different lengths of magnesium ribbon, what is the independent variable?",
+   options:["The change in temperature","The length of magnesium ribbon","The type of acid used","The volume of acid used"], correct:1,
+   fbCorrect:"Correct! The length of ribbon is deliberately changed, so it is the independent variable.",
+   fbIncorrect:"Remember: the independent variable is the one thing deliberately changed."},
+  {level:"Cambridge Challenge", type:"mc", q:"Why is a polystyrene cup often used instead of a glass beaker in these investigations?",
+   options:["It is cheaper to buy","It is a good insulator, so less heat is lost to the surroundings","It reacts with the acid to speed up the reaction","It is easier to see through"], correct:1,
+   fbCorrect:"Great reasoning! Polystyrene is a good insulator, so temperature readings are more accurate.",
+   fbIncorrect:"Think about the evidence being lost, not the container's price or appearance."},
+  {level:"Recall", type:"mc", q:"Which observation is evidence that a reaction is exothermic?",
+   options:["The temperature decreases","The temperature increases","The colour stays the same","No gas is produced"], correct:1,
+   fbCorrect:"Correct! A rise in temperature shows thermal energy has been released.",
+   fbIncorrect:"Think about which direction the temperature moves in an exothermic reaction."},
+  {level:"Apply", type:"mc", q:"An investigation shows only a very small difference in end temperature across a narrow range of ribbon lengths. What is the best next step?",
+   options:["Stop the investigation completely","Test a wider range of lengths so any pattern becomes clearer","Only test one length again","Change the acid instead"], correct:1,
+   fbCorrect:"Good thinking! A wider range often reveals patterns that a narrow range hides.",
+   fbIncorrect:"Think about how the range of values tested could affect what pattern you can see."}
+];
+
+const quizContainer = document.getElementById('quizContainer');
+const quizAnswered = new Array(quizData.length).fill(false);
+const quizCorrectFlags = new Array(quizData.length).fill(false);
+
+quizData.forEach((item, qi) => {
+  const card = document.createElement('div');
+  card.className = 'quiz-card';
+  card.innerHTML = `
+    <div class="quiz-tag">${item.level}</div>
+    <div class="quiz-q">${qi + 1}. ${item.q}</div>
+    <div class="quiz-options" id="qopts-${qi}"></div>
+    <button class="btn-primary" id="qcheck-${qi}" type="button">Check Answer</button>
+    <div class="quiz-feedback" id="qfeedback-${qi}"></div>
+  `;
+  quizContainer.appendChild(card);
+
+  const optsWrap = card.querySelector(`#qopts-${qi}`);
+  let selected = null;
+  item.options.forEach((opt, oi) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'quiz-option';
+    b.textContent = opt;
+    b.addEventListener('click', () => {
+      if (quizAnswered[qi]) return;
+      selected = oi;
+      optsWrap.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('selected'));
+      b.classList.add('selected');
+    });
+    optsWrap.appendChild(b);
+  });
+
+  card.querySelector(`#qcheck-${qi}`).addEventListener('click', () => {
+    if (quizAnswered[qi]) return;
+    if (selected === null) { return; }
+    quizAnswered[qi] = true;
+    const buttons = optsWrap.querySelectorAll('.quiz-option');
+    buttons.forEach((el, oi) => {
+      if (oi === item.correct) el.classList.add('correct');
+      else if (oi === selected) el.classList.add('incorrect');
+    });
+    const fb = card.querySelector(`#qfeedback-${qi}`);
+    if (selected === item.correct) {
+      quizCorrectFlags[qi] = true;
+      fb.textContent = "✅ Correct! " + item.fbCorrect;
+      fb.className = 'quiz-feedback show correct-fb';
+    } else {
+      fb.textContent = "⚠ Try Again. " + item.fbIncorrect;
+      fb.className = 'quiz-feedback show incorrect-fb';
+    }
+  });
+});
+
+document.getElementById('quizSubmit').addEventListener('click', () => {
+  const total = quizData.length;
+  const correctCount = quizCorrectFlags.filter(Boolean).length;
+  const answeredCount = quizAnswered.filter(Boolean).length;
+  const box = document.getElementById('quizScoreBox');
+  const pct = Math.round((correctCount / total) * 100);
+  let msg = "Keep practising — review the concept cards above.";
+  if (pct >= 80) msg = "Excellent work! You understand this section very well.";
+  else if (pct >= 50) msg = "Good progress! A short review of the tricky questions will help.";
+  box.innerHTML = `Score: ${correctCount} / ${total} (${pct}%)<br><span style="font-weight:400; font-size:13px;">Questions answered: ${answeredCount} / ${total}</span><br><span style="font-weight:400; font-size:14px;">${msg}</span>`;
+  box.style.display = 'block';
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+// ---------- Confidence scale ----------
+document.querySelectorAll('#confidenceScale button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#confidenceScale button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
