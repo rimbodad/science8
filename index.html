@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cambridge Science Stage 8 revision resources by unit and section.">
+  <title>Science Stage 8 | Revision Hub</title>
+  <style>
+    :root { --bg:#f5f7fb; --ink:#14243c; --muted:#60738d; --blue:#275bd7; --line:#dfe7f1; --card:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif; color:var(--ink); background:var(--bg); }
+    .hero { background:linear-gradient(125deg,#11294c,#2157b5); color:white; padding:64px 20px 70px; }
+    .wrap { max-width:1050px; margin:auto; }
+    .eyebrow { font-weight:750; letter-spacing:.14em; font-size:.78rem; color:#b7dbff; text-transform:uppercase; }
+    h1 { margin:14px 0 12px; font-size:clamp(2rem,5vw,3.45rem); line-height:1.14; }
+    .hero p { margin:0; color:#e0edff; font-size:1.05rem; max-width:620px; line-height:1.65; }
+    main { padding:36px 20px 70px; }
+    .section-title { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:0 0 20px; }
+    h2 { margin:0; font-size:1.55rem; }
+    .pill { display:inline-block; background:#e5edff; color:#254c9d; padding:6px 12px; font-size:.75rem; font-weight:700; border-radius:999px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .unit { min-height:186px; padding:23px; border:1px solid var(--line); border-radius:18px; background:var(--card); box-shadow:0 4px 16px rgba(20,36,60,.035); }
+    .unit-number { color:var(--blue); font-weight:800; font-size:.82rem; letter-spacing:.06em; }
+    .unit h3 { font-size:1.24rem; margin:10px 0 9px; }
+    .muted { color:var(--muted); font-size:.94rem; line-height:1.55; margin:0; }
+    .unit.active { border:2px solid #729cf4; padding:22px; background:#fbfdff; }
+    .lesson-link { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 14px; margin-top:18px; background:#275bd7; color:white; text-decoration:none; border-radius:10px; font-weight:700; font-size:.91rem; transition:background .15s,transform .15s; }
+    .lesson-link:hover { background:#1745b6; transform:translateY(-1px); }
+    .lesson-link:focus-visible { outline:3px solid #ffb650; outline-offset:3px; }
+    footer { text-align:center; font-size:.85rem; color:var(--muted); padding:20px; border-top:1px solid var(--line); }
+    @media(max-width:800px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:560px) { .hero { padding:48px 20px 55px; } .grid { grid-template-columns:1fr; } .unit { min-height:155px; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Cambridge Lower Secondary</div>
+      <h1>Science Stage 8<br>Revision Hub</h1>
+      <p>Choose a unit and review each section at your own pace. Explore lessons, practise key ideas, and prepare with confidence.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="section-title"><h2>Explore Units</h2><span class="pill">Stage 8</span></div>
+    <div class="grid">
+      <section class="unit"><div class="unit-number">UNIT 01</div><h3>Unit 1</h3><p class="muted">Coming soon</p></section>
+      <section class="unit"><div class="unit-number">UNIT 02</div><h3>Unit 2</h3><p class="muted">Coming soon</p></section>
+      <section class="unit"><div class="unit-number">UNIT 03</div><h3>Unit 3</h3><p class="muted">Coming soon</p></section>
+      <section class="unit"><div class="unit-number">UNIT 04</div><h3>Unit 4</h3><p class="muted">Coming soon</p></section>
+      <section class="unit"><div class="unit-number">UNIT 05</div><h3>Unit 5</h3><p class="muted">Coming soon</p></section>
+      <section class="unit"><div class="unit-number">UNIT 06</div><h3>Unit 6</h3><p class="muted">Coming soon</p></section>
+      <section class="unit"><div class="unit-number">UNIT 07</div><h3>Unit 7</h3><p class="muted">Coming soon</p></section>
+      <section class="unit active">
+        <div class="unit-number">UNIT 08</div><h3>Unit 8</h3>
+        <p class="muted">Revision lessons available</p>
+        <!-- Add future Unit 8 lessons immediately below this link. -->
+        <a class="lesson-link" href="U8/SCI8_Review_Section_8.1.html"><span>Section 8.1 — Open Review</span><span aria-hidden="true">↗</span></a>
+      </section>
+      <section class="unit"><div class="unit-number">UNIT 09</div><h3>Unit 9</h3><p class="muted">Coming soon</p></section>
+    </div>
+  </main>
+  <footer>Science Stage 8 · Revision Hub</footer>
+</body>
+</html>
