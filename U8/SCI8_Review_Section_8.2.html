@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 8 | Section 8.2 Endothermic Reactions</title>
+<style>
+  :root {
+    --primary: #007D8C;
+    --primary-dark: #005F6B;
+    --primary-light: #EAF8FA;
+
+    --blue: #1F6FB2;
+    --blue-light: #EAF3FC;
+
+    --green: #2E7D32;
+    --green-light: #EDF8EE;
+
+    --orange: #F39C12;
+    --orange-light: #FFF4E6;
+
+    --purple: #7E57C2;
+    --purple-light: #F3ECFD;
+
+    --red: #D84343;
+    --red-light: #FDECEC;
+
+    --grey: #666666;
+    --grey-light: #F5F5F5;
+
+    --background: #FAFAF8;
+    --surface: #FFFFFF;
+    --border: #E1E5EA;
+    --text: #1F2937;
+    --muted: #6B7280;
+
+    --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    --radius: 12px;
+    --transition: 0.25s ease;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px 48px;
+  }
+
+  h1, h2, h3 { line-height: 1.25; }
+
+  /* HERO */
+  .hero-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 28px 20px 22px;
+    margin-bottom: 16px;
+  }
+  .hero-eyebrow { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; }
+  .hero-unit { font-size: 15px; margin-top: 6px; opacity: 0.95; }
+  .hero-title { font-size: clamp(26px, 5vw, 36px); margin: 8px 0 4px; }
+  .hero-subtitle { font-size: 15px; opacity: 0.95; margin-bottom: 14px; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .source-badge {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12.5px;
+  }
+
+  /* NAV */
+  .nav-strip {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 4px;
+    margin-bottom: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav-strip a {
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background var(--transition);
+  }
+  .nav-strip a:hover, .nav-strip a:focus { background: var(--primary-light); outline: none; }
+
+  /* SECTION CONTAINER */
+  section.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px 20px;
+    margin-bottom: 20px;
+  }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .section-header .icon { font-size: 22px; }
+  .section-header h2 { margin: 0; font-size: 22px; color: var(--primary-dark); }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin: -6px 0 14px; }
+
+  p { margin: 8px 0; }
+
+  /* ROADMAP */
+  .roadmap-list { padding-left: 20px; }
+  .roadmap-list li { margin-bottom: 6px; }
+
+  /* VOCAB */
+  .vocab-group-title { font-size: 15px; font-weight: 700; color: var(--green); margin: 18px 0 8px; text-transform: uppercase; letter-spacing: .5px; }
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+  .vocab-card { background: var(--green-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .vocab-word { font-weight: 700; font-size: 18px; color: var(--green); }
+  .vocab-ipa { color: var(--muted); font-size: 13.5px; margin-bottom: 4px; }
+  .vocab-line { font-size: 15px; margin: 4px 0; }
+  .vocab-label { font-weight: 600; }
+  .vocab-tip { font-size: 13.5px; color: var(--primary-dark); margin-top: 6px; }
+
+  /* CONCEPT */
+  .concept-card { border: 1px solid var(--border); border-left: 5px solid var(--blue); border-radius: var(--radius); background: var(--blue-light); padding: 16px 18px; margin-bottom: 16px; }
+  .concept-card h3 { margin: 0 0 6px; color: var(--blue); font-size: 19px; }
+  .callout { border-radius: 10px; padding: 10px 14px; margin-top: 10px; font-size: 15px; }
+  .callout-misconception { background: var(--red-light); border-left: 4px solid var(--red); }
+  .callout-misconception .callout-title { color: var(--red); font-weight: 700; }
+
+  /* DIAGRAM */
+  .diagram-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 18px; background: var(--surface); }
+  .diagram-card h3 { color: var(--blue); margin-top: 0; }
+  .diagram-card svg { width: 100%; height: auto; display: block; margin: 10px 0; }
+  .diagram-note { font-size: 14.5px; }
+  .diagram-note strong { color: var(--text); }
+
+  /* THINKING */
+  .thinking-card { background: var(--green-light); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 14px; }
+  .thinking-card h3 { margin: 0 0 6px; color: var(--green); font-size: 18px; }
+  .thinking-card table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 15px; }
+  .thinking-card th, .thinking-card td { border: 1px solid var(--border); padding: 6px 8px; text-align: center; }
+  .thinking-card th { background: rgba(255,255,255,0.6); }
+
+  /* REAL WORLD */
+  .realworld-card { border: 1px solid var(--border); border-left: 5px solid var(--orange); background: var(--orange-light); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 14px; }
+  .realworld-card h3 { margin: 0 0 4px; color: #B9700A; font-size: 18px; }
+
+  /* FLASHCARDS */
+  .flash-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .flashcard {
+    width: 100%; max-width: 480px; min-height: 160px;
+    background: var(--purple-light); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 20px; cursor: pointer; font-size: 18px; color: var(--text);
+  }
+  .flash-counter { font-size: 14px; color: var(--muted); }
+  .flash-controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+  /* BUTTONS */
+  button {
+    font-size: 14px; font-weight: 700; border-radius: 10px; padding: 10px 16px;
+    border: none; cursor: pointer; transition: filter var(--transition);
+  }
+  button:hover { filter: brightness(0.95); }
+  button:focus-visible { outline: 3px solid var(--primary-dark); outline-offset: 2px; }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-secondary { background: var(--grey-light); color: var(--text); border: 1px solid var(--border); }
+  .btn-success { background: var(--green); color: #fff; }
+  .btn-neutral { background: var(--purple-light); color: var(--purple); border: 1px solid var(--purple); }
+
+  /* QUIZ */
+  .quiz-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 14px; background: var(--surface); }
+  .quiz-card h3 { margin-top: 0; font-size: 17px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+  .quiz-option {
+    text-align: left; background: var(--grey-light); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; font-size: 15px; color: var(--text); cursor: pointer;
+  }
+  .quiz-option:hover { background: var(--purple-light); }
+  .quiz-option.correct { background: var(--green-light); border-color: var(--green); }
+  .quiz-option.incorrect { background: var(--red-light); border-color: var(--red); }
+  .quiz-feedback { font-size: 15px; margin-top: 8px; font-weight: 600; min-height: 20px; }
+  .quiz-feedback.correct-text { color: var(--green); }
+  .quiz-feedback.incorrect-text { color: var(--red); }
+  #quizScoreBox { text-align: center; padding: 16px; }
+
+  /* WORKBOOK */
+  .workbook-card { border: 1px solid var(--border); border-left: 5px solid var(--orange); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 14px; background: var(--orange-light); }
+  .workbook-card h3 { margin: 0 0 6px; color: #B9700A; }
+  .workbook-card .wb-label { font-weight: 700; font-size: 14px; color: var(--text); }
+
+  /* TEACHBACK */
+  .teachback-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .teachback-card { border-radius: var(--radius); border: 1px solid var(--border); padding: 14px 16px; background: var(--purple-light); }
+  .teachback-card h3 { margin: 0 0 6px; font-size: 16px; }
+  .teachback-card textarea { width: 100%; min-height: 70px; border-radius: 8px; border: 1px solid var(--border); padding: 8px; font-family: inherit; font-size: 14.5px; resize: vertical; }
+  .level-bronze { border-left: 5px solid #B08D57; }
+  .level-silver { border-left: 5px solid #9AA0A6; }
+  .level-gold { border-left: 5px solid #D4A017; }
+  .level-platinum { border-left: 5px solid var(--purple); }
+
+  /* EXAM */
+  .exam-card { border: 1px solid var(--border); border-left: 5px solid var(--purple); background: var(--purple-light); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 14px; }
+  .exam-card h3 { margin: 0 0 6px; color: var(--purple); }
+
+  /* PARENT */
+  .parent-card { border: 1px solid var(--border); background: var(--grey-light); border-radius: var(--radius); padding: 16px 18px; }
+  .parent-card ol { padding-left: 20px; }
+  .parent-card li { margin-bottom: 8px; }
+
+  /* REFLECTION */
+  .reflection-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; background: var(--primary-light); }
+  .reflection-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 15.5px; }
+  .reflection-item input[type="checkbox"] { width: 20px; height: 20px; }
+  .confidence-scale { display: flex; gap: 8px; margin: 8px 0 16px; }
+  .confidence-scale button { flex: 1; }
+  textarea.reflect-line { width: 100%; border-radius: 8px; border: 1px solid var(--border); padding: 8px; font-family: inherit; min-height: 50px; }
+
+  /* METADATA */
+  .metadata-footer {
+    text-align: center; font-size: 12.5px; color: var(--muted);
+    border-top: 1px solid var(--border); padding-top: 14px; margin-top: 20px;
+  }
+
+  @media print {
+    .nav-strip, .flash-controls, .quiz-options button, button { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero-header">
+  <div class="hero-eyebrow">Cambridge Lower Secondary Science — Stage 8</div>
+  <div class="hero-unit">Unit 8 · Chemical Reactions</div>
+  <h1 class="hero-title">Section 8.2 — Endothermic Reactions</h1>
+  <p class="hero-subtitle">Absorbing Energy • Temperature Drop • Endothermic Process • Particle Theory</p>
+  <div class="badge-row">
+    <span class="source-badge">✅ Learner Book Verified</span>
+    <span class="source-badge">✅ Workbook Verified</span>
+    <span class="source-badge">✅ Answer Key Verified</span>
+    <span class="source-badge">✅ Progression Tests Reviewed</span>
+  </div>
+</header>
+
+<nav class="nav-strip" aria-label="Section navigation">
+  <a href="#roadmap">Roadmap</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#concepts">Concepts</a>
+  <a href="#diagrams">Diagrams</a>
+  <a href="#thinking">Thinking</a>
+  <a href="#realworld">Real World</a>
+  <a href="#flashcards">Flashcards</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#workbook">Workbook</a>
+  <a href="#teachback">Teach-Back</a>
+  <a href="#exam">Exam Skills</a>
+  <a href="#parent">Parent Check</a>
+  <a href="#reflection">Reflection</a>
+</nav>
+
+<main>
+
+  <!-- ROADMAP -->
+  <section class="section-card" id="roadmap">
+    <div class="section-header"><span class="icon">🗺️</span><h2>What is this section about?</h2></div>
+    <p>Some chemical reactions <strong>take in</strong> thermal energy instead of giving it out. These are called <strong>endothermic reactions</strong>. In this section you will learn how to recognise them, why the temperature drops, and how this idea is used in everyday life — like sherbet sweets and cold packs.</p>
+    <p><strong>Why it matters:</strong> Once you understand energy changes in reactions, you can explain many things you notice every day — a cool feeling in your mouth, a cold pack for an injury, or why ice takes time to melt.</p>
+    <p><strong>Your learning objectives — by the end of this section you should be able to:</strong></p>
+    <ul class="roadmap-list">
+      <li>Explain what an endothermic reaction is, using the idea of energy being absorbed.</li>
+      <li>Tell the difference between an <em>endothermic reaction</em> and an <em>endothermic process</em>.</li>
+      <li>Use particle theory to explain what happens when ice melts.</li>
+      <li>Interpret temperature data to decide whether a change is endothermic or exothermic.</li>
+      <li>Describe real-life uses of endothermic reactions and processes.</li>
+    </ul>
+    <p><strong>Learning roadmap:</strong> Vocabulary → Concepts → Diagrams → Scientific Thinking → Real World Science → Practice → Workbook → Teach-Back → Reflection.</p>
+  </section>
+
+  <!-- VOCABULARY -->
+  <section class="section-card" id="vocabulary">
+    <div class="section-header"><span class="icon">📖</span><h2>Vocabulary Master Pack</h2></div>
+    <p class="section-sub">Learn these words before reading the concepts. This will help you read more confidently and understand the ideas faster.</p>
+
+    <div class="vocab-group-title">A. Core Science Vocabulary</div>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">endothermic reaction</div>
+        <div class="vocab-ipa">/ˌen.dəʊˈθɜː.mɪk riˈæk.ʃən/ · en‑do‑ther‑mic re‑ac‑tion</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> a chemical change that takes in heat.</div>
+        <div class="vocab-line"><span class="vocab-label">Scientific meaning:</span> a reaction in which thermal energy is absorbed from the surroundings and stored as chemical energy, so new substances form and the temperature falls.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "Mixing citric acid with sodium hydrogencarbonate is an endothermic reaction."</div>
+        <div class="vocab-tip">Tip: "endo" means "into" — energy goes IN.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">endothermic process</div>
+        <div class="vocab-ipa">/ˌen.dəʊˈθɜː.mɪk ˈprəʊ.ses/ · en‑do‑ther‑mic pro‑cess</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> a change that takes in heat, but does not make a new substance.</div>
+        <div class="vocab-line"><span class="vocab-label">Scientific meaning:</span> a physical change, such as a change of state, in which thermal energy is absorbed from the surroundings without any new substance forming.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "Ice melting is an endothermic process, not a reaction."</div>
+        <div class="vocab-tip">Tip: process = state change only, no new substance.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">exothermic</div>
+        <div class="vocab-ipa">/ˌek.səʊˈθɜː.mɪk/ · ex‑o‑ther‑mic</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> a change that gives out heat.</div>
+        <div class="vocab-line"><span class="vocab-label">Scientific meaning:</span> a reaction or process in which thermal energy is transferred to the surroundings, so the temperature rises.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "Burning wood is exothermic — it warms the air around it."</div>
+        <div class="vocab-tip">Tip: "exo" means "out" — this is the opposite of endothermic.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">thermal energy</div>
+        <div class="vocab-ipa">/ˈθɜː.məl ˈen.ə.dʒi/ · ther‑mal en‑er‑gy</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> heat energy.</div>
+        <div class="vocab-line"><span class="vocab-label">Scientific meaning:</span> the energy transferred between objects or substances because of a temperature difference.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "Thermal energy moves from the hot reaction into the cool surroundings."</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">surroundings</div>
+        <div class="vocab-ipa">/səˈraʊn.dɪŋz/ · sur‑round‑ings</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> everything around a reaction.</div>
+        <div class="vocab-line"><span class="vocab-label">Scientific meaning:</span> the container, air, and surrounding materials that thermal energy can be transferred to or from.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "In an endothermic reaction, energy is taken from the surroundings."</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">reactant / product</div>
+        <div class="vocab-ipa">/riˈæk.tənt/ · /ˈprɒd.ʌkt/</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> a reactant is a starting substance; a product is a new substance formed.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "Citric acid and sodium hydrogencarbonate are reactants. Water and carbon dioxide are products."</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">dissolve</div>
+        <div class="vocab-ipa">/dɪˈzɒlv/ · dis‑solve</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> when a solid mixes completely into a liquid.</div>
+        <div class="vocab-line"><span class="vocab-label">Scientific meaning:</span> particles of a solute spread evenly through a solvent to form a solution; no new substance is formed.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "Potassium chloride dissolves in water — this is an endothermic process."</div>
+      </div>
+    </div>
+
+    <div class="vocab-group-title">B. Reading Support Vocabulary</div>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">absorb</div>
+        <div class="vocab-ipa">/əbˈzɔːb/ · ab‑sorb</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> to take something in.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "The reaction absorbs thermal energy from your hand."</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">insulator</div>
+        <div class="vocab-ipa">/ˈɪn.sjʊ.leɪ.tər/ · in‑su‑la‑tor</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> a material that stops heat moving easily.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "A polystyrene cup is a good insulator, so less heat escapes."</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">compartment</div>
+        <div class="vocab-ipa">/kəmˈpɑːt.mənt/ · com‑part‑ment</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> a separate section inside a container.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "A cold pack has two compartments — one with water, one with a solid."</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">refreshing</div>
+        <div class="vocab-ipa">/rɪˈfreʃ.ɪŋ/ · re‑fresh‑ing</div>
+        <div class="vocab-line"><span class="vocab-label">Simple meaning:</span> making you feel cool and pleasant.</div>
+        <div class="vocab-line"><span class="vocab-label">Example:</span> "The cool, fizzy feeling from sherbet is refreshing."</div>
+      </div>
+    </div>
+
+    <div class="vocab-group-title">C. Scientific Skills Vocabulary</div>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">interpret</div>
+        <div class="vocab-line"><span class="vocab-label">Meaning:</span> to explain what data, a table or a diagram shows.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">compare</div>
+        <div class="vocab-line"><span class="vocab-label">Meaning:</span> to look at how two things are similar and different.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">justify</div>
+        <div class="vocab-line"><span class="vocab-label">Meaning:</span> to give reasons that support your answer.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">reliable</div>
+        <div class="vocab-line"><span class="vocab-label">Meaning:</span> results you would expect to get again if you repeated the test.</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">predict</div>
+        <div class="vocab-line"><span class="vocab-label">Meaning:</span> to say what you think will happen, using scientific reasoning.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPTS -->
+  <section class="section-card" id="concepts">
+    <div class="section-header"><span class="icon">💡</span><h2>Core Concepts</h2></div>
+
+    <div class="concept-card">
+      <h3>1. What is an endothermic reaction?</h3>
+      <p><strong>Main idea:</strong> An endothermic reaction absorbs thermal energy from its surroundings and stores it as chemical energy in new bonds.</p>
+      <p><strong>Why it happens:</strong> Some reactions need more energy to break the bonds in the reactants than they release when new bonds form in the products. That extra energy is pulled in from the surroundings, so the surroundings feel cooler.</p>
+      <p><strong>Evidence:</strong> If you mix citric acid with sodium hydrogencarbonate, the temperature drops. This proves energy is being taken in, not given out.</p>
+      <p><strong>Example:</strong> sodium hydrogencarbonate + citric acid → sodium citrate + water + carbon dioxide.</p>
+      <div class="callout callout-misconception">
+        <div class="callout-title">⚠ Common misconception</div>
+        Some students think a cooling feeling means "nothing is happening." In fact, a temperature drop is strong evidence that a chemical reaction <em>is</em> happening — just an endothermic one.
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <h3>2. Endothermic reaction vs. endothermic process — what's the difference?</h3>
+      <p><strong>Main idea:</strong> Both take in thermal energy, but only a <em>reaction</em> makes new substances.</p>
+      <p><strong>How to tell them apart:</strong> Ask yourself — has a new substance been formed?</p>
+      <ul>
+        <li>Yes → it is an <strong>endothermic reaction</strong> (e.g. citric acid + sodium hydrogencarbonate).</li>
+        <li>No, it is only a state or physical change → it is an <strong>endothermic process</strong> (e.g. ice melting, potassium chloride dissolving in water).</li>
+      </ul>
+      <div class="callout callout-misconception">
+        <div class="callout-title">⚠ Common misconception</div>
+        Ice melting is often wrongly called a "reaction." No new substance is formed — solid water simply changes to liquid water — so it is a <em>process</em>, not a reaction.
+      </div>
+    </div>
+
+    <div class="concept-card">
+      <h3>3. Explaining ice melting using particle theory</h3>
+      <p><strong>Main idea:</strong> As ice absorbs thermal energy, its particles gain enough energy to break free from fixed positions and become liquid.</p>
+      <p><strong>How it happens:</strong> In ice, particles vibrate in fixed positions because strong forces hold them together. As thermal energy is absorbed from the surroundings, the particles vibrate faster. Eventually they have enough energy to overcome the forces holding them in place, and they can move and slide past each other — the ice becomes liquid water.</p>
+      <p><strong>Key sentence to remember:</strong> "Ice melting is an endothermic process because particles absorb thermal energy from the surroundings to overcome the forces between them."</p>
+    </div>
+
+    <div class="concept-card">
+      <h3>4. Using endothermic and exothermic changes</h3>
+      <p><strong>Main idea:</strong> Scientists and engineers design useful products based on whether a change absorbs or releases energy.</p>
+      <p><strong>Endothermic example — chemical ice packs:</strong> Two compartments (often ammonium nitrate and water) are separated inside a pack. When the pack is squeezed, the seal breaks, the substances mix, and the ammonium nitrate dissolves. This is an endothermic process, so the pack feels cold — useful for treating injuries without a freezer.</p>
+      <p><strong>Exothermic contrast — self-heating cans:</strong> Calcium oxide and water are kept apart until the can is opened. When they mix, heat is given out, warming food or drink. This works well in remote places or emergencies.</p>
+      <p><strong>Everyday example:</strong> Sherbet sweets contain dry citric acid and sodium hydrogencarbonate. When you suck them, they dissolve in your saliva and react — an endothermic reaction that gives a cool, refreshing feeling.</p>
+    </div>
+
+    <div class="concept-card">
+      <h3>5. Deciding if a change is endothermic or exothermic from evidence</h3>
+      <p><strong>Main idea:</strong> Compare the starting and final temperature to decide.</p>
+      <ul>
+        <li>Final temperature <strong>lower</strong> than the start → <strong>endothermic</strong> (energy absorbed).</li>
+        <li>Final temperature <strong>higher</strong> than the start → <strong>exothermic</strong> (energy released).</li>
+      </ul>
+      <p><strong>Example:</strong> If the temperature falls from 19 °C to 16 °C, the change is endothermic — energy has been taken in from the surroundings.</p>
+    </div>
+  </section>
+
+  <!-- DIAGRAMS -->
+  <section class="section-card" id="diagrams">
+    <div class="section-header"><span class="icon">🖼️</span><h2>Diagram Mastery</h2></div>
+
+    <div class="diagram-card">
+      <h3>Diagram 1 — Energy flow: exothermic vs. endothermic</h3>
+      <svg viewBox="0 0 700 260" role="img" aria-labelledby="d1title d1desc">
+        <title id="d1title">Comparing exothermic and endothermic energy flow</title>
+        <desc id="d1desc">Left side shows a container with arrows pointing outward labelled heat given out. Right side shows a container with arrows pointing inward labelled heat taken in.</desc>
+        <!-- Exothermic -->
+        <text x="160" y="28" font-size="18" font-weight="700" fill="#D84343" text-anchor="middle">Exothermic</text>
+        <rect x="100" y="90" width="120" height="100" rx="10" fill="#FDECEC" stroke="#D84343" stroke-width="2"/>
+        <text x="160" y="145" font-size="13" text-anchor="middle" fill="#1F2937">reaction</text>
+        <g stroke="#D84343" stroke-width="3" marker-end="url(#arrowRed)">
+          <line x1="160" y1="90" x2="160" y2="55"/>
+          <line x1="100" y1="130" x2="65" y2="105"/>
+          <line x1="220" y1="130" x2="255" y2="105"/>
+        </g>
+        <text x="160" y="225" font-size="13.5" text-anchor="middle" fill="#1F2937">heat given out to surroundings</text>
+
+        <!-- Endothermic -->
+        <text x="530" y="28" font-size="18" font-weight="700" fill="#007D8C" text-anchor="middle">Endothermic</text>
+        <rect x="470" y="90" width="120" height="100" rx="10" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+        <text x="530" y="145" font-size="13" text-anchor="middle" fill="#1F2937">reaction</text>
+        <g stroke="#007D8C" stroke-width="3" marker-end="url(#arrowTeal)">
+          <line x1="530" y1="55" x2="530" y2="90"/>
+          <line x1="440" y1="70" x2="472" y2="100"/>
+          <line x1="620" y1="70" x2="588" y2="100"/>
+        </g>
+        <text x="530" y="225" font-size="13.5" text-anchor="middle" fill="#1F2937">heat taken in from surroundings</text>
+
+        <defs>
+          <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#D84343"/>
+          </marker>
+          <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#007D8C"/>
+          </marker>
+        </defs>
+      </svg>
+      <p class="diagram-note"><strong>What it shows:</strong> The direction of arrows shows which way thermal energy moves. Exothermic reactions send energy outward (temperature rises). Endothermic reactions pull energy inward (temperature falls).</p>
+      <p class="diagram-note"><strong>What to notice:</strong> The reaction container is the same — only the direction of energy transfer is different.</p>
+      <p class="diagram-note"><strong>Common mistake:</strong> Thinking "cold" means no reaction is happening. A drop in temperature is real evidence of an endothermic reaction.</p>
+    </div>
+
+    <div class="diagram-card">
+      <h3>Diagram 2 — Particle model: ice melting (an endothermic process)</h3>
+      <svg viewBox="0 0 700 220" role="img" aria-labelledby="d2title d2desc">
+        <title id="d2title">Particle arrangement before and after melting</title>
+        <desc id="d2desc">Left shows particles arranged in a fixed grid representing ice. An arrow labelled energy absorbed points right. Right shows particles spread more loosely and able to move, representing liquid water.</desc>
+        <text x="140" y="24" font-size="16" font-weight="700" text-anchor="middle" fill="#1F2937">Ice (solid)</text>
+        <g fill="#1F6FB2">
+          <circle cx="70" cy="60" r="10"/><circle cx="110" cy="60" r="10"/><circle cx="150" cy="60" r="10"/><circle cx="190" cy="60" r="10"/>
+          <circle cx="70" cy="100" r="10"/><circle cx="110" cy="100" r="10"/><circle cx="150" cy="100" r="10"/><circle cx="190" cy="100" r="10"/>
+          <circle cx="70" cy="140" r="10"/><circle cx="110" cy="140" r="10"/><circle cx="150" cy="140" r="10"/><circle cx="190" cy="140" r="10"/>
+        </g>
+        <text x="130" y="180" font-size="13" text-anchor="middle" fill="#1F2937">particles vibrate in fixed positions</text>
+
+        <line x1="260" y1="100" x2="420" y2="100" stroke="#007D8C" stroke-width="3" marker-end="url(#arrowTeal2)"/>
+        <text x="340" y="88" font-size="13" text-anchor="middle" fill="#007D8C" font-weight="600">energy absorbed</text>
+
+        <text x="560" y="24" font-size="16" font-weight="700" text-anchor="middle" fill="#1F2937">Water (liquid)</text>
+        <g fill="#1F6FB2">
+          <circle cx="480" cy="55" r="10"/><circle cx="520" cy="75" r="10"/><circle cx="560" cy="50" r="10"/><circle cx="610" cy="70" r="10"/>
+          <circle cx="500" cy="110" r="10"/><circle cx="545" cy="120" r="10"/><circle cx="590" cy="105" r="10"/>
+          <circle cx="470" cy="150" r="10"/><circle cx="520" cy="155" r="10"/><circle cx="580" cy="150" r="10"/>
+        </g>
+        <text x="545" y="185" font-size="13" text-anchor="middle" fill="#1F2937">particles can move and slide past each other</text>
+
+        <defs>
+          <marker id="arrowTeal2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#007D8C"/>
+          </marker>
+        </defs>
+      </svg>
+      <p class="diagram-note"><strong>What it shows:</strong> As ice absorbs thermal energy, particles vibrate more until they can move freely as a liquid.</p>
+      <p class="diagram-note"><strong>What to notice:</strong> The particles themselves do not change — only their arrangement and movement change.</p>
+      <p class="diagram-note"><strong>Common mistake:</strong> Believing new particles are created when ice melts. No new substance forms — this is why melting is a <em>process</em>, not a reaction.</p>
+    </div>
+
+    <div class="diagram-card">
+      <h3>Diagram 3 — Investigation setup: testing for an endothermic reaction</h3>
+      <svg viewBox="0 0 700 230" role="img" aria-labelledby="d3title d3desc">
+        <title id="d3title">Simple apparatus for testing an endothermic reaction</title>
+        <desc id="d3desc">A test tube in a rack contains liquid acid. A thermometer is placed inside the liquid. A spatula adds solid sodium hydrogencarbonate to the tube.</desc>
+        <rect x="30" y="150" width="140" height="20" rx="4" fill="#B08D57"/>
+        <rect x="270" y="70" width="40" height="140" rx="8" fill="none" stroke="#1F2937" stroke-width="2"/>
+        <rect x="273" y="140" width="34" height="66" fill="#EAF3FC"/>
+        <line x1="290" y1="60" x2="290" y2="150" stroke="#D84343" stroke-width="4"/>
+        <circle cx="290" cy="55" r="8" fill="#D84343"/>
+        <text x="360" y="60" font-size="13" fill="#1F2937">thermometer</text>
+        <line x1="355" y1="55" x2="300" y2="55" stroke="#1F2937" stroke-width="1.5"/>
+
+        <rect x="420" y="120" width="14" height="70" fill="#666"/>
+        <path d="M420,120 L470,90 L480,100 L432,132 Z" fill="#B0BEC5"/>
+        <text x="500" y="100" font-size="13" fill="#1F2937">spatula adding sodium</text>
+        <text x="500" y="118" font-size="13" fill="#1F2937">hydrogencarbonate</text>
+
+        <text x="290" y="225" font-size="13.5" text-anchor="middle" fill="#1F2937">citric acid solution in test tube</text>
+      </svg>
+      <p class="diagram-note"><strong>What it shows:</strong> How to measure temperature before and after adding sodium hydrogencarbonate to citric acid.</p>
+      <p class="diagram-note"><strong>What to notice:</strong> The thermometer measures temperature only — never use it to stir, as this can break the bulb.</p>
+      <p class="diagram-note"><strong>Common mistake:</strong> Forgetting to record the <em>starting</em> temperature before adding the solid — without it, you cannot calculate the temperature change.</p>
+    </div>
+  </section>
+
+  <!-- SCIENTIFIC THINKING -->
+  <section class="section-card" id="thinking">
+    <div class="section-header"><span class="icon">🧠</span><h2>Scientific Thinking</h2></div>
+
+    <div class="thinking-card">
+      <h3>1. Interpret a results table</h3>
+      <p>Four students record the starting and final temperature of different mixtures.</p>
+      <table>
+        <tr><th>Mixture</th><th>Start (°C)</th><th>Final (°C)</th></tr>
+        <tr><td>P</td><td>20</td><td>26</td></tr>
+        <tr><td>Q</td><td>19</td><td>13</td></tr>
+        <tr><td>R</td><td>21</td><td>21</td></tr>
+      </table>
+      <p><strong>Think:</strong> For each mixture, decide if it is endothermic, exothermic, or shows no reaction. Which mixture absorbed the most thermal energy from the surroundings? Justify your answer using the temperature change.</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>2. Compare two investigations</h3>
+      <p>One student uses a glass beaker; another uses a polystyrene cup for the same endothermic reaction.</p>
+      <p><strong>Think:</strong> Which student is likely to record a more reliable temperature change? Compare the two containers and justify your answer using the word "insulator."</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>3. Justify: reaction or process?</h3>
+      <p><strong>Think:</strong> A student says, "Potassium chloride dissolving in water must be a reaction because the temperature drops." Do you agree? Justify your answer by explaining whether a new substance is formed.</p>
+    </div>
+
+    <div class="thinking-card">
+      <h3>4. Evaluate an explanation</h3>
+      <p>A student explains: "Ice melting is exothermic because you feel cold when you hold it."</p>
+      <p><strong>Think:</strong> Evaluate this explanation. Is it scientifically correct? Explain where the reasoning goes wrong, and rewrite it correctly.</p>
+    </div>
+  </section>
+
+  <!-- REAL WORLD -->
+  <section class="section-card" id="realworld">
+    <div class="section-header"><span class="icon">🌍</span><h2>Real World Science</h2></div>
+
+    <div class="realworld-card">
+      <h3>Sherbet sweets</h3>
+      <p><strong>Situation:</strong> Sherbet contains dry citric acid and sodium hydrogencarbonate. <strong>Connection:</strong> When it dissolves in saliva, an endothermic reaction takes place. <strong>Why it matters:</strong> This explains the cool, fizzy feeling in your mouth.</p>
+    </div>
+    <div class="realworld-card">
+      <h3>Chemical ice packs for injuries</h3>
+      <p><strong>Situation:</strong> Sports injuries are often treated with instant cold packs. <strong>Connection:</strong> Breaking the pack allows ammonium nitrate to dissolve in water, an endothermic process. <strong>Why it matters:</strong> The pack cools quickly without needing a freezer.</p>
+    </div>
+    <div class="realworld-card">
+      <h3>Self-heating cans (the exothermic contrast)</h3>
+      <p><strong>Situation:</strong> Campers and emergency workers sometimes use self-heating food or drink cans. <strong>Connection:</strong> Calcium oxide reacting with water is exothermic, releasing heat. <strong>Why it matters:</strong> Comparing this with cold packs helps you see the two types of energy change side by side.</p>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section class="section-card" id="flashcards">
+    <div class="section-header"><span class="icon">🔁</span><h2>Interactive Flashcards</h2></div>
+    <p class="section-sub">Tap a card to flip it. Try to answer before you flip.</p>
+    <div class="flash-wrap">
+      <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flashcard, tap to flip"></div>
+      <div class="flash-counter" id="flashCounter"></div>
+      <div class="flash-controls">
+        <button class="btn-secondary" id="flashPrev">◀ Previous</button>
+        <button class="btn-primary" id="flashFlip">Flip Card</button>
+        <button class="btn-secondary" id="flashNext">Next ▶</button>
+        <button class="btn-neutral" id="flashShuffle">🔀 Shuffle</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="section-card" id="quiz">
+    <div class="section-header"><span class="icon">📝</span><h2>Interactive Mini Quiz</h2></div>
+    <p class="section-sub">Choose your answer, then press Check Answer.</p>
+    <div id="quizContainer"></div>
+    <div id="quizScoreBox" style="display:none;"></div>
+  </section>
+
+  <!-- WORKBOOK PREVIEW -->
+  <section class="section-card" id="workbook">
+    <div class="section-header"><span class="icon">📗</span><h2>Workbook Preview</h2></div>
+    <p class="section-sub">This helps you get ready for the Workbook exercises. It does not give you the answers.</p>
+
+    <div class="workbook-card">
+      <div class="wb-label">Exercise: Energy changes</div>
+      <h3>Deciding endothermic or exothermic from a table</h3>
+      <p><strong>Learning objective:</strong> Use start and final temperatures to classify a change.</p>
+      <p><strong>Hint 1:</strong> Subtract the start temperature from the final temperature. A negative result means energy was absorbed.</p>
+      <p><strong>Hint 2:</strong> Check whether a new substance has formed before deciding "reaction" or "process."</p>
+      <p><strong>Thinking tip:</strong> Always write your reasoning in a full sentence — for example, "the temperature fell, so energy was absorbed."</p>
+      <p><em>Try this yourself first before checking any answers with your teacher or parent.</em></p>
+    </div>
+
+    <div class="workbook-card">
+      <div class="wb-label">Exercise: Exothermic or endothermic?</div>
+      <h3>Classifying several reactions and processes</h3>
+      <p><strong>Learning objective:</strong> Compare several results and identify which shows the greatest energy change.</p>
+      <p><strong>Hint 1:</strong> Look for the largest difference between start and final temperature.</p>
+      <p><strong>Hint 2:</strong> Think about why a polystyrene cup gives a more accurate reading than a glass beaker.</p>
+      <p><strong>Thinking tip:</strong> Insulators reduce energy loss or gain to the surroundings, which improves reliability.</p>
+    </div>
+
+    <div class="workbook-card">
+      <div class="wb-label">Exercise: Endothermic reactions and processes</div>
+      <h3>Explaining everyday cooling situations</h3>
+      <p><strong>Learning objective:</strong> Apply particle theory to explain cooling in everyday situations, such as evaporation.</p>
+      <p><strong>Hint 1:</strong> Think about what happens to particles as a liquid changes to a gas.</p>
+      <p><strong>Hint 2:</strong> Ask where the energy for the change comes from.</p>
+      <p><strong>Thinking tip:</strong> Structure your explanation as: particles → energy → change of state → effect on surroundings.</p>
+      <p><em>Complete this exercise independently, then check your understanding with your teacher.</em></p>
+    </div>
+  </section>
+
+  <!-- TEACH-BACK -->
+  <section class="section-card" id="teachback">
+    <div class="section-header"><span class="icon">🎓</span><h2>Teach-Back Challenge</h2></div>
+    <p class="section-sub">Explaining an idea in your own words is the best way to check you really understand it.</p>
+    <div class="teachback-grid">
+      <div class="teachback-card level-bronze">
+        <h3>🥉 Bronze — Recall</h3>
+        <p>What happens to the temperature during an endothermic reaction?</p>
+        <textarea placeholder="Write your answer here..."></textarea>
+      </div>
+      <div class="teachback-card level-silver">
+        <h3>🥈 Silver — Explain</h3>
+        <p>Explain the difference between an endothermic reaction and an endothermic process. Give one example of each.</p>
+        <textarea placeholder="Write your answer here..."></textarea>
+      </div>
+      <div class="teachback-card level-gold">
+        <h3>🥇 Gold — Use evidence</h3>
+        <p>Use particle theory to explain what happens when ice melts. You may describe or sketch a simple diagram.</p>
+        <textarea placeholder="Write your answer here..."></textarea>
+      </div>
+      <div class="teachback-card level-platinum">
+        <h3>🏆 Platinum — Teach it</h3>
+        <p>Imagine teaching a younger student about chemical ice packs. Explain why they feel cold, using the words "endothermic," "absorb," and "surroundings."</p>
+        <textarea placeholder="Write your answer here..."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAM INTELLIGENCE -->
+  <section class="section-card" id="exam">
+    <div class="section-header"><span class="icon">🎯</span><h2>Exam Intelligence</h2></div>
+    <p class="section-sub">Based on patterns seen in Cambridge Progression Test papers for this topic.</p>
+    <div class="exam-card">
+      <h3>Common question styles</h3>
+      <p>Completing a table of temperature changes; circling "endothermic" or "exothermic"; explaining your reasoning in a full sentence; interpreting a temperature–time graph; writing a word equation.</p>
+    </div>
+    <div class="exam-card">
+      <h3>Command words to know</h3>
+      <p><strong>Describe</strong> — say what happens. <strong>Explain</strong> — give reasons why. <strong>Suggest</strong> — give a sensible scientific idea. <strong>Circle / Complete</strong> — follow the instruction exactly.</p>
+    </div>
+    <div class="exam-card">
+      <h3>Common mistakes to avoid</h3>
+      <p>Naming "endothermic" or "exothermic" without explaining why; confusing a reaction with a process; forgetting to link a temperature change to energy being absorbed or released.</p>
+    </div>
+    <div class="exam-card">
+      <h3>Exam tip</h3>
+      <p>Always compare the start and final temperature first. Then use the phrase "energy was absorbed from / released to the surroundings" in your explanation.</p>
+    </div>
+  </section>
+
+  <!-- PARENT CHECK -->
+  <section class="section-card" id="parent">
+    <div class="section-header"><span class="icon">👪</span><h2>Parent Check</h2></div>
+    <p class="section-sub">A few simple questions you can ask your child out loud — no answers needed here.</p>
+    <div class="parent-card">
+      <ol>
+        <li>Can you explain, in your own words, what an endothermic reaction is?</li>
+        <li>What is the difference between an endothermic reaction and an endothermic process?</li>
+        <li>Can you give me one example of each?</li>
+        <li>Why does a chemical ice pack feel cold when it is used?</li>
+        <li>What happens to the particles when ice melts?</li>
+        <li>Why might a polystyrene cup give a better result than a glass beaker in this experiment?</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section class="section-card" id="reflection">
+    <div class="section-header"><span class="icon">🌟</span><h2>Reflection</h2></div>
+    <div class="reflection-card">
+      <div class="reflection-item"><input type="checkbox" id="r1"><label for="r1">I can explain what an endothermic reaction is.</label></div>
+      <div class="reflection-item"><input type="checkbox" id="r2"><label for="r2">I can tell the difference between a reaction and a process.</label></div>
+      <div class="reflection-item"><input type="checkbox" id="r3"><label for="r3">I can use particle theory to explain ice melting.</label></div>
+      <div class="reflection-item"><input type="checkbox" id="r4"><label for="r4">I can decide endothermic or exothermic from temperature data.</label></div>
+      <div class="reflection-item"><input type="checkbox" id="r5"><label for="r5">I am ready to try the Workbook independently.</label></div>
+
+      <p><strong>How confident do you feel about this section?</strong></p>
+      <div class="confidence-scale">
+        <button class="btn-secondary">😕 Not yet</button>
+        <button class="btn-secondary">🙂 Okay</button>
+        <button class="btn-secondary">😄 Confident</button>
+      </div>
+
+      <p><strong>Which vocabulary word is still difficult?</strong></p>
+      <textarea class="reflect-line" placeholder="Write here..."></textarea>
+
+      <p style="margin-top:12px;"><strong>What question do you still have?</strong></p>
+      <textarea class="reflect-line" placeholder="Write here..."></textarea>
+    </div>
+  </section>
+
+  <footer class="metadata-footer">
+    Project: Cambridge Lower Secondary Science Stage 8 Self-Study Coach · Unit 8 · Section 8.2 Endothermic Reactions<br>
+    Output: O1 Section Review HTML · UI Version 2.1 · Project Version 1.0<br>
+    Sources used: Learner Book, Workbook, Answer Key, Progression Tests
+  </footer>
+
+</main>
+
+<script>
+  // ---------- FLASHCARDS ----------
+  let flashcards = [
+    { front: "endothermic reaction", back: "A reaction that absorbs thermal energy from the surroundings and forms new substances." },
+    { front: "endothermic process", back: "A change that absorbs thermal energy but forms no new substance, e.g. ice melting." },
+    { front: "exothermic", back: "A change that releases thermal energy to the surroundings." },
+    { front: "thermal energy", back: "Heat energy transferred because of a temperature difference." },
+    { front: "surroundings", back: "Everything around a reaction that energy can move to or from." },
+    { front: "What happens to temperature in an endothermic reaction?", back: "It decreases — energy is absorbed from the surroundings." },
+    { front: "Is dissolving potassium chloride a reaction or a process?", back: "A process — no new substance is formed." },
+    { front: "Why do sherbet sweets feel cool?", back: "Citric acid and sodium hydrogencarbonate react endothermically when they dissolve in saliva." },
+    { front: "Why does a chemical ice pack feel cold?", back: "Ammonium nitrate dissolving in water is an endothermic process." },
+    { front: "What happens to ice particles as they absorb energy?", back: "They vibrate faster until they can move and slide past each other as a liquid." },
+    { front: "Why use a polystyrene cup instead of a glass beaker?", back: "Polystyrene is a better insulator, so less energy is lost or gained to the surroundings." },
+    { front: "Word equation: citric acid + sodium hydrogencarbonate →", back: "sodium citrate + water + carbon dioxide" }
+  ];
+  let flashIndex = 0;
+  let showingFront = true;
+  const flashcardEl = document.getElementById("flashcard");
+  const flashCounter = document.getElementById("flashCounter");
+
+  function renderFlashcard() {
+    const card = flashcards[flashIndex];
+    flashcardEl.textContent = showingFront ? card.front : card.back;
+    flashCounter.textContent = `Card ${flashIndex + 1} of ${flashcards.length}`;
+  }
+  function flipCard() { showingFront = !showingFront; renderFlashcard(); }
+  document.getElementById("flashFlip").addEventListener("click", flipCard);
+  flashcardEl.addEventListener("click", flipCard);
+  flashcardEl.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flipCard(); } });
+  document.getElementById("flashNext").addEventListener("click", () => {
+    flashIndex = (flashIndex + 1) % flashcards.length; showingFront = true; renderFlashcard();
+  });
+  document.getElementById("flashPrev").addEventListener("click", () => {
+    flashIndex = (flashIndex - 1 + flashcards.length) % flashcards.length; showingFront = true; renderFlashcard();
+  });
+  document.getElementById("flashShuffle").addEventListener("click", () => {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    flashIndex = 0; showingFront = true; renderFlashcard();
+  });
+  renderFlashcard();
+
+  // ---------- QUIZ ----------
+  const quizData = [
+    { level: "Recall", q: "What happens to the temperature during an endothermic reaction?", options: ["It increases", "It decreases", "It stays the same", "It cannot be measured"], correct: 1,
+      feedback: ["Try again — think about the meaning of 'endo'.", "✅ Correct! Energy is absorbed, so the temperature falls.", "Try again — think about the meaning of 'endo'.", "Try again — temperature can always be measured with a thermometer."] },
+    { level: "Recall", q: "Which word describes a change that absorbs energy from the surroundings?", options: ["Exothermic", "Endothermic", "Neutral", "Catalytic"], correct: 1,
+      feedback: ["Try again — exothermic changes release energy.", "✅ Correct! Endothermic means energy is taken in.", "Try again.", "Try again."] },
+    { level: "Understand", q: "True or False: Ice melting is an endothermic reaction.", options: ["True", "False"], correct: 1,
+      feedback: ["Try again — no new substance is formed, so it cannot be a reaction.", "✅ Correct! It is an endothermic process, because no new substance is formed."] },
+    { level: "Understand", q: "Which of these is an endothermic process (not a reaction)?", options: ["Burning wood", "Citric acid reacting with sodium hydrogencarbonate", "Potassium chloride dissolving in water", "Iron rusting"], correct: 2,
+      feedback: ["Try again — this gives out energy and forms new substances.", "Try again — this forms new substances, so it is a reaction.", "✅ Correct! Dissolving forms no new substance.", "Try again — rusting forms a new substance."] },
+    { level: "Apply", q: "A reaction starts at 20 °C and ends at 14 °C. What type of change is this?", options: ["Exothermic", "Endothermic", "No change", "Cannot be decided"], correct: 1,
+      feedback: ["Try again — check whether the temperature rose or fell.", "✅ Correct! The temperature fell, so energy was absorbed.", "Try again — the temperature did change.", "Try again — the data is enough to decide."] },
+    { level: "Apply", q: "Why do sherbet sweets feel cool in your mouth?", options: ["Because they are stored in a fridge", "Because an endothermic reaction absorbs heat from your mouth", "Because sugar always feels cold", "Because carbon dioxide is cold gas"], correct: 1,
+      feedback: ["Try again — think about the chemicals inside sherbet.", "✅ Correct! The reaction absorbs thermal energy from your mouth.", "Try again.", "Try again — the cooling is due to the reaction, not the gas itself."] },
+    { level: "Analyse", q: "Mixture X: 21 °C → 30 °C. Mixture Y: 21 °C → 15 °C. Which mixture absorbed the most thermal energy from the surroundings?", options: ["Mixture X", "Mixture Y", "Both absorbed the same", "Neither absorbed energy"], correct: 1,
+      feedback: ["Try again — X released energy (temperature rose).", "✅ Correct! Y's temperature fell, showing it absorbed energy from the surroundings.", "Try again — compare the temperature changes carefully.", "Try again — one of these did absorb energy."] },
+    { level: "Analyse", q: "Why is a polystyrene cup often used instead of a glass beaker in this investigation?", options: ["It is cheaper to buy", "It is a better insulator, giving a more accurate reading", "It is easier to clean", "It changes the reaction products"], correct: 1,
+      feedback: ["Try again — think about heat transfer, not cost.", "✅ Correct! Polystyrene reduces energy loss or gain to the surroundings.", "Try again.", "Try again — the cup does not change the chemistry."] },
+    { level: "Cambridge Challenge", q: "Which sentence best explains, using particle theory, why ice melting is endothermic?", options: [
+        "The water particles disappear and new ones form.",
+        "Particles absorb thermal energy and vibrate more until they can move freely as a liquid.",
+        "The ice becomes warmer because it loses energy.",
+        "Particles push each other away to create heat." ], correct: 1,
+      feedback: ["Try again — no particles disappear; only the arrangement changes.", "✅ Correct! This links energy absorption directly to particle movement.", "Try again — melting absorbs energy, it does not lose it.", "Try again — this does not explain absorbing energy."] },
+    { level: "Cambridge Challenge", q: "A cold pack has ammonium nitrate and water in separate compartments. Why does the pack feel cold when used?", options: [
+        "The plastic itself is naturally cold",
+        "Ammonium nitrate dissolving in water is an endothermic process that absorbs energy from the surroundings",
+        "A chemical reaction releases carbon dioxide gas which feels cold",
+        "The pack must be kept in a freezer before use" ], correct: 1,
+      feedback: ["Try again — the plastic is not the cause.", "✅ Correct! Dissolving absorbs energy from the surroundings, cooling the pack.", "Try again — no gas is produced in this process.", "Try again — this is exactly why the pack is useful without a freezer."] }
+  ];
+
+  let quizScore = 0;
+  let quizAnswered = new Array(quizData.length).fill(false);
+
+  function renderQuiz() {
+    const container = document.getElementById("quizContainer");
+    container.innerHTML = "";
+    quizData.forEach((item, qi) => {
+      const card = document.createElement("div");
+      card.className = "quiz-card";
+      card.innerHTML = `<h3>Q${qi + 1} · ${item.level}</h3><p>${item.q}</p>`;
+      const optWrap = document.createElement("div");
+      optWrap.className = "quiz-options";
+      item.options.forEach((opt, oi) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "quiz-option";
+        btn.textContent = opt;
+        btn.addEventListener("click", () => checkAnswer(qi, oi, optWrap, feedbackEl));
+        optWrap.appendChild(btn);
+      });
+      card.appendChild(optWrap);
+      const feedbackEl = document.createElement("div");
+      feedbackEl.className = "quiz-feedback";
+      feedbackEl.id = `feedback-${qi}`;
+      card.appendChild(feedbackEl);
+      container.appendChild(card);
+    });
+
+    const finishBtn = document.createElement("button");
+    finishBtn.className = "btn-success";
+    finishBtn.textContent = "Finish Quiz";
+    finishBtn.style.marginTop = "10px";
+    finishBtn.addEventListener("click", showScore);
+    container.appendChild(finishBtn);
+  }
+
+  function checkAnswer(qi, oi, optWrap, feedbackEl) {
+    if (quizAnswered[qi]) return;
+    quizAnswered[qi] = true;
+    const item = quizData[qi];
+    const buttons = optWrap.querySelectorAll(".quiz-option");
+    buttons.forEach((b, i) => {
+      b.disabled = true;
+      if (i === item.correct) b.classList.add("correct");
+      else if (i === oi) b.classList.add("incorrect");
+    });
+    feedbackEl.textContent = item.feedback[oi];
+    feedbackEl.className = "quiz-feedback " + (oi === item.correct ? "correct-text" : "incorrect-text");
+    if (oi === item.correct) quizScore++;
+  }
+
+  function showScore() {
+    const box = document.getElementById("quizScoreBox");
+    const total = quizData.length;
+    const answeredCount = quizAnswered.filter(Boolean).length;
+    const pct = Math.round((quizScore / total) * 100);
+    let msg = "Nice effort! Review the concept cards for the questions you missed.";
+    if (pct >= 80) msg = "Excellent work! You understand this section very well.";
+    else if (pct >= 50) msg = "Good progress! A quick review of a few ideas will help.";
+    box.style.display = "block";
+    box.innerHTML = `<h3>Your Score: ${quizScore} / ${total} (${pct}%)</h3>
+      <p>${answeredCount < total ? `You answered ${answeredCount} of ${total} questions.` : ""}</p>
+      <p>${msg}</p>
+      <p><strong>Suggested review:</strong> Core Concepts and Scientific Thinking sections.</p>`;
+  }
+
+  renderQuiz();
+</script>
+
+</body>
+</html>
