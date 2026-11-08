@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8.5 Reactions of Metals with Dilute Acids | Cambridge Stage 8 Science</title>
+<style>
+:root {
+  --primary: #007D8C;
+  --primary-dark: #005F6B;
+  --primary-light: #EAF8FA;
+
+  --blue: #1F6FB2;
+  --blue-light: #EAF3FC;
+
+  --green: #2E7D32;
+  --green-light: #EDF8EE;
+
+  --orange: #F39C12;
+  --orange-light: #FFF4E6;
+
+  --purple: #7E57C2;
+  --purple-light: #F3ECFD;
+
+  --red: #D84343;
+  --red-light: #FDECEC;
+
+  --grey: #666666;
+  --grey-light: #F5F5F5;
+
+  --background: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #E1E5EA;
+  --text: #1F2937;
+  --muted: #6B7280;
+
+  --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+/* ---------- Hero Header ---------- */
+.hero-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  margin: 20px 0 16px;
+  box-shadow: var(--shadow);
+}
+.hero-eyebrow {
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.hero-unit {
+  font-size: 15px;
+  opacity: 0.95;
+  margin-bottom: 4px;
+}
+.hero-title {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  margin: 6px 0 10px;
+}
+.hero-subtitle {
+  font-size: 15px;
+  opacity: 0.95;
+  margin-bottom: 16px;
+}
+.source-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.source-badge {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  font-size: 12.5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* ---------- Navigation ---------- */
+.nav-strip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  position: sticky;
+  top: 8px;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+.nav-strip a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: var(--primary-dark);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.nav-strip a:hover, .nav-strip a:focus {
+  background: var(--primary-light);
+  outline: none;
+}
+
+/* ---------- Section Container ---------- */
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 28px;
+  scroll-margin-top: 70px;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.section-header .icon { font-size: 24px; }
+.section-header h2 {
+  font-size: clamp(20px, 3.6vw, 24px);
+  margin: 0;
+  color: var(--primary-dark);
+}
+.section-subtitle {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+/* ---------- Roadmap ---------- */
+.roadmap-box {
+  background: var(--primary-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.roadmap-box p { margin: 6px 0; }
+.objectives-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+.objectives-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.objectives-list li:last-child { border-bottom: none; }
+.objectives-list li::before {
+  content: "\2713";
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---------- Vocabulary ---------- */
+.vocab-group-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 20px 0 10px;
+}
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.vocab-card {
+  background: var(--green-light);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.vocab-word {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green);
+}
+.vocab-ipa {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.vocab-card p { margin: 4px 0; font-size: 14.5px; }
+.vocab-card .label { font-weight: 700; }
+.vocab-tip {
+  margin-top: 6px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--primary-dark);
+}
+
+/* ---------- Concept Cards ---------- */
+.concept-card {
+  background: var(--blue-light);
+  border-left: 4px solid var(--blue);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.concept-card h3 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: 18px;
+}
+.concept-card p { margin: 6px 0; }
+.concept-card .remember {
+  background: #fff;
+  border: 1px dashed var(--blue);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.misconception-box {
+  background: var(--red-light);
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  font-size: 14.5px;
+}
+.misconception-box .label { color: var(--red); font-weight: 700; }
+
+/* ---------- Diagram Cards ---------- */
+.diagram-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background: #fdfdfc;
+}
+.diagram-card h3 {
+  margin: 0 0 10px;
+  color: var(--primary-dark);
+  font-size: 17px;
+}
+.diagram-card svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+.diagram-caption { font-size: 14.5px; margin: 4px 0; }
+.diagram-caption .label { font-weight: 700; }
+
+/* ---------- Thinking Cards ---------- */
+.thinking-card {
+  background: var(--green-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  border-left: 4px solid var(--green);
+}
+.thinking-card h3 { margin: 0 0 8px; font-size: 17px; color: var(--green); }
+.thinking-card .prompt { font-weight: 600; margin-bottom: 6px; }
+.thinking-card textarea {
+  width: 100%;
+  min-height: 60px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 8px;
+  font-family: inherit;
+  font-size: 14.5px;
+  resize: vertical;
+}
+.reveal-btn {
+  margin-top: 8px;
+}
+.reveal-answer {
+  display: none;
+  margin-top: 8px;
+  background: #fff;
+  border: 1px dashed var(--green);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14.5px;
+}
+.reveal-answer.shown { display: block; }
+
+/* ---------- Real World ---------- */
+.realworld-card {
+  background: var(--orange-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  border-left: 4px solid var(--orange);
+}
+.realworld-card h3 { margin: 0 0 8px; font-size: 17px; color: #B9700A; }
+.realworld-card p { margin: 4px 0; font-size: 15px; }
+
+/* ---------- Buttons ---------- */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: var(--transition);
+}
+button:focus-visible { outline: 3px solid var(--primary-dark); outline-offset: 2px; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--grey-light); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: #ececec; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-success:hover { background: #245f27; }
+.btn-neutral { background: var(--purple-light); color: var(--purple); }
+
+/* ---------- Flashcards ---------- */
+.flashcard-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.flashcard {
+  width: 100%;
+  max-width: 480px;
+  height: 200px;
+  perspective: 1200px;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.flashcard-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  font-size: 17px;
+  font-weight: 600;
+}
+.flashcard-front { background: var(--primary-light); color: var(--primary-dark); }
+.flashcard-back {
+  background: var(--purple-light);
+  color: #4A2E8C;
+  transform: rotateY(180deg);
+  font-weight: 500;
+  font-size: 15.5px;
+}
+.flashcard-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flashcard-counter { font-size: 13.5px; color: var(--muted); }
+
+/* ---------- Quiz ---------- */
+.quiz-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  background: var(--purple-light);
+}
+.quiz-card .qlabel {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--purple);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.quiz-card h4 { margin: 4px 0 10px; font-size: 16px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-option {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14.5px;
+  text-align: left;
+}
+.quiz-option:hover { border-color: var(--purple); }
+.quiz-option.correct { background: var(--green-light); border-color: var(--green); }
+.quiz-option.incorrect { background: var(--red-light); border-color: var(--red); }
+.quiz-feedback {
+  margin-top: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  display: none;
+}
+.quiz-feedback.shown { display: block; }
+.quiz-summary {
+  text-align: center;
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+/* ---------- Workbook Preview ---------- */
+.workbook-card {
+  background: var(--orange-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  border-left: 4px solid var(--orange);
+  margin-bottom: 14px;
+}
+.workbook-card h3 { margin: 0 0 8px; color: #B9700A; font-size: 17px; }
+.workbook-card ul { margin: 6px 0; padding-left: 20px; }
+
+/* ---------- Teach Back ---------- */
+.teachback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.teachback-card {
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: #fff;
+}
+.tb-bronze { background: #A9752F; }
+.tb-silver { background: #7A8593; }
+.tb-gold { background: #C79A2E; }
+.tb-platinum { background: #5B4B8A; }
+.teachback-card h4 { margin: 0 0 8px; font-size: 16px; }
+.teachback-card p { font-size: 14px; margin: 4px 0; }
+
+/* ---------- Exam Intelligence ---------- */
+.exam-card {
+  background: var(--purple-light);
+  border-left: 4px solid var(--purple);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.exam-card .exam-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--purple);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+.exam-card p { margin: 4px 0; font-size: 14.5px; }
+
+/* ---------- Parent Check ---------- */
+.parent-card {
+  background: var(--grey-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.parent-card ol { padding-left: 20px; }
+.parent-card li { margin-bottom: 8px; }
+
+/* ---------- Reflection ---------- */
+.reflection-card {
+  background: var(--primary-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.reflection-item { margin-bottom: 14px; }
+.reflection-item label { font-weight: 600; display: block; margin-bottom: 6px; }
+.confidence-scale { display: flex; gap: 8px; }
+.confidence-scale button {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+}
+.confidence-scale button.selected { background: var(--primary); color: #fff; }
+.reflection-line {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-family: inherit;
+}
+.checklist { list-style: none; padding: 0; }
+.checklist li { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+
+/* ---------- Callouts ---------- */
+.callout {
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 14.5px;
+}
+.callout-warning { background: var(--orange-light); border-left: 4px solid var(--orange); }
+.callout-info { background: var(--blue-light); border-left: 4px solid var(--blue); }
+
+/* ---------- Metadata Footer ---------- */
+.metadata-footer {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  padding: 20px 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .nav-strip, .flashcard-controls, .quiz-options button, button { display: none !important; }
+  .section-card { box-shadow: none; border: 1px solid #ccc; }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+  <!-- Hero Header -->
+  <header class="hero-header">
+    <div class="hero-eyebrow">Cambridge Lower Secondary Science &middot; Stage 8</div>
+    <div class="hero-unit">Unit 8 &middot; Chemical Reactions</div>
+    <h1 class="hero-title">8.5 Reactions of Metals with Dilute Acids</h1>
+    <div class="hero-subtitle">Metals &bull; Acids &bull; Salts &bull; Hydrogen &bull; Reactivity</div>
+    <div class="source-badges">
+      <span class="source-badge">📘 Learner Book Verified</span>
+      <span class="source-badge">📗 Workbook Verified</span>
+      <span class="source-badge">🔑 Answer Key Verified</span>
+      <span class="source-badge">📝 Progression Tests Reviewed</span>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-strip" aria-label="Lesson navigation">
+    <a href="#roadmap">Roadmap</a>
+    <a href="#vocabulary">Vocabulary</a>
+    <a href="#concepts">Concepts</a>
+    <a href="#diagrams">Diagrams</a>
+    <a href="#thinking">Thinking</a>
+    <a href="#realworld">Real World</a>
+    <a href="#flashcards">Flashcards</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#workbook">Workbook</a>
+    <a href="#teachback">Teach-Back</a>
+    <a href="#exam">Exam Skills</a>
+    <a href="#parent">Parent Check</a>
+    <a href="#reflection">Reflection</a>
+  </nav>
+
+  <!-- 0. Roadmap -->
+  <section class="section-card" id="roadmap">
+    <div class="section-header"><span class="icon">🎯</span><h2>Lesson Roadmap</h2></div>
+    <div class="roadmap-box">
+      <p><strong>What this section is about:</strong> You will learn what happens when metals react with dilute acids, how to describe and observe these reactions, and how to compare how reactive different metals are.</p>
+      <p><strong>Why it matters:</strong> Metal and acid reactions happen in laboratories, industry and even inside batteries. Understanding reactivity also helps you predict how metals behave and why some metals are far too dangerous to test with acid.</p>
+    </div>
+    <h3 style="margin-top:18px; font-size:16px; color:var(--primary-dark);">By the end of this lesson, I can...</h3>
+    <ul class="objectives-list">
+      <li>Explain what happens when a metal reacts with a dilute acid.</li>
+      <li>Write a word equation for a metal reacting with an acid.</li>
+      <li>Describe how to observe and measure a reaction between a metal and an acid.</li>
+      <li>Compare the reactivity of different metals with dilute acids.</li>
+      <li>Explain why some metals must never be tested with acid in the school laboratory.</li>
+      <li>Plan a fair test to compare the reactivity of metals.</li>
+    </ul>
+  </section>
+
+  <!-- 1. Vocabulary -->
+  <section class="section-card" id="vocabulary">
+    <div class="section-header"><span class="icon">📚</span><h2>Vocabulary Master Pack</h2></div>
+    <p class="section-subtitle">Learn these words before you read the concepts. This will help you read confidently.</p>
+
+    <h3 class="vocab-group-title">A. Core Science Vocabulary</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-word">acid</div>
+        <div class="vocab-ipa">/ˈæs.ɪd/ &middot; ac&middot;id</div>
+        <p><span class="label">Simple meaning:</span> A liquid that can taste sour and reacts with metals.</p>
+        <p><span class="label">Scientific meaning:</span> A substance that reacts with a metal to form a salt and hydrogen gas.</p>
+        <p><span class="label">Vietnamese:</span> axit</p>
+        <p><em>"Dilute hydrochloric acid reacts with magnesium."</em></p>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">metal</div>
+        <div class="vocab-ipa">/ˈmet.əl/ &middot; met&middot;al</div>
+        <p><span class="label">Simple meaning:</span> A shiny material, such as iron or zinc, that conducts electricity.</p>
+        <p><span class="label">Scientific meaning:</span> An element that can react with acids, water or oxygen depending on its reactivity.</p>
+        <p><span class="label">Vietnamese:</span> kim loại</p>
+        <p><em>"Magnesium is a very reactive metal."</em></p>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">salt</div>
+        <div class="vocab-ipa">/sɔːlt/ &middot; salt</div>
+        <p><span class="label">Simple meaning:</span> A new substance made when a metal reacts with an acid.</p>
+        <p><span class="label">Scientific meaning:</span> A compound formed when a metal replaces the hydrogen in an acid.</p>
+        <p><span class="label">Vietnamese:</span> muối</p>
+        <p><em>"Magnesium chloride is a salt."</em></p>
+        <p class="vocab-tip">Tip: In science, "salt" is not only table salt — it is a whole family of compounds.</p>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">hydrogen</div>
+        <div class="vocab-ipa">/ˈhaɪ.drə.dʒən/ &middot; hy&middot;dro&middot;gen</div>
+        <p><span class="label">Simple meaning:</span> A light, invisible gas that burns with a squeaky pop.</p>
+        <p><span class="label">Scientific meaning:</span> The gas produced when a metal reacts with a dilute acid.</p>
+        <p><span class="label">Vietnamese:</span> khí hiđro</p>
+        <p><em>"Bubbles of hydrogen form around the metal."</em></p>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">reactivity</div>
+        <div class="vocab-ipa">/ˌriː.ækˈtɪv.ə.ti/ &middot; re&middot;ac&middot;tiv&middot;i&middot;ty</div>
+        <p><span class="label">Simple meaning:</span> How easily and how fast a substance reacts.</p>
+        <p><span class="label">Scientific meaning:</span> A measure of how readily a metal reacts with substances such as dilute acids.</p>
+        <p><span class="label">Vietnamese:</span> độ hoạt động hoá học</p>
+        <p><em>"Potassium has very high reactivity."</em></p>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">word equation</div>
+        <div class="vocab-ipa">/wɜːd ɪˈkweɪ.ʒən/</div>
+        <p><span class="label">Simple meaning:</span> A sentence made of chemical names that shows a reaction.</p>
+        <p><span class="label">Scientific meaning:</span> A representation of a chemical reaction using the names of reactants and products.</p>
+        <p><span class="label">Vietnamese:</span> phương trình chữ</p>
+        <p><em>"magnesium + hydrochloric acid → magnesium chloride + hydrogen"</em></p>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-word">exothermic</div>
+        <div class="vocab-ipa">/ˌek.səʊˈθɜː.mɪk/ &middot; ex&middot;o&middot;ther&middot;mic</div>
+        <p><span class="label">Simple meaning:</span> A reaction that gets hot.</p>
+        <p><span class="label">Scientific meaning:</span> A reaction that releases thermal energy, causing the temperature of the surroundings to rise.</p>
+        <p><span class="label">Vietnamese:</span> toả nhiệt</p>
+        <p><em>"The reaction between zinc and acid is exothermic."</em></p>
+        <p class="vocab-tip">Tip: "Exo" means "out" — heat energy goes out into the surroundings.</p>
+      </div>
+    </div>
+
+    <h3 class="vocab-group-title">B. Reading Support Vocabulary</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card" style="background:var(--blue-light);">
+        <div class="vocab-word" style="color:var(--blue);">dilute</div>
+        <div class="vocab-ipa">/daɪˈluːt/</div>
+        <p><span class="label">Simple meaning:</span> Mixed with a lot of water, so it is weaker.</p>
+        <p><span class="label">Vietnamese:</span> pha loãng</p>
+        <p><em>"The experiment uses dilute acid, not concentrated acid."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--blue-light);">
+        <div class="vocab-word" style="color:var(--blue);">vigorous</div>
+        <div class="vocab-ipa">/ˈvɪg.ər.əs/</div>
+        <p><span class="label">Simple meaning:</span> Strong, fast and full of energy.</p>
+        <p><span class="label">Vietnamese:</span> mạnh mẽ, dữ dội</p>
+        <p><em>"Magnesium reacts vigorously with dilute acid."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--blue-light);">
+        <div class="vocab-word" style="color:var(--blue);">apparatus</div>
+        <div class="vocab-ipa">/ˌæp.əˈreɪ.təs/</div>
+        <p><span class="label">Simple meaning:</span> The equipment used in an experiment.</p>
+        <p><span class="label">Vietnamese:</span> dụng cụ thí nghiệm</p>
+        <p><em>"Set up the apparatus before adding the acid."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--blue-light);">
+        <div class="vocab-word" style="color:var(--blue);">delivery tube</div>
+        <div class="vocab-ipa">/dɪˈlɪv.ər.i tʃuːb/</div>
+        <p><span class="label">Simple meaning:</span> A tube that carries gas from one container to another.</p>
+        <p><span class="label">Vietnamese:</span> ống dẫn khí</p>
+        <p><em>"Hydrogen gas travels through the delivery tube."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--blue-light);">
+        <div class="vocab-word" style="color:var(--blue);">appropriate</div>
+        <div class="vocab-ipa">/əˈprəʊ.pri.ət/</div>
+        <p><span class="label">Simple meaning:</span> Suitable or correct for the situation.</p>
+        <p><span class="label">Vietnamese:</span> phù hợp</p>
+        <p><em>"Choose the appropriate measuring cylinder for the volume you need."</em></p>
+      </div>
+    </div>
+
+    <h3 class="vocab-group-title">C. Scientific Skills Vocabulary</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card" style="background:var(--purple-light);">
+        <div class="vocab-word" style="color:var(--purple);">variable</div>
+        <p><span class="label">Simple meaning:</span> Something in an experiment that can change or be changed.</p>
+        <p><span class="label">Vietnamese:</span> biến số</p>
+        <p><em>"The type of metal is the variable they change."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--purple-light);">
+        <div class="vocab-word" style="color:var(--purple);">control variable</div>
+        <p><span class="label">Simple meaning:</span> Something you keep the same so the test is fair.</p>
+        <p><span class="label">Vietnamese:</span> biến kiểm soát</p>
+        <p><em>"The volume of acid must be a control variable."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--purple-light);">
+        <div class="vocab-word" style="color:var(--purple);">fair test</div>
+        <p><span class="label">Simple meaning:</span> A test where only one variable is changed at a time.</p>
+        <p><span class="label">Vietnamese:</span> thí nghiệm công bằng</p>
+        <p><em>"It is not a fair test if the metals are different sizes."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--purple-light);">
+        <div class="vocab-word" style="color:var(--purple);">observe</div>
+        <p><span class="label">Simple meaning:</span> To watch carefully and notice details.</p>
+        <p><span class="label">Vietnamese:</span> quan sát</p>
+        <p><em>"Observe the bubbles forming around the metal."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--purple-light);">
+        <div class="vocab-word" style="color:var(--purple);">compare</div>
+        <p><span class="label">Simple meaning:</span> To look at how things are similar or different.</p>
+        <p><span class="label">Vietnamese:</span> so sánh</p>
+        <p><em>"Compare the reactivity of zinc and copper."</em></p>
+      </div>
+      <div class="vocab-card" style="background:var(--purple-light);">
+        <div class="vocab-word" style="color:var(--purple);">reliable</div>
+        <p><span class="label">Simple meaning:</span> Giving similar results if the test is repeated; trustworthy.</p>
+        <p><span class="label">Vietnamese:</span> đáng tin cậy</p>
+        <p><em>"Repeating the test makes the results more reliable."</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Concepts -->
+  <section class="section-card" id="concepts">
+    <div class="section-header"><span class="icon">🔬</span><h2>Core Concepts</h2></div>
+    <p class="section-subtitle">Read each idea one at a time. Try to explain it in your own words before moving to the next card.</p>
+
+    <div class="concept-card">
+      <h3>1. Metals React With Acids to Form a Salt and Hydrogen</h3>
+      <p><strong>Main idea:</strong> When a reactive metal is added to a dilute acid, the metal reacts to form a new substance called a salt, and a gas called hydrogen is released.</p>
+      <p>This always follows the same general pattern, no matter which metal or acid is used:</p>
+      <div class="remember">metal + acid → salt + hydrogen</div>
+      <p><strong>Example:</strong> magnesium + hydrochloric acid → magnesium chloride + hydrogen</p>
+      <div class="misconception-box"><span class="label">Common misconception:</span> The metal does not simply "disappear". Its atoms are not destroyed — they become part of the new salt, which usually dissolves in the liquid.</div>
+    </div>
+
+    <div class="concept-card">
+      <h3>2. The Acid Used Decides the Name of the Salt</h3>
+      <p><strong>Main idea:</strong> The type of acid decides the ending of the salt's name.</p>
+      <p>hydrochloric acid → a <strong>chloride</strong> &nbsp;|&nbsp; sulfuric acid → a <strong>sulfate</strong> &nbsp;|&nbsp; nitric acid → a <strong>nitrate</strong></p>
+      <p><strong>Example:</strong> zinc + nitric acid → zinc nitrate + hydrogen</p>
+      <div class="remember">The metal's name usually stays the same in the salt — only the acid decides the ending.</div>
+    </div>
+
+    <div class="concept-card">
+      <h3>3. How to Tell a Reaction Is Happening</h3>
+      <p><strong>Main idea:</strong> You can observe a reaction between a metal and an acid in several ways.</p>
+      <p>Look for: bubbles of gas forming, the metal getting smaller, and a rise in temperature.</p>
+      <p>Because heat energy is released, this reaction is described as <strong>exothermic</strong>.</p>
+      <div class="remember">Bubbles + rising temperature = a chemical reaction is happening.</div>
+    </div>
+
+    <div class="concept-card">
+      <h3>4. Metals React at Different Speeds — Reactivity</h3>
+      <p><strong>Main idea:</strong> Different metals react with the same dilute acid at very different speeds.</p>
+      <p>A very reactive metal, such as magnesium, produces bubbles quickly and vigorously. A less reactive metal, such as iron, reacts more slowly. Some metals, such as copper and gold, do not react with dilute acid at all — they are described as <strong>inert</strong> (unreactive).</p>
+      <div class="misconception-box"><span class="label">Common misconception:</span> Seeing more bubbles in a set time tells you the reaction is faster — it does not automatically mean more salt has been produced overall.</div>
+    </div>
+
+    <div class="concept-card">
+      <h3>5. Some Metals Are Too Dangerous to Test With Acid</h3>
+      <p><strong>Main idea:</strong> Potassium, sodium and calcium react so vigorously that adding them to dilute acid in a school laboratory would be extremely dangerous.</p>
+      <p>These metals could react explosively, so they must never be used in this investigation.</p>
+      <div class="remember">Potassium, sodium and calcium — too reactive and dangerous to test with acid in class.</div>
+    </div>
+
+    <div class="concept-card">
+      <h3>6. Testing for Hydrogen Gas</h3>
+      <p><strong>Main idea:</strong> Scientists confirm that a gas is hydrogen using the "squeaky pop" test.</p>
+      <p>A lighted splint is held near the mouth of the test tube. If the gas is hydrogen, it burns rapidly and makes a squeaky pop sound.</p>
+    </div>
+
+    <div class="concept-card">
+      <h3>7. Planning a Fair Test to Compare Reactivity</h3>
+      <p><strong>Main idea:</strong> To compare metals fairly, only the type of metal should change.</p>
+      <p>Keep the same: type of acid, concentration of acid, volume of acid, and the mass or size of each piece of metal.</p>
+      <p>Measure reactivity by comparing the number of bubbles produced in a set time, or by timing how long it takes to collect a set volume of hydrogen gas.</p>
+      <div class="remember">Change only ONE variable — the metal. Keep everything else the same.</div>
+    </div>
+  </section>
+
+  <!-- 3. Diagrams -->
+  <section class="section-card" id="diagrams">
+    <div class="section-header"><span class="icon">📊</span><h2>Diagram Mastery</h2></div>
+    <p class="section-subtitle">Study each diagram carefully. Diagrams help you understand ideas that are hard to explain with words alone.</p>
+
+    <div class="diagram-card">
+      <h3>Diagram 1: The General Reaction Pattern</h3>
+      <svg viewBox="0 0 700 160" role="img" aria-labelledby="d1title d1desc">
+        <title id="d1title">General word equation for a metal reacting with a dilute acid</title>
+        <desc id="d1desc">A flow diagram showing metal plus acid produces salt plus hydrogen</desc>
+        <rect x="10" y="50" width="140" height="60" rx="10" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+        <text x="80" y="85" text-anchor="middle" font-size="16" fill="#1F6FB2" font-weight="700">metal</text>
+        <text x="165" y="86" text-anchor="middle" font-size="22" fill="#1F2937">+</text>
+        <rect x="190" y="50" width="140" height="60" rx="10" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+        <text x="260" y="85" text-anchor="middle" font-size="16" fill="#1F6FB2" font-weight="700">acid</text>
+        <line x1="345" y1="80" x2="405" y2="80" stroke="#1F2937" stroke-width="3" marker-end="url(#arrow1)"/>
+        <defs>
+          <marker id="arrow1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L9,3 L0,6 Z" fill="#1F2937"/>
+          </marker>
+        </defs>
+        <rect x="410" y="50" width="140" height="60" rx="10" fill="#EDF8EE" stroke="#2E7D32" stroke-width="2"/>
+        <text x="480" y="85" text-anchor="middle" font-size="16" fill="#2E7D32" font-weight="700">salt</text>
+        <text x="565" y="86" text-anchor="middle" font-size="22" fill="#1F2937">+</text>
+        <rect x="590" y="50" width="100" height="60" rx="10" fill="#EDF8EE" stroke="#2E7D32" stroke-width="2"/>
+        <text x="640" y="85" text-anchor="middle" font-size="14" fill="#2E7D32" font-weight="700">hydrogen</text>
+      </svg>
+      <p class="diagram-caption"><span class="label">What it shows:</span> Every metal–acid reaction follows this same pattern of reactants (left) forming products (right).</p>
+      <p class="diagram-caption"><span class="label">Notice:</span> The arrow shows a change happening — a chemical reaction, not just mixing.</p>
+      <p class="diagram-caption"><span class="label">Common mistake:</span> Writing the arrow backwards or forgetting one of the two products.</p>
+    </div>
+
+    <div class="diagram-card">
+      <h3>Diagram 2: Comparing Reactivity in Test Tubes</h3>
+      <svg viewBox="0 0 700 220" role="img" aria-labelledby="d2title d2desc">
+        <title id="d2title">Four test tubes containing the same dilute acid and different metals, showing different amounts of bubbling</title>
+        <desc id="d2desc">Test tube A has many bubbles, test tube B has a moderate number, test tube C has very few, and test tube D has none</desc>
+        <line x1="20" y1="30" x2="680" y2="30" stroke="#666" stroke-width="4"/>
+        <line x1="20" y1="30" x2="20" y2="55" stroke="#666" stroke-width="4"/>
+        <line x1="680" y1="30" x2="680" y2="55" stroke="#666" stroke-width="4"/>
+
+        <!-- tube A -->
+        <rect x="70" y="40" width="60" height="140" rx="8" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+        <circle cx="90" cy="150" r="5" fill="#B7E6EC"/><circle cx="105" cy="130" r="6" fill="#B7E6EC"/>
+        <circle cx="95" cy="110" r="5" fill="#B7E6EC"/><circle cx="110" cy="90" r="6" fill="#B7E6EC"/>
+        <circle cx="85" cy="95" r="4" fill="#B7E6EC"/><circle cx="100" cy="70" r="5" fill="#B7E6EC"/>
+        <text x="100" y="200" text-anchor="middle" font-size="14" font-weight="700">Metal A</text>
+
+        <!-- tube B -->
+        <rect x="230" y="40" width="60" height="140" rx="8" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+        <circle cx="250" cy="150" r="5" fill="#B7E6EC"/><circle cx="265" cy="120" r="5" fill="#B7E6EC"/>
+        <circle cx="255" cy="90" r="4" fill="#B7E6EC"/>
+        <text x="260" y="200" text-anchor="middle" font-size="14" font-weight="700">Metal B</text>
+
+        <!-- tube C -->
+        <rect x="390" y="40" width="60" height="140" rx="8" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+        <circle cx="410" cy="160" r="3" fill="#B7E6EC"/>
+        <text x="420" y="200" text-anchor="middle" font-size="14" font-weight="700">Metal C</text>
+
+        <!-- tube D -->
+        <rect x="550" y="40" width="60" height="140" rx="8" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+        <text x="580" y="200" text-anchor="middle" font-size="14" font-weight="700">Metal D</text>
+      </svg>
+      <p class="diagram-caption"><span class="label">What it shows:</span> Four metals placed in equal volumes of the same dilute acid.</p>
+      <p class="diagram-caption"><span class="label">Notice:</span> Metal A produces the most bubbles quickly, while Metal D produces none — Metal A is the most reactive and Metal D does not react.</p>
+      <p class="diagram-caption"><span class="label">Common mistake:</span> Forgetting that this comparison is only fair if the acid, its volume, and the size of each metal piece are the same.</p>
+    </div>
+
+    <div class="diagram-card">
+      <h3>Diagram 3: Collecting and Measuring Hydrogen Gas</h3>
+      <svg viewBox="0 0 700 260" role="img" aria-labelledby="d3title d3desc">
+        <title id="d3title">Apparatus for collecting hydrogen gas produced from a metal-acid reaction</title>
+        <desc id="d3desc">A conical flask with metal and acid connected by a delivery tube to an inverted test tube collecting gas over water in a trough</desc>
+        <!-- flask -->
+        <polygon points="90,40 150,40 175,140 65,140" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+        <rect x="95" y="25" width="50" height="20" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+        <circle cx="110" cy="120" r="4" fill="#9FCBEF"/><circle cx="125" cy="110" r="4" fill="#9FCBEF"/>
+        <text x="120" y="160" text-anchor="middle" font-size="12">metal + dilute acid</text>
+        <!-- delivery tube -->
+        <path d="M150,35 C 260,20 320,60 380,110" fill="none" stroke="#666" stroke-width="4"/>
+        <!-- trough -->
+        <rect x="360" y="140" width="280" height="80" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+        <text x="500" y="230" text-anchor="middle" font-size="12">water trough</text>
+        <!-- inverted test tube -->
+        <rect x="470" y="60" width="50" height="130" fill="#ffffff" stroke="#007D8C" stroke-width="2"/>
+        <rect x="470" y="60" width="50" height="60" fill="#D7EEF2"/>
+        <text x="495" y="50" text-anchor="middle" font-size="12" font-weight="700">hydrogen</text>
+      </svg>
+      <p class="diagram-caption"><span class="label">What it shows:</span> Hydrogen gas travels along the delivery tube and is collected by displacing water in an upside-down test tube.</p>
+      <p class="diagram-caption"><span class="label">Notice:</span> The volume of gas collected can be timed to compare how quickly different metals react.</p>
+      <p class="diagram-caption"><span class="label">Common mistake:</span> Starting the timer before the delivery tube is properly back in place, which gives an inaccurate time.</p>
+    </div>
+
+    <div class="diagram-card">
+      <h3>Diagram 4: Reactivity Order</h3>
+      <svg viewBox="0 0 700 240" role="img" aria-labelledby="d4title d4desc">
+        <title id="d4title">Reactivity ladder showing metals from most reactive to least reactive with dilute acid</title>
+        <desc id="d4desc">From top to bottom: potassium, sodium, calcium marked as too dangerous to test, then magnesium, zinc, iron reacting at decreasing speed, then copper and gold which do not react</desc>
+        <rect x="20" y="10" width="660" height="40" rx="8" fill="#FDECEC" stroke="#D84343" stroke-width="2"/>
+        <text x="350" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#D84343">Potassium, Sodium, Calcium — too dangerous to test with acid</text>
+
+        <rect x="20" y="60" width="660" height="34" rx="8" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+        <text x="350" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#B9700A">Magnesium — reacts fast and vigorously</text>
+
+        <rect x="20" y="104" width="660" height="34" rx="8" fill="#FFF7EA" stroke="#F39C12" stroke-width="2"/>
+        <text x="350" y="126" text-anchor="middle" font-size="14" font-weight="700" fill="#B9700A">Zinc — reacts steadily</text>
+
+        <rect x="20" y="148" width="660" height="34" rx="8" fill="#FFFBF2" stroke="#F39C12" stroke-width="2"/>
+        <text x="350" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#B9700A">Iron — reacts slowly</text>
+
+        <rect x="20" y="192" width="660" height="36" rx="8" fill="#EDF8EE" stroke="#2E7D32" stroke-width="2"/>
+        <text x="350" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#2E7D32">Copper, Gold — do not react (inert)</text>
+      </svg>
+      <p class="diagram-caption"><span class="label">What it shows:</span> A general order of reactivity for common metals with dilute acid, based on classroom investigations.</p>
+      <p class="diagram-caption"><span class="label">Notice:</span> The order matches the amount of bubbling and speed of reaction observed in Diagram 2.</p>
+      <p class="diagram-caption"><span class="label">Common mistake:</span> Assuming every metal reacts — copper and gold do not react with dilute acid at all.</p>
+    </div>
+  </section>
+
+  <!-- 4. Scientific Thinking -->
+  <section class="section-card" id="thinking">
+    <div class="section-header"><span class="icon">🧠</span><h2>Scientific Thinking</h2></div>
+    <p class="section-subtitle">Think like a scientist. Write your own answer before checking the guidance.</p>
+
+    <div class="thinking-card">
+      <h3>Interpret the Evidence</h3>
+      <p class="prompt">Look again at Diagram 2. Which metal, A or D, is more reactive? Explain how you know using the diagram.</p>
+      <textarea placeholder="Write your answer here..."></textarea>
+      <button type="button" class="btn-success reveal-btn" onclick="this.nextElementSibling.classList.toggle('shown')">Show Guidance</button>
+      <div class="reveal-answer">Guidance: Metal A produces many bubbles quickly, showing it reacts fast — it is more reactive. Metal D produces no bubbles, so it does not react with the acid.</div>
+    </div>
+
+    <div class="thinking-card">
+      <h3>Identify an Unfair Test</h3>
+      <p class="prompt">Two students compare metal reactivity. One uses 20 cm³ of dilute acid, and the other uses 30 cm³ of the same acid. Is this a fair test? Explain your reasoning.</p>
+      <textarea placeholder="Write your answer here..."></textarea>
+      <button type="button" class="btn-success reveal-btn" onclick="this.nextElementSibling.classList.toggle('shown')">Show Guidance</button>
+      <div class="reveal-answer">Guidance: No, it is not fair. The volume of acid must be a control variable — using different volumes could make one reaction appear faster even if the metals are equally reactive.</div>
+    </div>
+
+    <div class="thinking-card">
+      <h3>Make a Prediction</h3>
+      <p class="prompt">Using Diagram 4, predict what you would observe if you placed a piece of iron and a piece of zinc into separate test tubes of the same dilute acid.</p>
+      <textarea placeholder="Write your answer here..."></textarea>
+      <button type="button" class="btn-success reveal-btn" onclick="this.nextElementSibling.classList.toggle('shown')">Show Guidance</button>
+      <div class="reveal-answer">Guidance: The zinc should produce bubbles more quickly than the iron, because zinc is more reactive than iron.</div>
+    </div>
+
+    <div class="thinking-card">
+      <h3>Evaluate a Statement</h3>
+      <p class="prompt">A student says: "If we see more bubbles in the first ten seconds, that means more salt has been made overall." Do you agree? Explain why.</p>
+      <textarea placeholder="Write your answer here..."></textarea>
+      <button type="button" class="btn-success reveal-btn" onclick="this.nextElementSibling.classList.toggle('shown')">Show Guidance</button>
+      <div class="reveal-answer">Guidance: Not necessarily. More bubbles in a short time shows a faster reaction rate, but it does not automatically mean more salt was produced in total — that depends on how much metal and acid react completely.</div>
+    </div>
+  </section>
+
+  <!-- 5. Real World Science -->
+  <section class="section-card" id="realworld">
+    <div class="section-header"><span class="icon">🌍</span><h2>Real World Science</h2></div>
+    <p class="section-subtitle">Where can I see this science in real life?</p>
+
+    <div class="realworld-card">
+      <h3>Why Gold and Silver Jewellery Stay Shiny</h3>
+      <p><strong>Situation:</strong> Gold and silver jewellery can be worn every day, even though skin produces slightly acidic sweat.</p>
+      <p><strong>Scientific connection:</strong> Gold and silver are very unreactive metals, so they do not easily react with weak acids.</p>
+      <p><strong>Why it matters:</strong> This is one reason unreactive metals are chosen for jewellery — they resist chemical change over long periods of time.</p>
+    </div>
+
+    <div class="realworld-card">
+      <h3>Acid Rain and Metal Structures</h3>
+      <p><strong>Situation:</strong> Rain can be slightly acidic, especially near cities with air pollution.</p>
+      <p><strong>Scientific connection:</strong> Over many years, acidic rainwater can slowly react with reactive metals on the surface of buildings, bridges or statues.</p>
+      <p><strong>Why it matters:</strong> Engineers often choose unreactive metals, or coat reactive metals, to protect structures from this kind of slow chemical damage.</p>
+    </div>
+
+    <div class="realworld-card">
+      <h3>Testing for Hydrogen in the Lab and Industry</h3>
+      <p><strong>Situation:</strong> Scientists sometimes need to confirm that a gas produced in a reaction is hydrogen.</p>
+      <p><strong>Scientific connection:</strong> The "squeaky pop" test with a lighted splint is a simple version of tests used to identify hydrogen gas safely.</p>
+      <p><strong>Why it matters:</strong> Hydrogen gas is increasingly used as a clean fuel, so being able to identify and handle it safely is an important scientific skill.</p>
+    </div>
+  </section>
+
+  <!-- 6. Flashcards -->
+  <section class="section-card" id="flashcards">
+    <div class="section-header"><span class="icon">🗂️</span><h2>Interactive Flashcards</h2></div>
+    <p class="section-subtitle">Try to recall the answer before you flip the card.</p>
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="flashcardEl" tabindex="0" role="button" aria-label="Flashcard, press to flip">
+        <div class="flashcard-inner" id="flashcardInner">
+          <div class="flashcard-face flashcard-front" id="cardFront"></div>
+          <div class="flashcard-face flashcard-back" id="cardBack"></div>
+        </div>
+      </div>
+      <div class="flashcard-counter" id="cardCounter"></div>
+      <div class="flashcard-controls">
+        <button type="button" class="btn-secondary" onclick="prevCard()">◀ Previous</button>
+        <button type="button" class="btn-primary" onclick="flipCard()">Flip Card</button>
+        <button type="button" class="btn-secondary" onclick="nextCard()">Next ▶</button>
+        <button type="button" class="btn-neutral" onclick="shuffleCards()">🔀 Shuffle</button>
+        <button type="button" class="btn-neutral" onclick="resetCards()">↺ Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Mini Quiz -->
+  <section class="section-card" id="quiz">
+    <div class="section-header"><span class="icon">📝</span><h2>Interactive Mini Quiz</h2></div>
+    <p class="section-subtitle">Choose your answer and check it before moving on.</p>
+    <div id="quizContainer"></div>
+    <div class="quiz-summary" id="quizSummary" style="display:none;"></div>
+    <div style="text-align:center; margin-top:12px;">
+      <button type="button" class="btn-success" onclick="submitQuiz()">Check All Answers</button>
+      <button type="button" class="btn-secondary" onclick="resetQuiz()">Reset Quiz</button>
+    </div>
+  </section>
+
+  <!-- 8. Workbook Preview -->
+  <section class="section-card" id="workbook">
+    <div class="section-header"><span class="icon">📗</span><h2>Workbook Preview</h2></div>
+    <p class="section-subtitle">Get ready for Exercises 8.5A, 8.5B and 8.5C. This section prepares you — it does not give you the answers.</p>
+    <div class="workbook-card">
+      <h3>Learning Objective</h3>
+      <p>Plan and interpret fair tests on metal reactivity, and write word equations for metal–acid reactions.</p>
+      <h3>Hint 1</h3>
+      <p>When comparing test tubes in the Workbook, check every variable except the metal type. Look carefully at the volume of acid, the type of acid, and the size of each metal piece.</p>
+      <h3>Hint 2</h3>
+      <p>When explaining what you observe, use scientific words such as <em>bubbles</em>, <em>hydrogen</em> and <em>exothermic</em> — avoid vague words like "something happened".</p>
+      <h3>Thinking Strategy</h3>
+      <p>If a question asks which metal should <strong>not</strong> be used in an investigation, think about how dangerous the reaction would be, not just how "interesting" the result might look.</p>
+      <div class="callout callout-warning">Reminder: Try every Workbook question yourself first. Check your answers with a parent or teacher afterwards.</div>
+    </div>
+  </section>
+
+  <!-- 9. Teach-Back -->
+  <section class="section-card" id="teachback">
+    <div class="section-header"><span class="icon">🎓</span><h2>Teach-Back Challenge</h2></div>
+    <p class="section-subtitle">Explaining an idea is the best way to prove you understand it. Try each level.</p>
+    <div class="teachback-grid">
+      <div class="teachback-card tb-bronze">
+        <h4>🥉 Bronze</h4>
+        <p><strong>Goal:</strong> Recall</p>
+        <p><strong>Task:</strong> List the two products made when a metal reacts with a dilute acid, and name one metal that must never be tested with acid in class.</p>
+      </div>
+      <div class="teachback-card tb-silver">
+        <h4>🥈 Silver</h4>
+        <p><strong>Goal:</strong> Explain</p>
+        <p><strong>Task:</strong> Explain in your own words why bubbles form when a metal reacts with a dilute acid, and why the reaction is exothermic.</p>
+      </div>
+      <div class="teachback-card tb-gold">
+        <h4>🥇 Gold</h4>
+        <p><strong>Goal:</strong> Apply</p>
+        <p><strong>Task:</strong> Using a diagram or example, explain how you would set up a fair test to compare the reactivity of three metals with dilute acid.</p>
+      </div>
+      <div class="teachback-card tb-platinum">
+        <h4>💎 Platinum</h4>
+        <p><strong>Goal:</strong> Reason</p>
+        <p><strong>Task:</strong> Explain why magnesium reacts faster than iron with acid, and why testing potassium the same way would be unsafe. Then correct this idea: "more bubbles always means more salt was made."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Exam Intelligence -->
+  <section class="section-card" id="exam">
+    <div class="section-header"><span class="icon">🎯</span><h2>Exam Intelligence</h2></div>
+    <p class="section-subtitle">These skills appear in the available Cambridge assessment material for this topic.</p>
+
+    <div class="exam-card">
+      <span class="exam-tag">Command Word</span>
+      <p><strong>"Describe" vs "Explain":</strong> "Describe" asks for observations or facts (e.g. what you see). "Explain" asks you to give reasons (e.g. why it happens).</p>
+    </div>
+    <div class="exam-card">
+      <span class="exam-tag">High Priority Skill</span>
+      <p>Writing a correct word equation (correct reactant order, arrow, and both products) appears in the available assessment material — practise this carefully.</p>
+    </div>
+    <div class="exam-card">
+      <span class="exam-tag">Common Trap</span>
+      <p>When describing a fair test, students often forget to mention <strong>both</strong> the volume <strong>and</strong> the concentration of acid used. Full marks usually need both control variables stated.</p>
+    </div>
+    <div class="exam-card">
+      <span class="exam-tag">Data Interpretation Skill</span>
+      <p>Reading bar charts or tables to identify the fastest- or slowest-reacting metal is a skill that appears in the available assessment material.</p>
+    </div>
+    <div class="exam-card">
+      <span class="exam-tag">Vocabulary Focus</span>
+      <p>The word <strong>inert</strong> is used in the available assessment material to describe substances, such as gold, that do not react.</p>
+    </div>
+  </section>
+
+  <!-- 11. Parent Check -->
+  <section class="section-card" id="parent">
+    <div class="section-header"><span class="icon">👨‍👩‍👧</span><h2>Parent Check</h2></div>
+    <p class="section-subtitle">Ask your child these questions out loud. There are no answers listed here — this encourages real explanation.</p>
+    <div class="parent-card">
+      <ol>
+        <li>Can you explain what happens when a metal reacts with a dilute acid?</li>
+        <li>Can you tell me the word equation for magnesium reacting with hydrochloric acid?</li>
+        <li>Why do we never test potassium, sodium or calcium with acid in the classroom?</li>
+        <li>How could you tell if a gas collected during the reaction is hydrogen?</li>
+        <li>What would you need to keep the same to make a reactivity test fair?</li>
+        <li>Can you explain the difference between how fast a reaction happens and how much product it makes?</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 12. Reflection -->
+  <section class="section-card" id="reflection">
+    <div class="section-header"><span class="icon">💡</span><h2>Reflection</h2></div>
+    <div class="reflection-card">
+      <div class="reflection-item">
+        <label>How well do you understand this section?</label>
+        <div class="confidence-scale">
+          <button type="button" onclick="selectConfidence(this)">😕 Not yet</button>
+          <button type="button" onclick="selectConfidence(this)">🙂 Getting there</button>
+          <button type="button" onclick="selectConfidence(this)">😄 Confident</button>
+        </div>
+      </div>
+      <div class="reflection-item">
+        <label>Which vocabulary word is still difficult for you?</label>
+        <input type="text" class="reflection-line" placeholder="Write a word here...">
+      </div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="chk1"><label for="chk1">I can write a word equation for a metal and an acid.</label></li>
+        <li><input type="checkbox" id="chk2"><label for="chk2">I can explain what "fair test" means for this investigation.</label></li>
+        <li><input type="checkbox" id="chk3"><label for="chk3">I know which metals are too dangerous to test with acid.</label></li>
+        <li><input type="checkbox" id="chk4"><label for="chk4">I completed the Mini Quiz and reviewed my results.</label></li>
+        <li><input type="checkbox" id="chk5"><label for="chk5">I feel ready to try the Workbook independently.</label></li>
+      </ul>
+      <div class="reflection-item">
+        <label>What question do you still have?</label>
+        <input type="text" class="reflection-line" placeholder="Write your question here...">
+      </div>
+    </div>
+  </section>
+
+  <!-- Metadata Footer -->
+  <footer class="metadata-footer">
+    Cambridge Lower Secondary Science Stage 8 Self-Study Coach &middot; Unit 8: Chemical Reactions &middot; Section 8.5<br>
+    Output Type: O1 Section Review &middot; UI Version 2.1 &middot; Project Version 1.0 &middot; Generated: 1 August 2026<br>
+    Sources used: Learner Book, Workbook, Learner Book Answer Key, Workbook Answer Key, Progression Tests
+  </footer>
+
+</main>
+
+<script>
+// ---------- Flashcards ----------
+const flashcards = [
+  {front: "What are the two products when a metal reacts with a dilute acid?", back: "A salt and hydrogen gas."},
+  {front: "Complete: metal + acid → ?", back: "salt + hydrogen"},
+  {front: "What salt forms when magnesium reacts with hydrochloric acid?", back: "Magnesium chloride."},
+  {front: "What type of salt forms when a metal reacts with sulfuric acid?", back: "A sulfate."},
+  {front: "What type of salt forms when a metal reacts with nitric acid?", back: "A nitrate."},
+  {front: "What test confirms a gas is hydrogen?", back: "The lighted splint test — a squeaky pop sound."},
+  {front: "Name three metals too reactive to test safely with acid in class.", back: "Potassium, sodium and calcium."},
+  {front: "What does 'dilute' mean?", back: "Mixed with a lot of water, so it is weaker."},
+  {front: "What are two signs that a metal-acid reaction is happening?", back: "Bubbles forming and/or a rise in temperature."},
+  {front: "What word describes a reaction that releases heat?", back: "Exothermic."},
+  {front: "What is a control variable?", back: "Something kept the same so a test stays fair."},
+  {front: "Which is more reactive: magnesium or copper?", back: "Magnesium — copper does not react with dilute acid at all."},
+  {front: "What word describes a substance, like gold, that does not react?", back: "Inert."},
+  {front: "What equipment carries gas from the reaction flask to the collecting tube?", back: "A delivery tube."}
+];
+let cardOrder = flashcards.map((_, i) => i);
+let cardIndex = 0;
+
+function renderCard() {
+  const card = flashcards[cardOrder[cardIndex]];
+  document.getElementById('cardFront').textContent = card.front;
+  document.getElementById('cardBack').textContent = card.back;
+  document.getElementById('cardCounter').textContent = `Card ${cardIndex + 1} of ${flashcards.length}`;
+  document.getElementById('flashcardEl').classList.remove('flipped');
+}
+function flipCard() {
+  document.getElementById('flashcardEl').classList.toggle('flipped');
+}
+function nextCard() {
+  cardIndex = (cardIndex + 1) % flashcards.length;
+  renderCard();
+}
+function prevCard() {
+  cardIndex = (cardIndex - 1 + flashcards.length) % flashcards.length;
+  renderCard();
+}
+function shuffleCards() {
+  for (let i = cardOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cardOrder[i], cardOrder[j]] = [cardOrder[j], cardOrder[i]];
+  }
+  cardIndex = 0;
+  renderCard();
+}
+function resetCards() {
+  cardOrder = flashcards.map((_, i) => i);
+  cardIndex = 0;
+  renderCard();
+}
+document.getElementById('flashcardEl').addEventListener('click', flipCard);
+document.getElementById('flashcardEl').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipCard(); }
+});
+renderCard();
+
+// ---------- Mini Quiz ----------
+const quizData = [
+  {
+    level: "Level 1 · Recall",
+    q: "What are the two products formed when a metal reacts with a dilute acid?",
+    options: ["Salt and water", "Salt and hydrogen", "Oxide and water", "Salt and oxygen"],
+    correct: 1,
+    feedback: ["Look again — water is not a product of this reaction.", "Correct! A salt and hydrogen gas are always produced.", "Not quite — think about the general word equation.", "Not quite — oxygen is not produced here."]
+  },
+  {
+    level: "Level 1 · Recall",
+    q: "What does the word 'dilute' mean?",
+    options: ["Very strong", "Mixed with a lot of water", "Very hot", "Solid"],
+    correct: 1,
+    feedback: ["Try again — think about what 'dilute' means for a liquid.", "Correct! Dilute means mixed with a lot of water, so it is weaker.", "Try again — dilute is not about temperature.", "Try again — acids used here are liquids."]
+  },
+  {
+    level: "Level 2 · Understand",
+    q: "True or False: Copper reacts vigorously with dilute hydrochloric acid.",
+    options: ["True", "False"],
+    correct: 1,
+    feedback: ["Think again — copper is one of the unreactive metals.", "Correct! Copper does not react with dilute acid — it is inert."]
+  },
+  {
+    level: "Level 2 · Understand",
+    q: "Which gas is produced when a reactive metal reacts with dilute acid?",
+    options: ["Oxygen", "Carbon dioxide", "Hydrogen", "Nitrogen"],
+    correct: 2,
+    feedback: ["Try again — this gas is not oxygen.", "Try again — this reaction does not involve carbon.", "Correct! Hydrogen gas is always produced.", "Try again — nitrogen is not involved here."]
+  },
+  {
+    level: "Level 3 · Apply",
+    q: "Zinc reacts with dilute hydrochloric acid. What is the salt formed?",
+    options: ["Zinc oxide", "Zinc chloride", "Zinc sulfate", "Zinc nitrate"],
+    correct: 1,
+    feedback: ["Think about which acid was used — hydrochloric acid gives a chloride.", "Correct! Hydrochloric acid always forms a chloride salt.", "Try again — sulfate salts come from sulfuric acid.", "Try again — nitrate salts come from nitric acid."]
+  },
+  {
+    level: "Level 3 · Apply",
+    q: "In an investigation, Metal P produced many bubbles quickly, Metal Q produced a few bubbles slowly, and Metal R produced no bubbles. Which metal is most reactive?",
+    options: ["Metal P", "Metal Q", "Metal R"],
+    correct: 0,
+    feedback: ["Correct! Fast, vigorous bubbling shows the highest reactivity.", "Look again — Metal P produced bubbles faster than Metal Q.", "Try again — Metal R did not react at all."]
+  },
+  {
+    level: "Level 4 · Analyse",
+    q: "Two students compare metal reactivity. One uses 20 cm³ of acid; the other uses 30 cm³ of the same acid. Is this a fair test?",
+    options: ["Yes", "No"],
+    correct: 1,
+    feedback: ["Think again — the volume of acid must be a control variable.", "Correct! The volume of acid must be kept the same for a fair comparison."]
+  },
+  {
+    level: "Level 4 · Analyse",
+    q: "A student says: 'More bubbles means the reaction made more salt.' Is this statement correct?",
+    options: ["Yes", "No"],
+    correct: 1,
+    feedback: ["Look again — more bubbles shows a faster rate, not necessarily more product.", "Correct! More bubbles in a short time shows a faster reaction rate, not necessarily more total product."]
+  },
+  {
+    level: "Level 5 · Cambridge Challenge",
+    q: "Gold does not react with dilute acid. Which word describes substances that do not react?",
+    options: ["Reactive", "Inert", "Exothermic", "Dilute"],
+    correct: 1,
+    feedback: ["Try again — 'reactive' is the opposite of what we need.", "Correct! 'Inert' describes substances that do not react.", "Try again — 'exothermic' describes heat release, not reactivity.", "Try again — 'dilute' describes concentration, not reactivity."]
+  },
+  {
+    level: "Level 5 · Cambridge Challenge",
+    q: "Why should potassium never be added to dilute acid in a school laboratory?",
+    options: ["It is too heavy to lift", "It could react so violently that it becomes dangerous", "It does not dissolve in acid", "It changes colour instantly"],
+    correct: 1,
+    feedback: ["Try again — think about safety, not weight.", "Correct! Potassium is extremely reactive and could react violently or explosively.", "Try again — the issue is safety, not solubility.", "Try again — colour change is not the safety concern here."]
+  }
+];
+
+const quizContainer = document.getElementById('quizContainer');
+let quizAnswers = new Array(quizData.length).fill(null);
+
+function renderQuiz() {
+  quizContainer.innerHTML = '';
+  quizData.forEach((item, qi) => {
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.innerHTML = `
+      <div class="qlabel">${item.level}</div>
+      <h4>${qi + 1}. ${item.q}</h4>
+      <div class="quiz-options" id="qopts-${qi}"></div>
+      <div class="quiz-feedback" id="qfeedback-${qi}"></div>
+    `;
+    quizContainer.appendChild(card);
+    const optWrap = card.querySelector(`#qopts-${qi}`);
+    item.options.forEach((opt, oi) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'quiz-option';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(qi, oi);
+      optWrap.appendChild(btn);
+    });
+  });
+}
+
+function selectAnswer(qi, oi) {
+  quizAnswers[qi] = oi;
+  const optWrap = document.getElementById(`qopts-${qi}`);
+  Array.from(optWrap.children).forEach((btn, i) => {
+    btn.classList.remove('correct', 'incorrect');
+    if (i === oi) btn.style.borderColor = 'var(--purple)';
+    else btn.style.borderColor = 'var(--border)';
+  });
+  const fb = document.getElementById(`qfeedback-${qi}`);
+  fb.textContent = quizData[qi].feedback[oi];
+  fb.classList.add('shown');
+  if (oi === quizData[qi].correct) {
+    optWrap.children[oi].classList.add('correct');
+    fb.style.color = 'var(--green)';
+  } else {
+    optWrap.children[oi].classList.add('incorrect');
+    optWrap.children[quizData[qi].correct].classList.add('correct');
+    fb.style.color = 'var(--red)';
+  }
+}
+
+function submitQuiz() {
+  let answered = quizAnswers.filter(a => a !== null).length;
+  let correct = quizAnswers.filter((a, i) => a === quizData[i].correct).length;
+  const summary = document.getElementById('quizSummary');
+  summary.style.display = 'block';
+  if (answered < quizData.length) {
+    summary.textContent = `You have answered ${answered} of ${quizData.length} questions. Try to answer them all!`;
+    summary.style.color = 'var(--orange)';
+  } else {
+    const pct = Math.round((correct / quizData.length) * 100);
+    let msg = `Score: ${correct} / ${quizData.length} (${pct}%). `;
+    if (pct >= 80) msg += "Excellent work! You understand this section well.";
+    else if (pct >= 50) msg += "Good effort! Review the Concept Cards for the questions you missed.";
+    else msg += "Keep going! Re-read the Core Concepts, then try again.";
+    summary.textContent = msg;
+    summary.style.color = 'var(--purple)';
+  }
+}
+
+function resetQuiz() {
+  quizAnswers = new Array(quizData.length).fill(null);
+  renderQuiz();
+  document.getElementById('quizSummary').style.display = 'none';
+}
+
+renderQuiz();
+
+// ---------- Reflection confidence scale ----------
+function selectConfidence(btn) {
+  const siblings = btn.parentElement.children;
+  Array.from(siblings).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+</script>
+</body>
+</html>

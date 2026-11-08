@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 8: Chemical Reactions — Full Unit Review</title>
+<style>
+:root {
+  --primary: #007D8C;
+  --primary-dark: #005F6B;
+  --primary-light: #EAF8FA;
+
+  --blue: #1F6FB2;
+  --blue-light: #EAF3FC;
+
+  --green: #2E7D32;
+  --green-light: #EDF8EE;
+
+  --orange: #F39C12;
+  --orange-light: #FFF4E6;
+
+  --purple: #7E57C2;
+  --purple-light: #F3ECFD;
+
+  --red: #D84343;
+  --red-light: #FDECEC;
+
+  --grey: #666666;
+  --grey-light: #F5F5F5;
+
+  --background: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #E1E5EA;
+  --text: #1F2937;
+  --muted: #6B7280;
+
+  --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.55;
+  font-size: 17px;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 0; }
+
+/* ---------- HERO ---------- */
+.hero-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  margin: 20px 0 16px;
+  box-shadow: var(--shadow);
+}
+.hero-eyebrow { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.9; margin-bottom: 6px;}
+.hero-header h1 { font-size: clamp(26px, 4vw, 38px); margin: 4px 0 8px; }
+.hero-tag { font-size: 15px; opacity: 0.95; margin-bottom: 14px; }
+.hero-subtitle { font-size: 16px; font-weight: 600; letter-spacing: 0.4px; opacity: 0.95; }
+.badge-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.source-badge {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* ---------- NAV ---------- */
+.nav-strip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 8px;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+.nav-strip a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.nav-strip a:hover, .nav-strip a:focus { background: var(--primary); color: #fff; }
+
+/* ---------- SECTION CONTAINER ---------- */
+section.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow);
+  scroll-margin-top: 70px;
+}
+.section-header { margin-bottom: 14px; }
+.section-kicker { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
+.section-header h2 { font-size: 23px; margin: 2px 0 4px; }
+.section-header .section-sub { color: var(--muted); font-size: 15px; }
+
+/* colour accents */
+.accent-blue { border-left: 5px solid var(--blue); }
+.accent-green { border-left: 5px solid var(--green); }
+.accent-orange { border-left: 5px solid var(--orange); }
+.accent-purple { border-left: 5px solid var(--purple); }
+.accent-red { border-left: 5px solid var(--red); }
+.accent-teal { border-left: 5px solid var(--primary); }
+.accent-grey { border-left: 5px solid var(--grey); }
+
+/* ---------- GENERIC CARD GRID ---------- */
+.grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+
+.mini-card {
+  background: var(--grey-light);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.mini-card h4 { font-size: 16px; margin: 0 0 6px; }
+.mini-card p { margin: 4px 0; font-size: 15px; }
+
+/* big idea cards */
+.bigidea-card {
+  background: var(--primary-light);
+  border: 1px solid #bfe6ea;
+  border-radius: 10px;
+  padding: 16px;
+}
+.bigidea-card .num { font-weight: 800; color: var(--primary-dark); font-size: 13px; }
+.bigidea-card h4 { color: var(--primary-dark); margin: 4px 0 6px; font-size: 17px; }
+
+/* vocab */
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 12px; }
+.vocab-card {
+  background: var(--green-light);
+  border: 1px solid #cdeccf;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.vocab-card .word { font-weight: 800; color: var(--green); font-size: 16px; }
+.vocab-card .meaning { font-size: 14.5px; margin-top: 4px; }
+.group-label { font-weight: 700; color: var(--green); margin: 18px 0 8px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.4px;}
+
+/* anchors */
+.anchor-card {
+  background: var(--blue-light);
+  border: 1px solid #cfe2f5;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.anchor-card h4 { color: var(--blue); margin: 0 0 6px; font-size: 16.5px; }
+.anchor-card .label { font-weight: 700; font-size: 13px; color: var(--muted); }
+
+/* misconceptions */
+.misc-card {
+  background: var(--red-light);
+  border: 1px solid #f6cccc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.misc-card .wrong { color: var(--red); font-weight: 700; }
+.misc-card .right { color: #1F6B2C; font-weight: 700; margin-top: 6px; display:block; }
+
+/* investigations */
+.invest-card {
+  background: var(--orange-light);
+  border: 1px solid #fbe0b3;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.invest-card h4 { color: #a6690a; margin: 0 0 6px; }
+
+/* diagram card */
+.diagram-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.diagram-card svg { width: 100%; height: auto; display: block; }
+.diagram-caption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+/* real world */
+.realworld-card {
+  background: var(--orange-light);
+  border: 1px solid #fbe0b3;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+/* flashcards */
+.flash-wrap { max-width: 520px; margin: 0 auto; }
+.flashcard {
+  background: var(--purple-light);
+  border: 1px solid #ddc9f5;
+  border-radius: 14px;
+  padding: 28px 20px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition);
+}
+.flashcard:focus { outline: 3px solid var(--purple); }
+.flashcard .tag { display:block; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; letter-spacing: 0.5px;}
+.flash-controls { display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.flash-counter { text-align: center; font-size: 13.5px; color: var(--muted); margin-top: 8px; }
+
+/* buttons */
+button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 11px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  min-height: 40px;
+  transition: var(--transition);
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--grey-light); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: #e9e9e6; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-success:hover { background: #1F6B2C; }
+button:focus { outline: 3px solid var(--blue); }
+
+/* quiz */
+.quiz-card {
+  background: var(--purple-light);
+  border: 1px solid #ddc9f5;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+  display: none;
+}
+.quiz-card.active { display: block; }
+.quiz-card .qtag { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--purple); letter-spacing: 0.4px;}
+.quiz-card h4 { margin: 6px 0 12px; font-size: 17px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-option {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+}
+.quiz-option:hover { border-color: var(--purple); }
+.quiz-option.correct { background: var(--green-light); border-color: var(--green); font-weight: 700; }
+.quiz-option.incorrect { background: var(--red-light); border-color: var(--red); }
+.quiz-feedback { margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 14.5px; display: none; }
+.quiz-feedback.show { display: block; }
+.quiz-feedback.ok { background: var(--green-light); color: #1F6B2C; }
+.quiz-feedback.no { background: var(--red-light); color: #8a2a2a; }
+.quiz-nav { display: flex; justify-content: space-between; margin-top: 10px; }
+.quiz-progress { text-align: center; font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+#quiz-result { display: none; text-align: center; padding: 20px; }
+#quiz-result.show { display: block; }
+#quiz-result .score { font-size: 34px; font-weight: 800; color: var(--purple); }
+
+/* teachback */
+.teach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; }
+.teach-card { border-radius: 10px; padding: 14px 16px; border: 1px solid var(--border); }
+.teach-bronze { background: #FBEFE3; border-color: #eccba0; }
+.teach-silver { background: #F1F2F4; border-color: #d4d7dc; }
+.teach-gold { background: #FFF7DC; border-color: #f0dd93; }
+.teach-platinum { background: #ECEBFB; border-color: #cac5f2; }
+.teach-card h4 { margin: 0 0 6px; }
+
+/* assessment */
+.exam-card { background: var(--purple-light); border: 1px solid #ddc9f5; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
+
+/* parent */
+.parent-card { background: var(--grey-light); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.parent-card ol { padding-left: 20px; }
+.parent-card li { margin-bottom: 8px; }
+
+/* reflection */
+.reflection-card { background: var(--primary-light); border: 1px solid #bfe6ea; border-radius: 10px; padding: 16px; }
+.reflection-card label { display: block; margin-bottom: 12px; font-weight: 600; font-size: 15px; }
+.reflection-card input[type=text] { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border); font-size: 15px; margin-top: 4px; }
+.confidence-scale { display: flex; gap: 8px; margin-top: 6px; }
+.confidence-scale button { flex: 1; background: #fff; border: 1px solid var(--border); }
+.confidence-scale button.selected { background: var(--primary); color: #fff; }
+
+/* metadata */
+.metadata-footer {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 30px;
+  padding: 14px;
+  border-top: 1px solid var(--border);
+}
+
+table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 15px; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+th { background: var(--grey-light); }
+
+@media print {
+  .nav-strip, .flash-controls, .quiz-nav, .quiz-option, button { display: none !important; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .hero-header { padding: 22px 18px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<!-- ================= HERO ================= -->
+<header class="hero-header" id="hero">
+  <div class="hero-eyebrow">Cambridge Lower Secondary Science · Stage 8</div>
+  <h1>Unit 8 — Chemical Reactions</h1>
+  <div class="hero-tag">Full Unit Review · Sections 8.1–8.5</div>
+  <div class="hero-subtitle">Energy Changes • Oxidation • Reactivity • Fair Testing • Word Equations</div>
+  <div class="badge-row">
+    <span class="source-badge">✓ Learner Book Verified</span>
+    <span class="source-badge">✓ Workbook Verified</span>
+    <span class="source-badge">✓ Answer Key Verified</span>
+    <span class="source-badge">✓ Progression Tests Reviewed</span>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="nav-strip" aria-label="Unit review navigation">
+  <a href="#overview">Overview</a>
+  <a href="#bigideas">Big Ideas</a>
+  <a href="#architecture">Knowledge Map</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#anchors">Sections</a>
+  <a href="#misconceptions">Misconceptions</a>
+  <a href="#investigations">Investigations</a>
+  <a href="#diagrams">Diagrams</a>
+  <a href="#reasoning">Reasoning</a>
+  <a href="#realworld">Real World</a>
+  <a href="#flashcards">Flashcards</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#teachback">Teach-Back</a>
+  <a href="#assessment">Exam Ready</a>
+  <a href="#parent">Parent Check</a>
+  <a href="#reflection">Reflection</a>
+</nav>
+
+<!-- ================= UNIT OVERVIEW ================= -->
+<section class="section-card accent-teal" id="overview">
+  <div class="section-header">
+    <div class="section-kicker">Unit Big Picture</div>
+    <h2>What is this Unit really about?</h2>
+  </div>
+  <p>Unit 8 tells one connected scientific story: <strong>chemical reactions always involve a transfer of energy</strong>, and <strong>metals react with oxygen, water and acid in predictable ways that depend on how reactive they are.</strong></p>
+  <p>You started by learning that reactions can release energy (exothermic) or absorb energy (endothermic), and that this energy change can be measured with a thermometer. You then applied this idea to a very important family of reactions — metals reacting with oxygen, water and dilute acid. In every case, you saw the same pattern: more reactive metals react faster and more vigorously, evidence from experiments can be used to rank metals in a reactivity series, and word equations describe how reactants rearrange into new products without atoms being created or destroyed.</p>
+  <p>Along the way, you practised the scientific enquiry skills that link the whole Unit together: identifying variables, planning fair tests, measuring temperature change correctly, and using evidence — not assumptions — to reach conclusions.</p>
+</section>
+
+<!-- ================= BIG IDEAS ================= -->
+<section class="section-card accent-teal" id="bigideas">
+  <div class="section-header">
+    <div class="section-kicker">Unit Big Ideas</div>
+    <h2>The ideas to remember long after this Unit ends</h2>
+  </div>
+  <div class="grid grid-2">
+    <div class="bigidea-card">
+      <div class="num">BIG IDEA 1</div>
+      <h4>Reactions transfer energy</h4>
+      <p>Every chemical reaction either gives out thermal energy to the surroundings (exothermic) or takes it in (endothermic). Temperature change is the evidence used to tell the two apart.</p>
+    </div>
+    <div class="bigidea-card">
+      <div class="num">BIG IDEA 2</div>
+      <h4>Reactivity is a predictable pattern</h4>
+      <p>Metals differ in how strongly they react with oxygen, water and acid. This reactivity can be ranked using experimental evidence, and it predicts safe handling, storage and everyday uses.</p>
+    </div>
+    <div class="bigidea-card">
+      <div class="num">BIG IDEA 3</div>
+      <h4>Word equations show conservation</h4>
+      <p>metal + oxygen → oxide; metal + water → hydroxide (or oxide) + hydrogen; metal + acid → salt + hydrogen. Atoms rearrange into new substances — they are never created or destroyed.</p>
+    </div>
+    <div class="bigidea-card">
+      <div class="num">BIG IDEA 4</div>
+      <h4>Reaction rate is not the same as amount of product</h4>
+      <p>A fast, vigorous reaction shows high reactivity — it does not automatically mean more product has been made. These are two separate pieces of evidence.</p>
+    </div>
+    <div class="bigidea-card">
+      <div class="num">BIG IDEA 5</div>
+      <h4>Fair testing makes evidence trustworthy</h4>
+      <p>To compare reactions fairly, only one variable (for example, the metal) should change. Everything else — acid type, concentration, volume, mass of metal — must be controlled.</p>
+    </div>
+    <div class="bigidea-card">
+      <div class="num">BIG IDEA 6</div>
+      <h4>Very reactive metals need special safety rules</h4>
+      <p>Potassium, sodium and calcium react so strongly with oxygen, water and acid that they are stored under oil and are never tested with dilute acid in a school laboratory.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KNOWLEDGE ARCHITECTURE ================= -->
+<section class="section-card accent-blue" id="architecture">
+  <div class="section-header">
+    <div class="section-kicker">Unit Knowledge Architecture</div>
+    <h2>How the ideas in this Unit connect</h2>
+  </div>
+  <div class="diagram-card">
+    <svg viewBox="0 0 820 430" role="img" aria-labelledby="archTitle archDesc">
+      <title id="archTitle">Unit 8 knowledge map</title>
+      <desc id="archDesc">A diagram showing exothermic and endothermic reactions at the top, connected to three metal reaction pathways: metal with oxygen, metal with water, and metal with dilute acid, all governed by the reactivity series.</desc>
+
+      <!-- top box -->
+      <rect x="270" y="10" width="280" height="56" rx="10" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+      <text x="410" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="#005F6B">Chemical Reactions</text>
+      <text x="410" y="52" text-anchor="middle" font-size="12.5" fill="#005F6B">transfer thermal energy</text>
+
+      <!-- exo / endo -->
+      <rect x="120" y="90" width="190" height="50" rx="8" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+      <text x="215" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#a6690a">Exothermic</text>
+      <text x="215" y="128" text-anchor="middle" font-size="11.5" fill="#a6690a">releases energy (temp ↑)</text>
+
+      <rect x="510" y="90" width="190" height="50" rx="8" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+      <text x="605" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#1F6FB2">Endothermic</text>
+      <text x="605" y="128" text-anchor="middle" font-size="11.5" fill="#1F6FB2">absorbs energy (temp ↓)</text>
+
+      <line x1="410" y1="66" x2="215" y2="90" stroke="#999" stroke-width="1.5"/>
+      <line x1="410" y1="66" x2="605" y2="90" stroke="#999" stroke-width="1.5"/>
+
+      <!-- metal reactions row -->
+      <rect x="30" y="200" width="230" height="66" rx="8" fill="#EDF8EE" stroke="#2E7D32" stroke-width="2"/>
+      <text x="145" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#2E7D32">metal + oxygen</text>
+      <text x="145" y="238" text-anchor="middle" font-size="12" fill="#2E7D32">→ metal oxide</text>
+      <text x="145" y="254" text-anchor="middle" font-size="11" fill="#2E7D32">(8.3 rusting = O₂ + H₂O)</text>
+
+      <rect x="295" y="200" width="230" height="66" rx="8" fill="#EDF8EE" stroke="#2E7D32" stroke-width="2"/>
+      <text x="410" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#2E7D32">metal + water</text>
+      <text x="410" y="238" text-anchor="middle" font-size="12" fill="#2E7D32">→ hydroxide/oxide + H₂</text>
+      <text x="410" y="254" text-anchor="middle" font-size="11" fill="#2E7D32">(8.4 cold water / steam)</text>
+
+      <rect x="560" y="200" width="230" height="66" rx="8" fill="#EDF8EE" stroke="#2E7D32" stroke-width="2"/>
+      <text x="675" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#2E7D32">metal + dilute acid</text>
+      <text x="675" y="238" text-anchor="middle" font-size="12" fill="#2E7D32">→ salt + H₂</text>
+      <text x="675" y="254" text-anchor="middle" font-size="11" fill="#2E7D32">(8.5 chloride/sulfate/nitrate)</text>
+
+      <line x1="215" y1="140" x2="145" y2="200" stroke="#999" stroke-width="1.5"/>
+      <line x1="215" y1="140" x2="410" y2="200" stroke="#999" stroke-width="1.5"/>
+      <line x1="215" y1="140" x2="675" y2="200" stroke="#999" stroke-width="1.5"/>
+
+      <!-- reactivity series bottom -->
+      <rect x="150" y="320" width="520" height="66" rx="8" fill="#F3ECFD" stroke="#7E57C2" stroke-width="2"/>
+      <text x="410" y="345" text-anchor="middle" font-size="14" font-weight="700" fill="#5b3d99">Reactivity Series (evidence-based ranking)</text>
+      <text x="410" y="364" text-anchor="middle" font-size="12" fill="#5b3d99">K &gt; Na &gt; Ca &gt; Mg &gt; Zn &gt; Fe &gt; Cu &gt; Ag &gt; Au</text>
+      <text x="410" y="380" text-anchor="middle" font-size="11" fill="#5b3d99">predicts speed, safety and everyday uses</text>
+
+      <line x1="145" y1="266" x2="300" y2="320" stroke="#999" stroke-width="1.5"/>
+      <line x1="410" y1="266" x2="410" y2="320" stroke="#999" stroke-width="1.5"/>
+      <line x1="675" y1="266" x2="530" y2="320" stroke="#999" stroke-width="1.5"/>
+    </svg>
+    <p class="diagram-caption">Exothermic/endothermic ideas (8.1–8.2) apply directly to the three metal-reaction families (8.3–8.5), which are all organised by one reactivity series.</p>
+  </div>
+
+  <div class="diagram-card">
+    <svg viewBox="0 0 780 300" role="img" aria-labelledby="ladderTitle ladderDesc">
+      <title id="ladderTitle">Reactivity ladder for metals with oxygen, water and acid</title>
+      <desc id="ladderDesc">A ladder showing potassium, sodium, calcium, magnesium, zinc, iron, copper, silver and gold ordered from most to least reactive, with columns showing reaction with oxygen, water and acid.</desc>
+      <text x="20" y="24" font-size="13" font-weight="700" fill="#1F2937">Metal</text>
+      <text x="220" y="24" font-size="13" font-weight="700" fill="#1F6FB2">+ Oxygen</text>
+      <text x="420" y="24" font-size="13" font-weight="700" fill="#2E7D32">+ Water</text>
+      <text x="620" y="24" font-size="13" font-weight="700" fill="#D84343">+ Dilute Acid</text>
+      <!-- rows -->
+      <!-- helper via loop manually -->
+      <g font-size="12.5">
+        <!-- Potassium -->
+        <text x="20" y="52">Potassium</text><text x="220" y="52">reacts at room temp.</text><text x="420" y="52">violent, catches fire</text><text x="620" y="52">must NOT test</text>
+        <!-- Sodium -->
+        <text x="20" y="78">Sodium</text><text x="220" y="78">reacts at room temp.</text><text x="420" y="78">vigorous, fizzes</text><text x="620" y="78">must NOT test</text>
+        <!-- Calcium -->
+        <text x="20" y="104">Calcium</text><text x="220" y="104">reacts at room temp.</text><text x="420" y="104">steady bubbling</text><text x="620" y="104">must NOT test</text>
+        <!-- Magnesium -->
+        <text x="20" y="130">Magnesium</text><text x="220" y="130">burns brightly, heated</text><text x="420" y="130">slow (cold), fast (steam)</text><text x="620" y="130">fast, vigorous</text>
+        <!-- Zinc -->
+        <text x="20" y="156">Zinc</text><text x="220" y="156">reacts when heated</text><text x="420" y="156">reacts with steam only</text><text x="620" y="156">moderate, steady</text>
+        <!-- Iron -->
+        <text x="20" y="182">Iron</text><text x="220" y="182">reacts slowly (rust)</text><text x="420" y="182">very slow / steam</text><text x="620" y="182">slow</text>
+        <!-- Copper -->
+        <text x="20" y="208">Copper</text><text x="220" y="208">reacts slowly when heated</text><text x="420" y="208">does not react</text><text x="620" y="208">does not react</text>
+        <!-- Silver -->
+        <text x="20" y="234">Silver</text><text x="220" y="234">very slow (air, long-term)</text><text x="420" y="234">does not react</text><text x="620" y="234">does not react</text>
+        <!-- Gold -->
+        <text x="20" y="260">Gold</text><text x="220" y="260">inert — no reaction</text><text x="420" y="260">does not react</text><text x="620" y="260">does not react</text>
+      </g>
+      <line x1="0" y1="34" x2="780" y2="34" stroke="#ccc" stroke-width="1"/>
+      <rect x="0" y="0" width="780" height="290" fill="none" stroke="#E1E5EA" stroke-width="1"/>
+    </svg>
+    <p class="diagram-caption">The same reactivity order explains behaviour in every family of reaction studied in this Unit — this is why the reactivity series is the "spine" connecting Sections 8.3, 8.4 and 8.5.</p>
+  </div>
+</section>
+
+<!-- ================= VOCABULARY ================= -->
+<section class="section-card accent-green" id="vocabulary">
+  <div class="section-header">
+    <div class="section-kicker">Vocabulary Master List</div>
+    <h2>The scientific language of Unit 8</h2>
+  </div>
+
+  <div class="group-label">Energy Change Vocabulary</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="word">exothermic</div><div class="meaning">A reaction that gives out thermal energy — temperature rises.</div></div>
+    <div class="vocab-card"><div class="word">endothermic reaction</div><div class="meaning">A reaction that absorbs thermal energy and forms new substances — temperature falls.</div></div>
+    <div class="vocab-card"><div class="word">endothermic process</div><div class="meaning">A physical change (e.g. melting) that absorbs energy but forms no new substance.</div></div>
+    <div class="vocab-card"><div class="word">combustion</div><div class="meaning">Burning — a fuel reacts with oxygen and releases energy.</div></div>
+    <div class="vocab-card"><div class="word">dissipate</div><div class="meaning">To spread out into the surroundings, e.g. released thermal energy.</div></div>
+    <div class="vocab-card"><div class="word">insulator</div><div class="meaning">A material (e.g. polystyrene cup) that reduces thermal energy transfer, improving accuracy.</div></div>
+  </div>
+
+  <div class="group-label">Reactions of Metals Vocabulary</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="word">oxidation</div><div class="meaning">A reaction in which a substance combines with oxygen to form an oxide.</div></div>
+    <div class="vocab-card"><div class="word">reactivity</div><div class="meaning">How readily and quickly a metal reacts with oxygen, water or acid.</div></div>
+    <div class="vocab-card"><div class="word">reactivity series</div><div class="meaning">An evidence-based ranking of metals from most to least reactive.</div></div>
+    <div class="vocab-card"><div class="word">inert</div><div class="meaning">Does not react (or reacts extremely slowly) with other substances, e.g. gold.</div></div>
+    <div class="vocab-card"><div class="word">rust</div><div class="meaning">Iron oxide — forms only when iron reacts with BOTH oxygen and water.</div></div>
+    <div class="vocab-card"><div class="word">metal hydroxide</div><div class="meaning">Product formed, with hydrogen, when a metal reacts with water.</div></div>
+    <div class="vocab-card"><div class="word">metal oxide</div><div class="meaning">Product formed when a metal reacts with oxygen or with steam.</div></div>
+    <div class="vocab-card"><div class="word">steam</div><div class="meaning">Water in the gas state; its particles carry more energy than cold water particles.</div></div>
+    <div class="vocab-card"><div class="word">salt</div><div class="meaning">Compound formed when a metal replaces the hydrogen in an acid.</div></div>
+    <div class="vocab-card"><div class="word">dilute</div><div class="meaning">Mixed with a large amount of water, making a solution weaker.</div></div>
+    <div class="vocab-card"><div class="word">hydrogen</div><div class="meaning">Light gas produced when reactive metals react with water or acid; tested with a "squeaky pop".</div></div>
+    <div class="vocab-card"><div class="word">word equation</div><div class="meaning">A reaction shown using the names of reactants and products, e.g. metal + acid → salt + hydrogen.</div></div>
+  </div>
+
+  <div class="group-label">Scientific Enquiry Vocabulary</div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><div class="word">fair test</div><div class="meaning">An investigation where only one variable changes and all others are controlled.</div></div>
+    <div class="vocab-card"><div class="word">independent variable</div><div class="meaning">The one factor deliberately changed in an investigation.</div></div>
+    <div class="vocab-card"><div class="word">dependent variable</div><div class="meaning">The factor measured to see if it has changed.</div></div>
+    <div class="vocab-card"><div class="word">control variable</div><div class="meaning">A factor kept the same to ensure a fair, valid comparison.</div></div>
+    <div class="vocab-card"><div class="word">reactant / product</div><div class="meaning">Substances present before (reactant) and after (product) a reaction.</div></div>
+    <div class="vocab-card"><div class="word">displacement of water</div><div class="meaning">Method of collecting a gas by letting it push water out of an inverted, water-filled container.</div></div>
+  </div>
+</section>
+
+<!-- ================= SECTION KNOWLEDGE ANCHORS ================= -->
+<section class="section-card accent-blue" id="anchors">
+  <div class="section-header">
+    <div class="section-kicker">Section Knowledge Anchors</div>
+    <h2>Quick locators for each section</h2>
+  </div>
+
+  <div class="anchor-card">
+    <h4>8.1 Exothermic Reactions</h4>
+    <p><span class="label">Central idea:</span> Combustion, oxidation, and metal reactions with water/acid all release thermal energy to the surroundings.</p>
+    <p><span class="label">Memorable takeaway:</span> Always compare the temperature <em>rise</em>, not the final temperature, to judge which reaction released more energy.</p>
+    <p><span class="label">Connects to:</span> 8.4 and 8.5 — the same metal-water and metal-acid reactions are exothermic examples.</p>
+  </div>
+
+  <div class="anchor-card">
+    <h4>8.2 Endothermic Reactions</h4>
+    <p><span class="label">Central idea:</span> Some reactions absorb thermal energy, so the surroundings cool down; this is different from an endothermic process (no new substance).</p>
+    <p><span class="label">Memorable takeaway:</span> If a new substance forms and temperature drops → endothermic reaction. If no new substance forms (e.g. ice melting) → endothermic process.</p>
+    <p><span class="label">Connects to:</span> 8.1 — the direct opposite case, used to strengthen the "is this a reaction?" thinking test.</p>
+  </div>
+
+  <div class="anchor-card">
+    <h4>8.3 Metals and their Reactions with Oxygen</h4>
+    <p><span class="label">Central idea:</span> Metals react with oxygen (oxidation) at very different rates, and rusting needs both oxygen AND water.</p>
+    <p><span class="label">Memorable takeaway:</span> Painting and galvanising protect iron by blocking oxygen (and water) from reaching it.</p>
+    <p><span class="label">Connects to:</span> 8.4 and 8.5 — introduces the reactivity series used throughout the rest of the Unit.</p>
+  </div>
+
+  <div class="anchor-card">
+    <h4>8.4 Reactions of Metals with Water</h4>
+    <p><span class="label">Central idea:</span> Metals react with cold water, hot water or steam at rates that match their position in the reactivity series.</p>
+    <p><span class="label">Memorable takeaway:</span> Steam particles carry more energy than cold water particles, so a metal that seems unreactive in cold water may react well with steam.</p>
+    <p><span class="label">Connects to:</span> 8.3 — same reactivity order; 8.5 — same experimental thinking (gas collection, safety).</p>
+  </div>
+
+  <div class="anchor-card">
+    <h4>8.5 Reactions of Metals with Dilute Acids</h4>
+    <p><span class="label">Central idea:</span> metal + dilute acid → salt + hydrogen; reaction speed provides evidence for ranking metal reactivity.</p>
+    <p><span class="label">Memorable takeaway:</span> A fast reaction proves high reactivity — it does NOT automatically mean more product was made.</p>
+    <p><span class="label">Connects to:</span> 8.3 and 8.4 — completes the reactivity-series evidence built across the whole Unit.</p>
+  </div>
+</section>
+
+<!-- ================= MISCONCEPTIONS ================= -->
+<section class="section-card accent-red" id="misconceptions">
+  <div class="section-header">
+    <div class="section-kicker">Common Misconceptions — Merged Across the Unit</div>
+    <h2>Ideas that often get muddled</h2>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ A faster or more vigorous reaction always makes more product.</span>
+    <span class="right">✔ Reaction rate (speed) and the total amount of product are two different things. A fast reaction just means high reactivity — the total product depends on the quantities of reactants used.</span>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ The highest final temperature shows which reaction gave out the most energy.</span>
+    <span class="right">✔ You must compare the temperature <em>rise</em> (end − start), because two reactions can start at different temperatures.</span>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ Metal "disappears" or is destroyed in a reaction.</span>
+    <span class="right">✔ Atoms are conserved — the metal's atoms become part of the new product (oxide, hydroxide or salt); they are rearranged, never destroyed.</span>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ If a metal doesn't react with water (or oxygen), it must be completely inert.</span>
+    <span class="right">✔ "Does not react with water" only describes that one reaction. True inertness (like gold) means a metal barely reacts with almost anything — water, oxygen AND acid.</span>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ Steam is a different chemical substance from water.</span>
+    <span class="right">✔ Steam is water in the gas state — chemically identical to liquid water, but its particles have much more energy, so it reacts faster.</span>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ Rusting only needs oxygen, or only needs water.</span>
+    <span class="right">✔ Rusting needs BOTH oxygen and water present together. Removing either one prevents or greatly slows rusting.</span>
+  </div>
+
+  <div class="misc-card">
+    <span class="wrong">❌ A temperature drop means "nothing is happening".</span>
+    <span class="right">✔ A temperature drop is strong evidence that a change IS happening — it shows the change is endothermic.</span>
+  </div>
+</section>
+
+<!-- ================= INVESTIGATION REVIEW ================= -->
+<section class="section-card accent-orange" id="investigations">
+  <div class="section-header">
+    <div class="section-kicker">Investigation and Enquiry Review</div>
+    <h2>How your scientific enquiry skills grew across the Unit</h2>
+  </div>
+  <p>Every investigation in this Unit trained the same core skills: identifying variables, controlling variables for a fair test, choosing the correct measurement, and using evidence rather than assumption to draw a conclusion.</p>
+
+  <div class="invest-card">
+    <h4>Measuring energy change (8.1 / 8.2)</h4>
+    <p>Skill focus: measuring temperature before and after a reaction, using an insulated container to reduce heat loss, and comparing the temperature <em>change</em> fairly across different trials.</p>
+  </div>
+
+  <div class="invest-card">
+    <h4>Testing conditions for rusting (8.3)</h4>
+    <p>Skill focus: setting up several test tubes with different combinations of air and water, keeping the type/size of nail the same (control variable), and concluding that both oxygen and water are necessary.</p>
+  </div>
+
+  <div class="invest-card">
+    <h4>Comparing metal reactivity with water (8.4)</h4>
+    <p>Skill focus: using sandpaper to clean a metal surface before testing, observing bubble production, and recognising when a reaction needs hotter conditions (steam) to become visible.</p>
+  </div>
+
+  <div class="invest-card">
+    <h4>Ranking reactivity with acid (8.5)</h4>
+    <p>Skill focus: identifying and controlling variables (acid type, concentration, volume, metal size/mass), timing gas collection by displacement of water, and safely excluding potassium, sodium and calcium from testing.</p>
+  </div>
+
+  <p><strong>Transferable enquiry skill:</strong> In every investigation, only ONE variable should change at a time. If the type of acid, concentration, volume, or metal mass differs between test tubes, the comparison is not valid — no matter how careful the observations are.</p>
+</section>
+
+<!-- ================= DIAGRAM MASTERY ================= -->
+<section class="section-card accent-blue" id="diagrams">
+  <div class="section-header">
+    <div class="section-kicker">Diagram and Model Mastery</div>
+    <h2>The apparatus and models you must recognise</h2>
+  </div>
+
+  <div class="diagram-card">
+    <svg viewBox="0 0 400 220" role="img" aria-labelledby="fireTitle fireDesc">
+      <title id="fireTitle">The fire triangle</title>
+      <desc id="fireDesc">A triangle labelled fuel, oxygen and heat, with fire shown at the centre.</desc>
+      <polygon points="200,20 40,190 360,190" fill="none" stroke="#F39C12" stroke-width="4"/>
+      <text x="200" y="10" text-anchor="middle" font-size="14" font-weight="700" fill="#a6690a">Heat</text>
+      <text x="30" y="205" font-size="14" font-weight="700" fill="#a6690a">Fuel</text>
+      <text x="330" y="205" font-size="14" font-weight="700" fill="#a6690a">Oxygen</text>
+      <text x="200" y="130" text-anchor="middle" font-size="30">🔥</text>
+    </svg>
+    <p class="diagram-caption">Combustion needs all three — fuel, oxygen and heat — together. Removing any one stops the fire.</p>
+  </div>
+
+  <div class="diagram-card">
+    <svg viewBox="0 0 420 260" role="img" aria-labelledby="gasTitle gasDesc">
+      <title id="gasTitle">Gas collection apparatus by displacement of water</title>
+      <desc id="gasDesc">A conical flask containing metal and dilute acid, connected by a delivery tube to an inverted test tube collecting hydrogen gas over water in a trough.</desc>
+      <path d="M60 60 L100 130 L100 170 L20 170 L20 130 Z" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+      <text x="60" y="55" text-anchor="middle" font-size="11">metal + acid</text>
+      <path d="M100 100 L260 60" stroke="#1F6FB2" stroke-width="3" fill="none"/>
+      <rect x="150" y="150" width="220" height="60" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+      <text x="260" y="230" text-anchor="middle" font-size="12">water trough</text>
+      <rect x="255" y="70" width="24" height="90" fill="#fff" stroke="#1F6FB2" stroke-width="2"/>
+      <text x="267" y="65" text-anchor="middle" font-size="11">hydrogen</text>
+    </svg>
+    <p class="diagram-caption">Hydrogen gas is collected by pushing water out of an inverted, water-filled test tube — used in 8.4 and 8.5.</p>
+  </div>
+
+  <div class="diagram-card">
+    <svg viewBox="0 0 460 200" role="img" aria-labelledby="rustTitle rustDesc">
+      <title id="rustTitle">Rusting investigation: four test tubes</title>
+      <desc id="rustDesc">Four test tubes: dry air with calcium chloride and stopper (no rust); moist air, open (rusts); water and air, open (rusts most); boiled water with oil layer, stoppered (little rust).</desc>
+      <g font-size="11" text-anchor="middle">
+        <rect x="10" y="40" width="60" height="110" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+        <text x="40" y="30">A: dry air</text>
+        <text x="40" y="170">no rust</text>
+
+        <rect x="120" y="40" width="60" height="110" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+        <text x="150" y="30">B: moist air</text>
+        <text x="150" y="170">rusts</text>
+
+        <rect x="230" y="40" width="60" height="110" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+        <text x="260" y="30">C: water + air</text>
+        <text x="260" y="170">rusts most</text>
+
+        <rect x="340" y="40" width="60" height="110" fill="#FFF4E6" stroke="#F39C12" stroke-width="2"/>
+        <text x="370" y="30">D: boiled water</text>
+        <text x="370" y="170">little rust</text>
+      </g>
+    </svg>
+    <p class="diagram-caption">Comparing all four tubes gives evidence that rusting needs both oxygen AND water present together.</p>
+  </div>
+</section>
+
+<!-- ================= SCIENTIFIC REASONING ================= -->
+<section class="section-card accent-purple" id="reasoning">
+  <div class="section-header">
+    <div class="section-kicker">Scientific Reasoning Review</div>
+    <h2>Thinking skills this Unit developed</h2>
+  </div>
+  <div class="grid grid-2">
+    <div class="mini-card">
+      <h4>Comparing evidence fairly</h4>
+      <p>Comparing temperature <em>rise</em>, not final temperature; comparing reaction time using the same mass/size of metal.</p>
+    </div>
+    <div class="mini-card">
+      <h4>Distinguishing reaction vs. process</h4>
+      <p>Asking "has a new substance formed?" to decide if a change is a chemical reaction or a physical process.</p>
+    </div>
+    <div class="mini-card">
+      <h4>Necessary vs. sufficient conditions</h4>
+      <p>Rusting needs oxygen AND water — neither condition alone is sufficient.</p>
+    </div>
+    <div class="mini-card">
+      <h4>Using rate as evidence for reactivity</h4>
+      <p>Faster bubbling or shorter gas-collection time is used as evidence to rank metals — always checked against a fair test.</p>
+    </div>
+    <div class="mini-card">
+      <h4>Evaluating investigations</h4>
+      <p>Spotting when an investigation is NOT a fair test (e.g. different acid concentrations, unequal metal sizes) and explaining why the result cannot be trusted.</p>
+    </div>
+    <div class="mini-card">
+      <h4>Predicting from a pattern</h4>
+      <p>Using a metal's position in the reactivity series to predict how it will behave with oxygen, water or acid — even without testing it directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REAL WORLD SCIENCE ================= -->
+<section class="section-card accent-orange" id="realworld">
+  <div class="section-header">
+    <div class="section-kicker">Real World Science</div>
+    <h2>Where this Unit's science shows up in everyday life</h2>
+  </div>
+  <div class="grid grid-2">
+    <div class="realworld-card"><h4>Self-heating cans and cold packs</h4><p>Self-heating cans use an exothermic reaction (calcium oxide + water). Instant cold packs use an endothermic process (a salt dissolving in water) to cool quickly.</p></div>
+    <div class="realworld-card"><h4>Copper water pipes</h4><p>Copper is used for pipes and roofing because it barely reacts with water — unlike more reactive metals such as magnesium.</p></div>
+    <div class="realworld-card"><h4>Protecting iron structures</h4><p>Painting and galvanising (coating with zinc) stop oxygen and water reaching iron, preventing rust from weakening bridges, cars and buildings.</p></div>
+    <div class="realworld-card"><h4>Storing reactive metals safely</h4><p>Potassium, sodium and calcium are stored under oil in labs and industry because they react readily with oxygen and moisture in the air.</p></div>
+  </div>
+</section>
+
+<!-- ================= FLASHCARDS ================= -->
+<section class="section-card accent-purple" id="flashcards">
+  <div class="section-header">
+    <div class="section-kicker">Interactive Revision Flashcards</div>
+    <h2>Test your recall — click a card to flip it</h2>
+  </div>
+  <div class="flash-wrap">
+    <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-live="polite">Loading...</div>
+    <div class="flash-counter" id="flashCounter"></div>
+    <div class="flash-controls">
+      <button class="btn-secondary" id="flashPrev">◀ Previous</button>
+      <button class="btn-primary" id="flashFlip">Flip Card</button>
+      <button class="btn-secondary" id="flashNext">Next ▶</button>
+      <button class="btn-secondary" id="flashShuffle">🔀 Shuffle</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section class="section-card accent-purple" id="quiz">
+  <div class="section-header">
+    <div class="section-kicker">Integrated Mixed Quiz</div>
+    <h2>Check your understanding of the whole Unit</h2>
+  </div>
+  <div class="quiz-progress" id="quizProgress">Question 1 of 10</div>
+  <div id="quizContainer"></div>
+  <div id="quiz-result">
+    <div class="score" id="quizScore"></div>
+    <p id="quizMessage"></p>
+    <button class="btn-primary" id="quizRestart">Try Again</button>
+  </div>
+</section>
+
+<!-- ================= TEACH-BACK ================= -->
+<section class="section-card accent-purple" id="teachback">
+  <div class="section-header">
+    <div class="section-kicker">Unit Teach-Back Challenge</div>
+    <h2>Explain the whole Unit like a scientist</h2>
+  </div>
+  <div class="teach-grid">
+    <div class="teach-card teach-bronze">
+      <h4>🥉 Bronze</h4>
+      <p>List the three general word equations from this Unit: metal + oxygen, metal + water, metal + dilute acid.</p>
+    </div>
+    <div class="teach-card teach-silver">
+      <h4>🥈 Silver</h4>
+      <p>In your own words, explain the difference between an exothermic reaction and an endothermic reaction, using one example of each from this Unit.</p>
+    </div>
+    <div class="teach-card teach-gold">
+      <h4>🥇 Gold</h4>
+      <p>Use the reactivity series to explain why potassium must never be tested with dilute acid, but gold shows no reaction with oxygen, water or acid at all.</p>
+    </div>
+    <div class="teach-card teach-platinum">
+      <h4>🏆 Platinum</h4>
+      <p>Design a fair test to compare the reactivity of magnesium, zinc and iron with dilute acid. Explain what you would change, measure and control, and predict the order of reactivity using evidence from this Unit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ASSESSMENT PREPARATION ================= -->
+<section class="section-card accent-purple" id="assessment">
+  <div class="section-header">
+    <div class="section-kicker">Assessment Preparation</div>
+    <h2>Getting ready for Cambridge-style questions</h2>
+  </div>
+  <div class="exam-card"><strong>Word equations:</strong> Practise writing equations in the correct order — reactants on the left, products on the right, with a single arrow (→). Marks are usually given separately for correct reactants and correct products.</div>
+  <div class="exam-card"><strong>Command words:</strong> "Describe" asks what happens; "Explain" asks why it happens; "Compare" asks for similarities and differences; "Evaluate" asks you to judge how reliable or fair an investigation is.</div>
+  <div class="exam-card"><strong>Diagram interpretation:</strong> Be ready to read apparatus diagrams (gas collection, rusting test tubes, temperature apparatus) and explain what each part is doing.</div>
+  <div class="exam-card"><strong>Identifying unsafe metals:</strong> Be ready to name which metals (potassium, sodium, calcium) must never be tested directly with acid, and explain why using reactivity.</div>
+  <div class="exam-card"><strong>Evaluating fair tests:</strong> Look carefully for unequal volumes, concentrations, or metal sizes between test tubes — these are common exam scenarios (as seen in the Workbook exercises).</div>
+</section>
+
+<!-- ================= PARENT CHECK ================= -->
+<section class="section-card accent-grey" id="parent">
+  <div class="section-header">
+    <div class="section-kicker">Parent Oral Review</div>
+    <h2>Simple questions to ask your child</h2>
+  </div>
+  <div class="parent-card">
+    <ol>
+      <li>What is the difference between an exothermic and an endothermic reaction?</li>
+      <li>Why must you compare temperature rise, not the final temperature, in an investigation?</li>
+      <li>What two things does iron need to rust?</li>
+      <li>Why are potassium, sodium and calcium stored under oil?</li>
+      <li>What are the products when a metal reacts with dilute acid?</li>
+      <li>How would you test whether a gas is hydrogen?</li>
+      <li>Which metal reacts fastest with dilute acid: magnesium, zinc or copper — and why?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= REFLECTION ================= -->
+<section class="section-card accent-teal" id="reflection">
+  <div class="section-header">
+    <div class="section-kicker">Self Reflection</div>
+    <h2>Before you move on...</h2>
+  </div>
+  <div class="reflection-card">
+    <label>Which Big Idea do you understand best?
+      <input type="text" placeholder="Write your answer here">
+    </label>
+    <label>Which scientific concept still feels challenging?
+      <input type="text" placeholder="Write your answer here">
+    </label>
+    <label>Which investigation skill improved the most?
+      <input type="text" placeholder="Write your answer here">
+    </label>
+    <label>Which connection between topics surprised you?
+      <input type="text" placeholder="Write your answer here">
+    </label>
+    <label>How confident do you feel before your next assessment?
+      <div class="confidence-scale" id="confidenceScale">
+        <button type="button" data-v="1">1</button>
+        <button type="button" data-v="2">2</button>
+        <button type="button" data-v="3">3</button>
+        <button type="button" data-v="4">4</button>
+        <button type="button" data-v="5">5</button>
+      </div>
+    </label>
+  </div>
+</section>
+
+<!-- ================= METADATA ================= -->
+<footer class="metadata-footer">
+  Cambridge Lower Secondary Science Stage 8 Self-Study Coach · Unit 8: Chemical Reactions — Full Unit Review (O4)<br>
+  UI Version 2.1 · Content Standard v3.0 · Project Version 3.0<br>
+  Sources: Unit Knowledge Base 8.1–8.5, Learner Book, Workbook, Answer Keys, Progression Test evidence.
+</footer>
+
+</main>
+
+<script>
+/* ===================== FLASHCARDS ===================== */
+const flashcards = [
+  {tag:"Vocabulary", q:"What does 'exothermic' mean?", a:"A reaction that gives out thermal energy to the surroundings, so temperature rises."},
+  {tag:"Vocabulary", q:"What does 'endothermic process' mean?", a:"A physical change (like melting) that absorbs energy but forms no new substance."},
+  {tag:"Vocabulary", q:"What is the 'reactivity series'?", a:"An evidence-based ranking of metals from most to least reactive."},
+  {tag:"Vocabulary", q:"What does 'inert' mean?", a:"Does not react (or reacts extremely slowly) with other substances, e.g. gold."},
+  {tag:"Concept", q:"What is the general word equation for a metal reacting with oxygen?", a:"metal + oxygen → metal oxide"},
+  {tag:"Concept", q:"What is the general word equation for a metal reacting with water?", a:"metal + water → metal hydroxide + hydrogen"},
+  {tag:"Concept", q:"What is the general word equation for a metal reacting with dilute acid?", a:"metal + acid → salt + hydrogen"},
+  {tag:"Concept", q:"Which two conditions are both needed for iron to rust?", a:"Oxygen AND water must both be present."},
+  {tag:"Concept", q:"Why does hydrochloric acid always produce a chloride salt?", a:"The type of acid decides the ending of the salt's name (hydrochloric → chloride)."},
+  {tag:"Diagram", q:"How is hydrogen gas usually collected in these investigations?", a:"By displacement of water — the gas pushes water out of an inverted, water-filled test tube."},
+  {tag:"Diagram", q:"What three things does the fire triangle show are needed for combustion?", a:"Fuel, oxygen and heat — all present together."},
+  {tag:"Investigation", q:"Why must the mass/size of metal be controlled when comparing reactivity?", a:"So the only variable that changes is the type of metal — this keeps the test fair."},
+  {tag:"Investigation", q:"How do you correctly compare the energy released by two reactions?", a:"Compare the temperature RISE (end minus start), not the final temperature."},
+  {tag:"Misconception", q:"Does a faster reaction always make more product?", a:"No — a fast reaction shows high reactivity, but the amount of product depends on the quantities used."},
+  {tag:"Misconception", q:"If a metal doesn't react with water, is it fully inert?", a:"Not necessarily — it may still react with oxygen or acid. True inertness means it barely reacts with anything."},
+  {tag:"Safety", q:"Which three metals must never be tested with dilute acid in class?", a:"Potassium, sodium and calcium — the reaction would be too violent or dangerous."}
+];
+let flashIndex = 0, flashFlipped = false;
+const flashcardEl = document.getElementById('flashcard');
+const flashCounter = document.getElementById('flashCounter');
+
+function renderFlash() {
+  const card = flashcards[flashIndex];
+  flashFlipped = false;
+  flashcardEl.innerHTML = '<span class="tag">' + card.tag + ' · Question</span>' + card.q;
+  flashCounter.textContent = "Card " + (flashIndex + 1) + " of " + flashcards.length;
+}
+function flipFlash() {
+  const card = flashcards[flashIndex];
+  flashFlipped = !flashFlipped;
+  if (flashFlipped) {
+    flashcardEl.innerHTML = '<span class="tag">Answer</span>' + card.a;
+  } else {
+    flashcardEl.innerHTML = '<span class="tag">' + card.tag + ' · Question</span>' + card.q;
+  }
+}
+document.getElementById('flashFlip').addEventListener('click', flipFlash);
+flashcardEl.addEventListener('click', flipFlash);
+flashcardEl.addEventListener('keypress', function(e){ if(e.key === 'Enter' || e.key === ' ') flipFlash(); });
+document.getElementById('flashNext').addEventListener('click', function(){
+  flashIndex = (flashIndex + 1) % flashcards.length; renderFlash();
+});
+document.getElementById('flashPrev').addEventListener('click', function(){
+  flashIndex = (flashIndex - 1 + flashcards.length) % flashcards.length; renderFlash();
+});
+document.getElementById('flashShuffle').addEventListener('click', function(){
+  for (let i = flashcards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+  }
+  flashIndex = 0; renderFlash();
+});
+renderFlash();
+
+/* ===================== QUIZ ===================== */
+const quizData = [
+  {level:"Retrieval", q:"What gas is produced when a metal reacts with dilute acid?", options:["Oxygen","Hydrogen","Carbon dioxide","Nitrogen"], correct:1, feedback:"Hydrogen is always produced when a reactive metal reacts with a dilute acid."},
+  {level:"Understanding", q:"Which statement correctly describes an exothermic reaction?", options:["It absorbs thermal energy and the temperature falls","It releases thermal energy and the temperature rises","It never involves a temperature change","It only happens when metals dissolve"], correct:1, feedback:"Exothermic reactions release energy to the surroundings, so temperature rises."},
+  {level:"Interpretation", q:"Two reactions are tested. Reaction A: 20°C → 38°C. Reaction B: 15°C → 30°C. Which released more energy?", options:["Reaction A (rise of 18°C)","Reaction B (rise of 15°C)","Both released the same energy","Cannot be determined"], correct:0, feedback:"Reaction A's temperature rose by 18°C, compared to Reaction B's rise of 15°C — a bigger rise means more energy released."},
+  {level:"Application", q:"Which metal would you expect to react fastest with dilute hydrochloric acid?", options:["Copper","Iron","Magnesium","Gold"], correct:2, feedback:"Magnesium is more reactive than iron and copper, and much more reactive than gold, so it reacts fastest."},
+  {level:"Reasoning", q:"An iron nail in tube A (dry air, stoppered) still shows a little rust. What is the best explanation?", options:["Rust can form with no oxygen or water at all","The stopper likely wasn't sealed properly, letting in some moisture","Dry air always causes rusting","The nail was already a different metal"], correct:1, feedback:"Since rusting requires both oxygen and water, a small amount of rust in a 'dry' tube usually means moisture leaked in."},
+  {level:"Evaluation", q:"Zara tests metal A in 10cm³ of acid, but metal B in only 5cm³ of the same acid. Is this a fair test?", options:["Yes, because the acid type is the same","No, because the volume of acid was not controlled","Yes, because only the metal type matters","No, because different metals were used"], correct:1, feedback:"The volume of acid is a control variable — it must be kept the same for a valid comparison."},
+  {level:"Integrated Challenge", q:"Why are potassium, sodium and calcium never tested directly with dilute acid in a school lab?", options:["They are too unreactive to show any results","Their high reactivity would cause a dangerously violent reaction","They do not produce hydrogen gas","They are too expensive to use"], correct:1, feedback:"These metals are so reactive that adding them to acid could be explosive or dangerous."},
+  {level:"Understanding", q:"Which of these is an endothermic PROCESS, not a reaction?", options:["Sodium hydrogencarbonate + citric acid","Ice melting into water","Magnesium burning in oxygen","Calcium reacting with water"], correct:1, feedback:"Ice melting is a physical change — no new substance forms, so it is a process, not a reaction."},
+  {level:"Application", q:"Which word equation is correctly balanced in structure for a metal + water reaction?", options:["sodium + water → sodium hydroxide + hydrogen","sodium + hydrogen → sodium hydroxide + water","water + hydrogen → sodium + sodium hydroxide","sodium hydroxide → sodium + water + hydrogen"], correct:0, feedback:"metal + water → metal hydroxide + hydrogen is the correct general pattern."},
+  {level:"Integrated Challenge", q:"Copper is used for water pipes, but magnesium is not. Using ideas from this Unit, why?", options:["Magnesium is cheaper, so it is saved for other uses","Copper reacts more with water than magnesium does","Copper barely reacts with water, but magnesium reacts (especially with steam), which would damage the pipe over time","Magnesium cannot be shaped into pipes"], correct:2, feedback:"Copper is low in the reactivity series and barely reacts with water, making it safe for long-term use in pipes."}
+];
+let quizIndex = 0, quizScore = 0, quizAnswered = [];
+
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  quizData.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'quiz-card' + (idx === quizIndex ? ' active' : '');
+    card.id = 'quizCard' + idx;
+    let optsHtml = '<div class="quiz-options">';
+    item.options.forEach((opt, oi) => {
+      optsHtml += '<button type="button" class="quiz-option" data-idx="' + oi + '" onclick="checkQuiz(' + idx + ',' + oi + ')">' + opt + '</button>';
+    });
+    optsHtml += '</div>';
+    card.innerHTML = '<div class="qtag">' + item.level + '</div><h4>' + item.q + '</h4>' + optsHtml +
+      '<div class="quiz-feedback" id="quizFeedback' + idx + '"></div>' +
+      '<div class="quiz-nav"><button class="btn-secondary" onclick="prevQuiz()" ' + (idx===0?'disabled':'') + '>◀ Previous</button>' +
+      '<button class="btn-primary" onclick="nextQuiz(' + idx + ')" id="quizNextBtn' + idx + '" disabled>' + (idx === quizData.length-1 ? 'See Score' : 'Next ▶') + '</button></div>';
+    container.appendChild(card);
+  });
+  document.getElementById('quizProgress').textContent = "Question " + (quizIndex + 1) + " of " + quizData.length;
+}
+
+function checkQuiz(qIdx, optIdx) {
+  if (quizAnswered[qIdx] !== undefined) return;
+  const item = quizData[qIdx];
+  const card = document.getElementById('quizCard' + qIdx);
+  const buttons = card.querySelectorAll('.quiz-option');
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if (i === item.correct) b.classList.add('correct');
+    if (i === optIdx && optIdx !== item.correct) b.classList.add('incorrect');
+  });
+  const fb = document.getElementById('quizFeedback' + qIdx);
+  fb.classList.add('show');
+  if (optIdx === item.correct) {
+    fb.classList.add('ok');
+    fb.textContent = "✅ Correct! " + item.feedback;
+    quizScore++;
+  } else {
+    fb.classList.add('no');
+    fb.textContent = "Not quite. " + item.feedback;
+  }
+  quizAnswered[qIdx] = optIdx;
+  document.getElementById('quizNextBtn' + qIdx).disabled = false;
+}
+
+function nextQuiz(idx) {
+  if (idx === quizData.length - 1) { showQuizResult(); return; }
+  document.getElementById('quizCard' + idx).classList.remove('active');
+  quizIndex = idx + 1;
+  document.getElementById('quizCard' + quizIndex).classList.add('active');
+  document.getElementById('quizProgress').textContent = "Question " + (quizIndex + 1) + " of " + quizData.length;
+}
+function prevQuiz() {
+  document.getElementById('quizCard' + quizIndex).classList.remove('active');
+  quizIndex = quizIndex - 1;
+  document.getElementById('quizCard' + quizIndex).classList.add('active');
+  document.getElementById('quizProgress').textContent = "Question " + (quizIndex + 1) + " of " + quizData.length;
+}
+function showQuizResult() {
+  document.getElementById('quizContainer').style.display = 'none';
+  document.getElementById('quizProgress').style.display = 'none';
+  const resultEl = document.getElementById('quiz-result');
+  resultEl.classList.add('show');
+  const pct = Math.round((quizScore / quizData.length) * 100);
+  document.getElementById('quizScore').textContent = quizScore + " / " + quizData.length + " (" + pct + "%)";
+  let msg = "";
+  if (pct >= 80) msg = "Excellent! You understand how this Unit connects together.";
+  else if (pct >= 50) msg = "Good progress! Review the Misconceptions and Big Ideas sections above.";
+  else msg = "Keep going — revisit the Section Knowledge Anchors and try the flashcards again.";
+  document.getElementById('quizMessage').textContent = msg;
+}
+document.getElementById('quizRestart').addEventListener('click', function(){
+  quizIndex = 0; quizScore = 0; quizAnswered = [];
+  document.getElementById('quizContainer').style.display = '';
+  document.getElementById('quizProgress').style.display = '';
+  document.getElementById('quiz-result').classList.remove('show');
+  renderQuiz();
+});
+renderQuiz();
+
+/* ===================== REFLECTION CONFIDENCE ===================== */
+document.querySelectorAll('#confidenceScale button').forEach(btn => {
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#confidenceScale button').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+</script>
+</body>
+</html>

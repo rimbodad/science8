@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 8.4 — Reactions of Metals with Water</title>
+<style>
+  :root{
+    --primary:#007D8C; --primary-dark:#005F6B; --primary-light:#EAF8FA;
+    --blue:#1F6FB2; --blue-light:#EAF3FC;
+    --green:#2E7D32; --green-light:#EDF8EE;
+    --orange:#F39C12; --orange-light:#FFF4E6;
+    --purple:#7E57C2; --purple-light:#F3ECFD;
+    --red:#D84343; --red-light:#FDECEC;
+    --grey:#666666; --grey-light:#F5F5F5;
+    --background:#FAFAF8; --surface:#FFFFFF; --border:#E1E5EA;
+    --text:#1F2937; --muted:#6B7280;
+    --shadow:0 3px 10px rgba(0,0,0,0.08);
+    --radius:12px; --transition:0.25s ease;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--background); color:var(--text);
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    font-size:17px; line-height:1.55;
+  }
+  main{max-width:900px; margin:0 auto; padding:0 16px 60px;}
+  h1,h2,h3{line-height:1.25;}
+  p{margin:0 0 10px;}
+  .hero{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:#fff; border-radius:0 0 var(--radius) var(--radius);
+    padding:28px 20px 22px; margin-bottom:18px;
+  }
+  .hero .eyebrow{font-size:13px; letter-spacing:1px; opacity:.9; text-transform:uppercase;}
+  .hero h1{font-size:clamp(26px,5vw,36px); margin:6px 0 4px;}
+  .hero .subtitle{font-size:15px; opacity:.95; margin-bottom:12px;}
+  .badges{display:flex; flex-wrap:wrap; gap:8px;}
+  .badge{
+    background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.4);
+    border-radius:20px; padding:4px 12px; font-size:12.5px;
+  }
+  nav.nav-strip{
+    display:flex; gap:8px; overflow-x:auto; padding:10px 4px; margin-bottom:20px;
+    border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--background); z-index:10;
+  }
+  nav.nav-strip a{
+    flex:0 0 auto; text-decoration:none; color:var(--primary-dark); font-size:13.5px; font-weight:600;
+    background:var(--primary-light); padding:8px 12px; border-radius:20px; white-space:nowrap;
+  }
+  nav.nav-strip a:hover, nav.nav-strip a:focus{background:var(--primary); color:#fff; outline:none;}
+  section.card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:22px; margin-bottom:22px;
+  }
+  .section-head{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .section-head .icon{font-size:22px;}
+  .section-head h2{font-size:22px; margin:0; color:var(--primary-dark);}
+  .section-sub{color:var(--muted); font-size:14.5px; margin-bottom:16px;}
+  .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(270px,1fr));}
+  .vocab-card{
+    border:1px solid var(--border); border-radius:var(--radius); padding:14px; background:var(--green-light);
+  }
+  .vocab-card.reading{background:var(--blue-light);}
+  .vocab-card.skills{background:var(--orange-light);}
+  .vocab-card .cat{font-size:11.5px; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); font-weight:700;}
+  .vocab-card .word{font-size:19px; font-weight:700; margin:2px 0;}
+  .vocab-card .ipa{color:var(--muted); font-size:14px; margin-bottom:6px;}
+  .vocab-card .meaning{font-size:15px; margin-bottom:4px;}
+  .vocab-card .sci{font-size:14.5px; color:var(--primary-dark); margin-bottom:4px;}
+  .vocab-card .vn{font-size:14.5px; font-style:italic; color:var(--muted); margin-bottom:6px;}
+  .vocab-card .example{font-size:14px; background:#fff; border-left:3px solid var(--primary); padding:6px 8px; border-radius:6px;}
+  .vocab-card .tip{font-size:13px; color:var(--muted); margin-top:6px;}
+  .callout{border-radius:var(--radius); padding:14px 16px; margin:12px 0; border-left:5px solid; font-size:15.5px;}
+  .callout.info{background:var(--blue-light); border-color:var(--blue);}
+  .callout.warning{background:var(--red-light); border-color:var(--red);}
+  .callout.misconception{background:var(--red-light); border-color:var(--red);}
+  .callout.realworld{background:var(--orange-light); border-color:var(--orange);}
+  .callout.challenge{background:var(--purple-light); border-color:var(--purple);}
+  .concept-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:16px; background:var(--blue-light);}
+  .concept-card h3{margin:0 0 6px; color:var(--primary-dark); font-size:19px;}
+  .concept-card .remember{background:#fff; border-radius:8px; padding:8px 12px; font-size:14.5px; margin-top:8px; border:1px dashed var(--primary);}
+  .diagram-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:18px; background:#fff;}
+  .diagram-card svg{width:100%; height:auto; display:block; margin:10px 0;}
+  .diagram-caption{font-size:14px; color:var(--muted);}
+  .diagram-notice{background:var(--green-light); border-radius:8px; padding:8px 12px; font-size:14.5px; margin-top:8px;}
+  .diagram-mistake{background:var(--red-light); border-radius:8px; padding:8px 12px; font-size:14.5px; margin-top:8px;}
+  .thinking-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:14px; background:var(--green-light);}
+  .thinking-card h3{margin:0 0 8px; font-size:18px; color:var(--green);}
+  table{width:100%; border-collapse:collapse; margin:10px 0; font-size:14.5px;}
+  table th, table td{border:1px solid var(--border); padding:8px 10px; text-align:left;}
+  table th{background:var(--grey-light);}
+  .realworld-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:14px; background:var(--orange-light);}
+  .realworld-card h3{margin:0 0 6px; font-size:18px; color:#b06a00;}
+  .flash-wrap{display:flex; flex-direction:column; align-items:center; gap:12px;}
+  .flashcard{
+    width:100%; max-width:520px; min-height:150px; perspective:1000px; cursor:pointer;
+  }
+  .flashcard-inner{
+    position:relative; width:100%; height:150px; text-align:center;
+    transition:transform 0.5s; transform-style:preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+  .flash-face{
+    position:absolute; width:100%; height:100%; backface-visibility:hidden;
+    display:flex; align-items:center; justify-content:center; padding:16px;
+    border-radius:var(--radius); border:1px solid var(--border); font-size:16.5px; box-shadow:var(--shadow);
+  }
+  .flash-front{background:var(--purple-light);}
+  .flash-back{background:#fff; transform:rotateY(180deg); font-size:15px;}
+  .flash-controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center;}
+  .flash-progress{font-size:13.5px; color:var(--muted);}
+  button{
+    font-family:inherit; font-size:14.5px; font-weight:600; border-radius:10px; border:none;
+    padding:10px 16px; cursor:pointer; transition:var(--transition); min-height:40px;
+  }
+  button:focus{outline:3px solid var(--blue); outline-offset:1px;}
+  .btn-primary{background:var(--primary); color:#fff;}
+  .btn-primary:hover{background:var(--primary-dark);}
+  .btn-secondary{background:var(--grey-light); color:var(--text);}
+  .btn-secondary:hover{background:var(--border);}
+  .btn-success{background:var(--green); color:#fff;}
+  .btn-success:hover{background:#245c27;}
+  .btn-neutral{background:var(--orange-light); color:#b06a00;}
+  .quiz-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:16px; background:#fff;}
+  .quiz-card .qlabel{font-size:12.5px; text-transform:uppercase; color:var(--purple); font-weight:700; margin-bottom:4px;}
+  .quiz-card .qtext{font-weight:600; margin-bottom:10px; font-size:16px;}
+  .qoption{
+    display:block; width:100%; text-align:left; background:var(--grey-light); border:1px solid var(--border);
+    border-radius:8px; padding:10px 12px; margin-bottom:8px; cursor:pointer; font-size:15px;
+  }
+  .qoption:hover{background:var(--purple-light);}
+  .qoption.correct{background:var(--green-light); border-color:var(--green);}
+  .qoption.incorrect{background:var(--red-light); border-color:var(--red);}
+  .qfeedback{font-size:14.5px; margin-top:6px; padding:8px 10px; border-radius:8px; display:none;}
+  .qfeedback.show{display:block;}
+  .qfeedback.correct{background:var(--green-light); color:#245c27;}
+  .qfeedback.incorrect{background:var(--red-light); color:#8a2c2c;}
+  #quizScore{font-weight:700; font-size:17px; margin-top:10px;}
+  .workbook-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:14px; background:var(--orange-light);}
+  .workbook-card h3{margin:0 0 6px; font-size:17.5px; color:#b06a00;}
+  .hint{display:none; background:#fff; border-radius:8px; padding:8px 12px; margin-top:6px; font-size:14.5px;}
+  .hint.show{display:block;}
+  .teachback-grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+  .tb-card{border-radius:var(--radius); padding:14px; color:#fff;}
+  .tb-bronze{background:#a9702f;}
+  .tb-silver{background:#7a7f85;}
+  .tb-gold{background:#c98a17;}
+  .tb-platinum{background:var(--purple);}
+  .tb-card h4{margin:0 0 6px;}
+  .tb-card p{font-size:14px; margin:0 0 6px;}
+  .exam-card{border:1px solid var(--border); border-radius:var(--radius); padding:14px; margin-bottom:12px; background:var(--purple-light);}
+  .exam-card .cat{font-size:12px; text-transform:uppercase; font-weight:700; color:var(--purple);}
+  .parent-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; background:var(--grey-light);}
+  .parent-card ol{padding-left:20px;}
+  .parent-card li{margin-bottom:8px;}
+  .reflection-card{border:1px solid var(--border); border-radius:var(--radius); padding:16px; background:#fff;}
+  .reflection-card label{display:block; margin-bottom:10px; font-size:15.5px;}
+  .reflection-card textarea{width:100%; min-height:60px; border-radius:8px; border:1px solid var(--border); padding:8px; font-family:inherit; font-size:14.5px;}
+  .conf-scale{display:flex; gap:6px; margin-top:6px;}
+  .conf-scale span{
+    flex:1; text-align:center; padding:6px 0; border:1px solid var(--border); border-radius:8px; cursor:pointer; font-size:13.5px;
+  }
+  .conf-scale span.selected{background:var(--primary); color:#fff;}
+  footer.metadata-footer{
+    text-align:center; font-size:12.5px; color:var(--muted); margin-top:30px; padding-top:14px; border-top:1px solid var(--border);
+  }
+  @media print{
+    nav.nav-strip, .flash-controls, .qoption, #quizScore, .quiz-card button, button{display:none !important;}
+    .quiz-card{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <div class="eyebrow">Cambridge Lower Secondary Science • Stage 8</div>
+  <h1>Unit 8 — Chemical Reactions<br>Section 8.4: Reactions of Metals with Water</h1>
+  <div class="subtitle">Reactivity • Hydrogen • Metal Hydroxide • Steam • Reactivity Series</div>
+  <div class="badges">
+    <span class="badge">📘 Learner Book Verified</span>
+    <span class="badge">📗 Workbook Verified</span>
+    <span class="badge">👩‍🏫 Teacher Resource Verified</span>
+    <span class="badge">📝 Progression Tests Reviewed</span>
+  </div>
+</header>
+
+<nav class="nav-strip" aria-label="Section navigation">
+  <a href="#roadmap">🗺 Roadmap</a>
+  <a href="#vocabulary">📚 Vocabulary</a>
+  <a href="#concepts">🧪 Concepts</a>
+  <a href="#diagrams">🔬 Diagrams</a>
+  <a href="#thinking">🧠 Thinking</a>
+  <a href="#realworld">🌍 Real World</a>
+  <a href="#flashcards">🃏 Flashcards</a>
+  <a href="#quiz">📝 Quiz</a>
+  <a href="#workbook">📖 Workbook</a>
+  <a href="#teachback">🎓 Teach-Back</a>
+  <a href="#exam">🎯 Exam</a>
+  <a href="#parent">👨‍👩‍👧 Parent</a>
+  <a href="#reflection">💭 Reflection</a>
+</nav>
+
+<!-- ROADMAP -->
+<section class="card" id="roadmap">
+  <div class="section-head"><span class="icon">🗺</span><h2>Section Roadmap</h2></div>
+  <div class="section-sub">What this lesson is about, and why it matters</div>
+  <p><strong>What this section is about:</strong> In Topic 8.3 you learned how metals react with oxygen. In this section, you will explore what happens when metals react with <strong>water</strong> instead. Some metals react violently, some react slowly, some only react with steam, and some do not react at all.</p>
+  <p><strong>Why it matters:</strong> Understanding how reactive a metal is helps scientists and engineers decide which metals are safe to use for pipes, roofs, coins, and jewellery. It also helps you understand why sodium and potassium must be stored very carefully.</p>
+  <p><strong>By the end of this lesson, I can...</strong></p>
+  <ul>
+    <li>describe how different metals react with cold water, hot water and steam</li>
+    <li>write word equations for metal + water reactions</li>
+    <li>use evidence to put metals in order of reactivity</li>
+    <li>explain, using particle theory, why steam reacts faster than cold water</li>
+    <li>explain why some metals (like gold) barely react at all</li>
+  </ul>
+  <div class="callout info">
+    <strong>Learning roadmap:</strong> Vocabulary → Core Concepts → Diagrams → Scientific Thinking → Real World Science → Practice → Workbook Preview → Teach-Back → Reflection.
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section class="card" id="vocabulary">
+  <div class="section-head"><span class="icon">📚</span><h2>Vocabulary Master Pack</h2></div>
+  <div class="section-sub">Learn these words first — they will help you read the whole lesson with confidence</div>
+
+  <h3>A. Core Science Vocabulary</h3>
+  <div class="grid">
+    <div class="vocab-card">
+      <div class="cat">Core</div>
+      <div class="word">reactivity</div>
+      <div class="ipa">/riː.ækˈtɪv.ə.ti/ • re-ac-tiv-i-ty</div>
+      <div class="meaning">Simple meaning: how easily and how strongly something reacts.</div>
+      <div class="sci">Scientific meaning: a measure of how quickly and vigorously a metal reacts with substances such as water, oxygen or acid.</div>
+      <div class="vn">Vietnamese: tính phản ứng / độ hoạt động hóa học</div>
+      <div class="example">Potassium has a much higher reactivity than gold.</div>
+    </div>
+    <div class="vocab-card">
+      <div class="cat">Core</div>
+      <div class="word">hydrogen</div>
+      <div class="ipa">/ˈhaɪ.drə.dʒən/ • hy-dro-gen</div>
+      <div class="meaning">Simple meaning: a colourless gas.</div>
+      <div class="sci">Scientific meaning: the gas produced when a reactive metal reacts with water or acid.</div>
+      <div class="vn">Vietnamese: khí hiđrô</div>
+      <div class="example">Bubbles of hydrogen gas rose from the metal in the water.</div>
+      <div class="tip">Tip: test for hydrogen with a lighted splint — listen for a "squeaky pop".</div>
+    </div>
+    <div class="vocab-card">
+      <div class="cat">Core</div>
+      <div class="word">metal hydroxide</div>
+      <div class="ipa">/haɪˈdrɒk.saɪd/ • hy-drox-ide</div>
+      <div class="meaning">Simple meaning: a new substance made when a metal reacts with water.</div>
+      <div class="sci">Scientific meaning: the compound formed, together with hydrogen, when a metal reacts with water.</div>
+      <div class="vn">Vietnamese: hydroxit kim loại</div>
+      <div class="example">Sodium reacts with water to make sodium hydroxide and hydrogen.</div>
+    </div>
+    <div class="vocab-card">
+      <div class="cat">Core</div>
+      <div class="word">steam</div>
+      <div class="ipa">/stiːm/ • steam</div>
+      <div class="meaning">Simple meaning: very hot water in the form of a gas.</div>
+      <div class="sci">Scientific meaning: water in the gas state, made by boiling water; hotter and more energetic than water vapour in the air.</div>
+      <div class="vn">Vietnamese: hơi nước (nóng)</div>
+      <div class="example">Magnesium reacts with steam faster than it reacts with cold water.</div>
+    </div>
+    <div class="vocab-card">
+      <div class="cat">Core</div>
+      <div class="word">reactivity series</div>
+      <div class="ipa">/riː.ækˈtɪv.ə.ti ˈsɪə.riːz/</div>
+      <div class="meaning">Simple meaning: a list showing which metals react the most and the least.</div>
+      <div class="sci">Scientific meaning: an ordered list of metals from most reactive to least reactive, based on evidence from experiments.</div>
+      <div class="vn">Vietnamese: dãy hoạt động hóa học của kim loại</div>
+      <div class="example">Potassium is near the top of the reactivity series.</div>
+    </div>
+    <div class="vocab-card">
+      <div class="cat">Core</div>
+      <div class="word">inert</div>
+      <div class="ipa">/ɪˈnɜːt/ • in-ert</div>
+      <div class="meaning">Simple meaning: does not react.</div>
+      <div class="sci">Scientific meaning: describes an element that does not react, or reacts extremely slowly, with other substances.</div>
+      <div class="vn">Vietnamese: trơ (không phản ứng)</div>
+      <div class="example">Gold is described as inert because it does not react with water or oxygen.</div>
+    </div>
+  </div>
+
+  <h3>B. Reading Support Vocabulary</h3>
+  <div class="grid">
+    <div class="vocab-card reading">
+      <div class="cat">Reading Support</div>
+      <div class="word">sandpaper</div>
+      <div class="ipa">/ˈsænd.peɪ.pər/</div>
+      <div class="meaning">Rough paper used to clean the surface of a metal.</div>
+      <div class="vn">Vietnamese: giấy nhám</div>
+      <div class="example">Use sandpaper to clean the metal before placing it in water.</div>
+    </div>
+    <div class="vocab-card reading">
+      <div class="cat">Reading Support</div>
+      <div class="word">forceps</div>
+      <div class="ipa">/ˈfɔː.seps/</div>
+      <div class="meaning">A tool like tweezers, used to pick up small objects safely.</div>
+      <div class="vn">Vietnamese: kẹp gắp</div>
+      <div class="example">Use forceps to hold the piece of metal.</div>
+    </div>
+    <div class="vocab-card reading">
+      <div class="cat">Reading Support</div>
+      <div class="word">vigorously</div>
+      <div class="ipa">/ˈvɪɡ.ər.ə.sli/</div>
+      <div class="meaning">In a strong, fast and energetic way.</div>
+      <div class="vn">Vietnamese: một cách mạnh mẽ, dữ dội</div>
+      <div class="example">Potassium reacts vigorously with water.</div>
+    </div>
+    <div class="vocab-card reading">
+      <div class="cat">Reading Support</div>
+      <div class="word">ceramic wool</div>
+      <div class="ipa">/səˈræm.ɪk wʊl/</div>
+      <div class="meaning">A soft, heat-resistant material soaked with water to make steam when heated.</div>
+      <div class="vn">Vietnamese: bông gốm chịu nhiệt</div>
+      <div class="example">The ceramic wool is soaked in water and then heated to produce steam.</div>
+    </div>
+    <div class="vocab-card reading">
+      <div class="cat">Reading Support</div>
+      <div class="word">lilac</div>
+      <div class="ipa">/ˈlaɪ.lək/</div>
+      <div class="meaning">A pale purple colour.</div>
+      <div class="vn">Vietnamese: màu tím nhạt</div>
+      <div class="example">Potassium burns with a lilac-coloured flame when it reacts with water.</div>
+    </div>
+    <div class="vocab-card reading">
+      <div class="cat">Reading Support</div>
+      <div class="word">squeaky pop</div>
+      <div class="ipa">/ˈskwiː.ki pɒp/</div>
+      <div class="meaning">The sound made when hydrogen gas burns quickly.</div>
+      <div class="vn">Vietnamese: tiếng nổ nhỏ, lách tách</div>
+      <div class="example">A lighted splint makes a squeaky pop in a test tube of hydrogen.</div>
+    </div>
+  </div>
+
+  <h3>C. Scientific Skills Vocabulary</h3>
+  <div class="grid">
+    <div class="vocab-card skills">
+      <div class="cat">Skills</div>
+      <div class="word">predict</div>
+      <div class="ipa">/prɪˈdɪkt/</div>
+      <div class="meaning">Say what you think will happen, using what you already know.</div>
+      <div class="vn">Vietnamese: dự đoán</div>
+      <div class="example">Predict which metal will react fastest with water.</div>
+    </div>
+    <div class="vocab-card skills">
+      <div class="cat">Skills</div>
+      <div class="word">compare</div>
+      <div class="ipa">/kəmˈpeər/</div>
+      <div class="meaning">Look at how two or more things are similar or different.</div>
+      <div class="vn">Vietnamese: so sánh</div>
+      <div class="example">Compare the reactions of magnesium and copper with water.</div>
+    </div>
+    <div class="vocab-card skills">
+      <div class="cat">Skills</div>
+      <div class="word">evidence</div>
+      <div class="ipa">/ˈev.ɪ.dəns/</div>
+      <div class="meaning">Facts or observations that support an idea or conclusion.</div>
+      <div class="vn">Vietnamese: bằng chứng</div>
+      <div class="example">The number of bubbles is evidence of how reactive the metal is.</div>
+    </div>
+    <div class="vocab-card skills">
+      <div class="cat">Skills</div>
+      <div class="word">fair test</div>
+      <div class="ipa">/feər test/</div>
+      <div class="meaning">An investigation where only one variable is changed at a time.</div>
+      <div class="vn">Vietnamese: thí nghiệm công bằng</div>
+      <div class="example">To make it a fair test, use the same volume of water each time.</div>
+    </div>
+    <div class="vocab-card skills">
+      <div class="cat">Skills</div>
+      <div class="word">conclusion</div>
+      <div class="ipa">/kənˈkluː.ʒən/</div>
+      <div class="meaning">A decision or judgement based on evidence.</div>
+      <div class="vn">Vietnamese: kết luận</div>
+      <div class="example">Your conclusion should say which metal is most reactive and why.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="card" id="concepts">
+  <div class="section-head"><span class="icon">🧪</span><h2>Core Concepts</h2></div>
+  <div class="section-sub">Understand the science, one idea at a time</div>
+
+  <div class="concept-card">
+    <h3>1. Metals react with water to make a hydroxide and hydrogen</h3>
+    <p><strong>Main idea:</strong> When a reactive metal meets water, a chemical reaction happens. Two new substances are formed: a metal hydroxide and hydrogen gas.</p>
+    <p><strong>Word equation:</strong> metal + water → metal hydroxide + hydrogen</p>
+    <p><strong>Example:</strong> sodium + water → sodium hydroxide + hydrogen</p>
+    <div class="remember">Remember: hydrogen gas is always one of the products when a metal reacts with water.</div>
+  </div>
+
+  <div class="concept-card">
+    <h3>2. The reactivity series ranks metals from most to least reactive</h3>
+    <p><strong>Main idea:</strong> Not all metals react with water in the same way. Scientists arrange metals in a list called the reactivity series, based on evidence from experiments.</p>
+    <p><strong>How we build it:</strong> We observe how fast a metal reacts, how many bubbles are made, and whether the water gets hot or catches fire. Metals that react fastest and most strongly are placed near the top.</p>
+    <div class="remember">Remember: reactivity is judged from evidence — speed of reaction, bubbling, heat, or flame — not by guessing.</div>
+  </div>
+
+  <div class="concept-card">
+    <h3>3. Sodium and potassium react violently with cold water</h3>
+    <p><strong>Main idea:</strong> Sodium and potassium are so reactive that they react immediately with cold water and even with water vapour in the air.</p>
+    <p><strong>Explanation:</strong> This is why they must be stored under oil — the oil keeps water and air away from the metal surface.</p>
+    <p><strong>Evidence:</strong> Sodium moves and fizzes on the surface of the water. Potassium reacts even more strongly — so much thermal energy is released that the hydrogen gas catches fire.</p>
+    <div class="callout misconception"><strong>Common misconception:</strong> Some students think the metal itself is burning. In fact, it is the hydrogen gas produced by the reaction that catches fire.</div>
+  </div>
+
+  <div class="concept-card">
+    <h3>4. Calcium and magnesium react more gently with cold water</h3>
+    <p><strong>Main idea:</strong> Calcium reacts with cold water, but much less violently than sodium or potassium. Magnesium reacts even more slowly, and the reaction can be hard to see.</p>
+    <p><strong>Example:</strong> calcium + water → calcium hydroxide + hydrogen</p>
+    <div class="remember">Remember: a slower bubbling reaction still shows a chemical change is happening — you may need to wait, or use hot water.</div>
+  </div>
+
+  <div class="concept-card">
+    <h3>5. Some metals only react with steam, not cold water</h3>
+    <p><strong>Main idea:</strong> Magnesium reacts only very slowly with cold water, but reacts much more quickly with steam.</p>
+    <p><strong>Word equation:</strong> magnesium + water (g) → magnesium oxide + hydrogen</p>
+    <p><strong>Why, using particle theory:</strong> Steam particles have much more energy than cold water particles. They move faster and collide with the metal particles more often and with more force, so the reaction happens faster.</p>
+    <div class="callout info">Note: "water (g)" means water in the gas state — steam.</div>
+  </div>
+
+  <div class="concept-card">
+    <h3>6. Some metals barely react with water at all</h3>
+    <p><strong>Main idea:</strong> Metals such as copper, silver and gold are very unreactive. Gold does not react with water or oxygen at all, and is described as inert.</p>
+    <p><strong>Evidence:</strong> Gold stays shiny even after being buried in soil for hundreds of years. Silver slowly reacts with substances in the air over a long time, but not with water.</p>
+    <div class="remember">Remember: "does not react with water" is not always the same as "completely inert" — inert metals do not react with almost anything.</div>
+  </div>
+</section>
+
+<!-- DIAGRAMS -->
+<section class="card" id="diagrams">
+  <div class="section-head"><span class="icon">🔬</span><h2>Diagram Mastery</h2></div>
+  <div class="section-sub">See the science — diagrams help you remember the ideas</div>
+
+  <div class="diagram-card">
+    <h3>Diagram 1 — The Reactivity Series (metals with water)</h3>
+    <svg viewBox="0 0 640 320" role="img" aria-labelledby="rsTitle rsDesc">
+      <title id="rsTitle">Reactivity series of metals with water</title>
+      <desc id="rsDesc">A ladder diagram showing potassium as most reactive at the top, down to gold as least reactive at the bottom.</desc>
+      <line x1="90" y1="30" x2="90" y2="290" stroke="#1F6FB2" stroke-width="3"/>
+      <polygon points="90,20 82,36 98,36" fill="#1F6FB2"/>
+      <text x="105" y="28" font-size="14" fill="#1F6FB2" font-family="Segoe UI, Arial">increasing reactivity</text>
+      <g font-family="Segoe UI, Arial" font-size="16">
+        <rect x="150" y="35" width="200" height="34" rx="8" fill="#FDECEC" stroke="#D84343"/>
+        <text x="250" y="57" text-anchor="middle" fill="#8a2c2c" font-weight="700">potassium (most reactive)</text>
+
+        <rect x="150" y="80" width="200" height="34" rx="8" fill="#FFF4E6" stroke="#F39C12"/>
+        <text x="250" y="102" text-anchor="middle">sodium</text>
+
+        <rect x="150" y="125" width="200" height="34" rx="8" fill="#EDF8EE" stroke="#2E7D32"/>
+        <text x="250" y="147" text-anchor="middle">calcium</text>
+
+        <rect x="150" y="170" width="200" height="34" rx="8" fill="#EAF3FC" stroke="#1F6FB2"/>
+        <text x="250" y="192" text-anchor="middle">magnesium</text>
+
+        <rect x="150" y="215" width="200" height="34" rx="8" fill="#F3ECFD" stroke="#7E57C2"/>
+        <text x="250" y="237" text-anchor="middle">zinc, copper</text>
+
+        <rect x="150" y="260" width="200" height="34" rx="8" fill="#F5F5F5" stroke="#666"/>
+        <text x="250" y="282" text-anchor="middle" font-weight="700">gold (least reactive)</text>
+      </g>
+    </svg>
+    <p class="diagram-caption">Caption: Metals near the top react with water quickly and strongly. Metals near the bottom barely react at all.</p>
+    <div class="diagram-notice">What to notice: potassium and sodium react even with cold water; zinc and copper only react with steam or barely react; gold does not react with water.</div>
+    <div class="diagram-mistake">Common mistake: writing metals in a random order. Always use evidence (speed of bubbling, heat, flame) to decide the order.</div>
+  </div>
+
+  <div class="diagram-card">
+    <h3>Diagram 2 — Investigating calcium and water</h3>
+    <svg viewBox="0 0 500 300" role="img" aria-labelledby="calTitle calDesc">
+      <title id="calTitle">Apparatus for investigating calcium reacting with water</title>
+      <desc id="calDesc">A beaker of water contains a piece of calcium at the bottom. An upside-down funnel covers the metal, and a test tube collects gas above the funnel by displacement of water.</desc>
+      <rect x="120" y="90" width="180" height="170" rx="6" fill="#EAF3FC" stroke="#1F6FB2" stroke-width="2"/>
+      <text x="210" y="80" text-anchor="middle" font-size="14" font-family="Segoe UI, Arial">beaker of water</text>
+      <path d="M150 190 L270 190 L235 130 L185 130 Z" fill="#ffffff" stroke="#1F6FB2" stroke-width="2"/>
+      <text x="330" y="150" font-size="13" font-family="Segoe UI, Arial">funnel</text>
+      <circle cx="210" cy="180" r="8" fill="#7E57C2"/>
+      <text x="230" y="230" font-size="13" font-family="Segoe UI, Arial">metal (calcium)</text>
+      <rect x="190" y="30" width="40" height="95" fill="#EAF8FA" stroke="#007D8C" stroke-width="2"/>
+      <text x="330" y="60" font-size="13" font-family="Segoe UI, Arial">test tube collecting gas</text>
+      <circle cx="205" cy="95" r="3" fill="#1F6FB2"/>
+      <circle cx="215" cy="80" r="3" fill="#1F6FB2"/>
+      <circle cx="210" cy="60" r="3" fill="#1F6FB2"/>
+      <text x="330" y="95" font-size="13" font-family="Segoe UI, Arial">bubbles of gas</text>
+    </svg>
+    <p class="diagram-caption">Caption: The funnel traps gas released by the reaction. The gas pushes water out of the test tube, so the gas can be collected and tested.</p>
+    <div class="diagram-notice">What to notice: the gas collects by pushing water out of the test tube — this method is called collection by displacement of water.</div>
+    <div class="diagram-mistake">Common mistake: forgetting that the gas collected is hydrogen, not air. You can confirm this using the lighted-splint test.</div>
+  </div>
+
+  <div class="diagram-card">
+    <h3>Diagram 3 — Magnesium reacting with steam</h3>
+    <svg viewBox="0 0 560 240" role="img" aria-labelledby="mgTitle mgDesc">
+      <title id="mgTitle">Apparatus for heating magnesium in steam</title>
+      <desc id="mgDesc">A boiling tube contains damp ceramic wool and a piece of magnesium ribbon. Heat is applied below, hydrogen gas escapes and burns at the open end of the tube.</desc>
+      <rect x="60" y="100" width="380" height="34" rx="6" fill="#F5F5F5" stroke="#666" stroke-width="2"/>
+      <rect x="100" y="105" width="70" height="24" rx="4" fill="#EAF3FC" stroke="#1F6FB2"/>
+      <text x="135" y="121" text-anchor="middle" font-size="11" font-family="Segoe UI, Arial">ceramic wool</text>
+      <rect x="210" y="108" width="40" height="18" rx="3" fill="#B0BEC5" stroke="#607D8B"/>
+      <text x="230" y="121" text-anchor="middle" font-size="10" font-family="Segoe UI, Arial">Mg</text>
+      <line x1="440" y1="117" x2="500" y2="117" stroke="#666" stroke-width="3"/>
+      <path d="M500 100 L520 117 L500 134" fill="none" stroke="#F39C12" stroke-width="3"/>
+      <text x="500" y="90" text-anchor="middle" font-size="12" font-family="Segoe UI, Arial">hydrogen burning</text>
+      <polygon points="90,175 130,175 110,220" fill="#F39C12"/>
+      <text x="110" y="235" text-anchor="middle" font-size="12" font-family="Segoe UI, Arial">heat</text>
+    </svg>
+    <p class="diagram-caption">Caption: Heat turns the water in the ceramic wool into steam. The steam reacts with the hot magnesium ribbon, producing magnesium oxide and hydrogen gas.</p>
+    <div class="diagram-notice">What to notice: the hydrogen gas produced can be lit and burns at the open end of the tube.</div>
+    <div class="diagram-mistake">Common mistake: thinking the magnesium is reacting with water vapour in the air. It is actually reacting with steam made from the ceramic wool.</div>
+  </div>
+</section>
+
+<!-- SCIENTIFIC THINKING -->
+<section class="card" id="thinking">
+  <div class="section-head"><span class="icon">🧠</span><h2>Scientific Thinking</h2></div>
+  <div class="section-sub">Think like a scientist — use evidence to reason</div>
+
+  <div class="thinking-card">
+    <h3>1. Interpreting evidence — ranking reactivity</h3>
+    <p>Jamila tests four substances with cold water and records her observations.</p>
+    <table>
+      <tr><th>Metal</th><th>Observation</th></tr>
+      <tr><td>Calcium</td><td>sinks; bubbles slowly; forms a colourless solution</td></tr>
+      <tr><td>Potassium</td><td>moves rapidly on the surface; bubbles violently; lilac flame seen</td></tr>
+      <tr><td>Silver</td><td>sinks; no bubbles seen</td></tr>
+      <tr><td>Metal X</td><td>moves around the surface; bubbles rapidly; forms a colourless solution</td></tr>
+    </table>
+    <p><strong>Think:</strong> Using only the evidence in the table, which metals are clearly <em>less</em> reactive than Metal X? Which is clearly <em>more</em> reactive? Explain your reasoning using the observations, not just your memory of the reactivity series.</p>
+  </div>
+
+  <div class="thinking-card">
+    <h3>2. Comparing — cold water vs steam</h3>
+    <p>Magnesium reacts very slowly with cold water, but reacts much faster with steam.</p>
+    <p><strong>Think:</strong> Describe one similarity and one difference between the two reactions (the products, and the speed).</p>
+  </div>
+
+  <div class="thinking-card">
+    <h3>3. Explaining cause and effect — particle theory</h3>
+    <p><strong>Think:</strong> Use particle theory to explain why steam reacts with magnesium faster than cold water does. Try to use the words "energy", "move" and "collide" in your explanation.</p>
+  </div>
+
+  <div class="thinking-card">
+    <h3>4. Evaluating an explanation — what does "inert" really mean?</h3>
+    <p>A classmate says: "Copper is inert because it does not react with water."</p>
+    <p><strong>Think:</strong> Is this statement fully correct? What is missing? (Hint: think about what "inert" means, and whether not reacting with water is enough evidence.)</p>
+  </div>
+</section>
+
+<!-- REAL WORLD -->
+<section class="card" id="realworld">
+  <div class="section-head"><span class="icon">🌍</span><h2>Real World Science</h2></div>
+  <div class="section-sub">Where does this science appear in everyday life?</div>
+
+  <div class="realworld-card">
+    <h3>Copper pipes and roofs</h3>
+    <p><strong>Real world situation:</strong> Copper is used for water pipes and for roofing on some buildings.</p>
+    <p><strong>Scientific connection:</strong> Copper does not react with water, so it does not corrode when it is constantly wet.</p>
+    <p><strong>Why it matters:</strong> A metal used for pipes or roofs must not react with rain or running water, or the structure would be damaged over time.</p>
+  </div>
+
+  <div class="realworld-card">
+    <h3>Why magnesium is not used for roofs</h3>
+    <p><strong>Real world situation:</strong> Magnesium is a useful, lightweight metal, but it is never used for roofing.</p>
+    <p><strong>Scientific connection:</strong> Magnesium reacts slowly with water, so rain or snow would gradually react with a magnesium roof.</p>
+    <p><strong>Why it matters:</strong> Choosing the right metal for a job depends on its reactivity, not only on its weight or cost.</p>
+  </div>
+
+  <div class="realworld-card">
+    <h3>Why sodium and potassium are stored under oil</h3>
+    <p><strong>Real world situation:</strong> In science laboratories, sodium and potassium are always kept under oil.</p>
+    <p><strong>Scientific connection:</strong> These metals react so strongly with water — even water vapour in the air — that the oil layer is needed to keep them safe and unreacted.</p>
+    <p><strong>Why it matters:</strong> This shows how reactivity affects how a substance must be stored and handled safely.</p>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="card" id="flashcards">
+  <div class="section-head"><span class="icon">🃏</span><h2>Interactive Flashcards</h2></div>
+  <div class="section-sub">Tap a card to flip it, then use Next to keep practising</div>
+  <div class="flash-wrap">
+    <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flip flashcard">
+      <div class="flashcard-inner">
+        <div class="flash-face flash-front" id="flashFront">Loading…</div>
+        <div class="flash-face flash-back" id="flashBack"></div>
+      </div>
+    </div>
+    <div class="flash-progress" id="flashProgress"></div>
+    <div class="flash-controls">
+      <button type="button" class="btn-secondary" onclick="flashPrev()">◀ Previous</button>
+      <button type="button" class="btn-primary" onclick="flipFlash()">Flip Card</button>
+      <button type="button" class="btn-secondary" onclick="flashNext()">Next ▶</button>
+      <button type="button" class="btn-neutral" onclick="shuffleFlash()">🔀 Shuffle</button>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="card" id="quiz">
+  <div class="section-head"><span class="icon">📝</span><h2>Interactive Mini Quiz</h2></div>
+  <div class="section-sub">Check your understanding — answer, then check your answer</div>
+  <div id="quizContainer"></div>
+  <button type="button" class="btn-success" onclick="finishQuiz()">Finish Quiz</button>
+  <div id="quizScore"></div>
+</section>
+
+<!-- WORKBOOK PREVIEW -->
+<section class="card" id="workbook">
+  <div class="section-head"><span class="icon">📖</span><h2>Workbook Preview</h2></div>
+  <div class="section-sub">Get ready for Exercise 8.4 in your Workbook — no answers shown here</div>
+
+  <div class="workbook-card">
+    <h3>Ranking metals in order of reactivity</h3>
+    <p><strong>Learning objective:</strong> Use experimental results to order metals from most to least reactive.</p>
+    <button type="button" class="btn-secondary" onclick="toggleHint(this)">Show Hint 1</button>
+    <div class="hint">Hint 1: Look for clues like speed of bubbling, movement of the metal, and whether a flame appears.</div>
+    <button type="button" class="btn-secondary" onclick="toggleHint(this)">Show Hint 2</button>
+    <div class="hint">Hint 2: The metal with the fastest, strongest reaction goes at the top of your list.</div>
+    <p><strong>Thinking strategy:</strong> Write down the evidence first, then decide the order — do not guess from memory alone.</p>
+  </div>
+
+  <div class="workbook-card">
+    <h3>Writing word equations</h3>
+    <p><strong>Learning objective:</strong> Write a word equation for a metal reacting with water or steam.</p>
+    <button type="button" class="btn-secondary" onclick="toggleHint(this)">Show Hint 1</button>
+    <div class="hint">Hint 1: Remember the pattern: metal + water → metal hydroxide + hydrogen.</div>
+    <button type="button" class="btn-secondary" onclick="toggleHint(this)">Show Hint 2</button>
+    <div class="hint">Hint 2: If the question says "steam", write "water (g)" instead of "water" and the product will be a metal oxide, not a hydroxide.</div>
+  </div>
+
+  <div class="workbook-card">
+    <h3>Labelling the steam apparatus diagram</h3>
+    <p><strong>Learning objective:</strong> Identify and label the parts of the apparatus used to react a metal with steam.</p>
+    <button type="button" class="btn-secondary" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint">Hint: Think about where the heat is applied, where the water/steam is produced, and where the metal ribbon sits.</div>
+  </div>
+
+  <div class="workbook-card">
+    <h3>Testing for hydrogen gas</h3>
+    <p><strong>Learning objective:</strong> Describe how to test for hydrogen gas.</p>
+    <button type="button" class="btn-secondary" onclick="toggleHint(this)">Show Hint</button>
+    <div class="hint">Hint: Think about what tool you would use, and what sound you would listen for.</div>
+  </div>
+
+  <div class="callout warning">
+    <strong>Independent reminder:</strong> Try every Workbook question by yourself first. Use these hints only if you get stuck — this is how you build real understanding.
+  </div>
+</section>
+
+<!-- TEACH-BACK -->
+<section class="card" id="teachback">
+  <div class="section-head"><span class="icon">🎓</span><h2>Teach-Back Challenge</h2></div>
+  <div class="section-sub">The best way to know you understand something is to explain it yourself</div>
+  <div class="teachback-grid">
+    <div class="tb-card tb-bronze">
+      <h4>🥉 Bronze</h4>
+      <p><strong>Goal:</strong> Recall the facts.</p>
+      <p><strong>Task:</strong> List the products formed when a metal reacts with water.</p>
+      <p><strong>Success:</strong> You name both products correctly.</p>
+    </div>
+    <div class="tb-card tb-silver">
+      <h4>🥈 Silver</h4>
+      <p><strong>Goal:</strong> Explain in your own words.</p>
+      <p><strong>Task:</strong> Describe, without copying the lesson, how sodium reacts with water.</p>
+      <p><strong>Success:</strong> Your explanation uses your own sentences and is scientifically correct.</p>
+    </div>
+    <div class="tb-card tb-gold">
+      <h4>🥇 Gold</h4>
+      <p><strong>Goal:</strong> Apply your understanding.</p>
+      <p><strong>Task:</strong> Explain the diagram of magnesium reacting with steam, in your own words.</p>
+      <p><strong>Success:</strong> You correctly connect the diagram to the reaction taking place.</p>
+    </div>
+    <div class="tb-card tb-platinum">
+      <h4>🏆 Platinum</h4>
+      <p><strong>Goal:</strong> Reason like a scientist.</p>
+      <p><strong>Task:</strong> Explain <em>why</em> steam reacts faster than cold water, using particle theory. Then correct this statement: "Copper is completely inert because it does not react with water."</p>
+      <p><strong>Success:</strong> You justify your explanation using accurate scientific vocabulary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM INTELLIGENCE -->
+<section class="card" id="exam">
+  <div class="section-head"><span class="icon">🎯</span><h2>Exam Intelligence</h2></div>
+  <div class="section-sub">Based on patterns seen in available Cambridge Progression Test material</div>
+
+  <div class="exam-card">
+    <div class="cat">Command Word</div>
+    <p><strong>"Predict"</strong> — In Progression Test questions, "predict" means to use given evidence (like a table of observations) to work out an answer, not to guess randomly. Always refer back to the evidence in your answer.</p>
+  </div>
+  <div class="exam-card">
+    <div class="cat">Full-Mark Tip</div>
+    <p>Word equation questions usually award marks for each correctly named substance <em>and</em> for the correct order (reactants before the arrow, products after). Take care with spelling of "hydroxide" and "hydrogen" — they look similar but are different.</p>
+  </div>
+  <div class="exam-card">
+    <div class="cat">Vocabulary Focus</div>
+    <p>Questions have asked students to explain what "inert" means. Be ready to explain this in a full sentence, not just give a one-word answer.</p>
+  </div>
+  <div class="exam-card">
+    <div class="cat">Common Trap</div>
+    <p>When ranking reactivity from a results table, some students rely only on memory of the reactivity series instead of reading the evidence given in the question. Always check the specific data provided.</p>
+  </div>
+  <div class="exam-card">
+    <div class="cat">Scientific Enquiry Skill</div>
+    <p>Be ready to describe how to test for hydrogen gas (a lighted splint making a "squeaky pop") — this has appeared as a recall question.</p>
+  </div>
+</section>
+
+<!-- PARENT CHECK -->
+<section class="card" id="parent">
+  <div class="section-head"><span class="icon">👨‍👩‍👧</span><h2>Parent Check</h2></div>
+  <div class="section-sub">Discussion questions for a parent or family member — no answers included</div>
+  <div class="parent-card">
+    <ol>
+      <li>Can you explain what happens when a metal reacts with water?</li>
+      <li>Which is more reactive — sodium or magnesium? How do you know?</li>
+      <li>Can you describe the difference between how magnesium reacts with cold water and with steam?</li>
+      <li>Why do you think sodium and potassium are stored under oil?</li>
+      <li>Can you predict what might happen if you dropped a small piece of calcium into water?</li>
+      <li>What does it mean when scientists say gold is "inert"?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="card" id="reflection">
+  <div class="section-head"><span class="icon">💭</span><h2>Reflection</h2></div>
+  <div class="section-sub">A short check-in with yourself</div>
+  <div class="reflection-card">
+    <label>What do I understand well?
+      <textarea placeholder="Write a few words..."></textarea>
+    </label>
+    <label>What do I still need to review?
+      <textarea placeholder="Write a few words..."></textarea>
+    </label>
+    <label>Which vocabulary word is still difficult for me?
+      <textarea placeholder="Write a word..."></textarea>
+    </label>
+    <label>How confident do I feel about this section?
+      <div class="conf-scale" id="confScale">
+        <span data-val="1">😕 1</span>
+        <span data-val="2">🙂 2</span>
+        <span data-val="3">😀 3</span>
+        <span data-val="4">😄 4</span>
+        <span data-val="5">🤩 5</span>
+      </div>
+    </label>
+    <label><input type="checkbox"> I can explain this section without looking at my notes.</label>
+    <label><input type="checkbox"> I am ready to try the Workbook by myself.</label>
+  </div>
+</section>
+
+<footer class="metadata-footer">
+  Project: Cambridge Lower Secondary Science Stage 8 Self-Study Coach • Unit 8: Chemical Reactions • Section 8.4: Reactions of Metals with Water<br>
+  Output: O1 Section Review HTML • UI Version 2.1 • Project Version 1.0<br>
+  Sources used: Learner Book, Workbook, Teacher Resource, Progression Tests
+</footer>
+
+</main>
+
+<script>
+// ---------- Flashcards ----------
+const flashData = [
+  {f:"reactivity", b:"How easily and strongly a metal reacts with water, oxygen or acid."},
+  {f:"hydrogen", b:"The gas produced when a metal reacts with water. Test: lighted splint gives a 'squeaky pop'."},
+  {f:"metal hydroxide", b:"The compound formed, along with hydrogen, when a metal reacts with water."},
+  {f:"steam", b:"Water in the gas state — hotter and more energetic than water vapour in the air."},
+  {f:"reactivity series", b:"An ordered list of metals from most reactive to least reactive, based on evidence."},
+  {f:"inert", b:"Describes an element that does not react, or reacts extremely slowly, with other substances."},
+  {f:"General word equation for metal + water", b:"metal + water → metal hydroxide + hydrogen"},
+  {f:"Why does potassium's reaction catch fire?", b:"So much thermal energy is released that the hydrogen gas produced ignites."},
+  {f:"Why do sodium and potassium need to be stored under oil?", b:"They react so strongly with water (even water vapour in air) that oil keeps them safe."},
+  {f:"Magnesium + steam word equation", b:"magnesium + water (g) → magnesium oxide + hydrogen"},
+  {f:"Why does steam react faster than cold water?", b:"Steam particles have more energy, move faster, and collide with metal particles more often and with more force."},
+  {f:"Why is copper used for water pipes?", b:"Copper does not react with water, so the pipes do not corrode."},
+  {f:"What does 'inert' mean for gold?", b:"Gold does not react with water or oxygen at all, even after hundreds of years."}
+];
+let flashOrder = flashData.map((_,i)=>i);
+let flashIndex = 0;
+
+function renderFlash(){
+  const item = flashData[flashOrder[flashIndex]];
+  document.getElementById('flashFront').textContent = item.f;
+  document.getElementById('flashBack').textContent = item.b;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('flashProgress').textContent = "Card " + (flashIndex+1) + " of " + flashData.length;
+}
+function flipFlash(){
+  document.getElementById('flashcard').classList.toggle('flipped');
+}
+function flashNext(){
+  flashIndex = (flashIndex+1) % flashData.length;
+  renderFlash();
+}
+function flashPrev(){
+  flashIndex = (flashIndex-1+flashData.length) % flashData.length;
+  renderFlash();
+}
+function shuffleFlash(){
+  for(let i=flashOrder.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [flashOrder[i],flashOrder[j]] = [flashOrder[j],flashOrder[i]];
+  }
+  flashIndex = 0;
+  renderFlash();
+}
+document.getElementById('flashcard').addEventListener('click', flipFlash);
+document.getElementById('flashcard').addEventListener('keydown', function(e){
+  if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); flipFlash(); }
+});
+renderFlash();
+
+// ---------- Workbook hints ----------
+function toggleHint(btn){
+  const hint = btn.nextElementSibling;
+  hint.classList.toggle('show');
+  btn.textContent = hint.classList.contains('show') ? 'Hide Hint' : btn.textContent.replace('Hide','Show');
+}
+
+// ---------- Confidence scale ----------
+document.getElementById('confScale').addEventListener('click', function(e){
+  const span = e.target.closest('span');
+  if(!span) return;
+  [...this.children].forEach(c=>c.classList.remove('selected'));
+  span.classList.add('selected');
+});
+
+// ---------- Quiz ----------
+const quizData = [
+  {level:"Recall", q:"What gas is always produced when a metal reacts with water?", options:["Oxygen","Hydrogen","Carbon dioxide","Nitrogen"], correct:1,
+   feedback:["Look again at the general word equation.","Correct! Hydrogen is always one of the products.","Look again at the general word equation.","Look again at the general word equation."]},
+  {level:"Understand", q:"Which word completes this equation? sodium + water → sodium hydroxide + ____", options:["oxygen","hydrogen","steam","sodium oxide"], correct:1,
+   feedback:["Think about the gas released, not the gas used.","Correct! Hydrogen is the second product.","Steam is a reactant in a different reaction, not a product here.","Hydroxide, not oxide, is formed with cold water."]},
+  {level:"Apply", q:"Which metal reacts so violently with water that the hydrogen gas produced catches fire?", options:["Magnesium","Copper","Potassium","Gold"], correct:2,
+   feedback:["Magnesium reacts much more gently.","Copper barely reacts with water at all.","Correct! Potassium releases so much energy that the hydrogen ignites.","Gold does not react with water."]},
+  {level:"Analyse", q:"Why does magnesium react faster with steam than with cold water?", options:["Steam is a different chemical from water","Steam particles have more energy and collide more often","Magnesium changes into a different metal in steam","Cold water contains more oxygen"], correct:1,
+   feedback:["Steam and cold water are both water — just in different states.","Correct! More energetic particles collide more often and more forcefully.","Magnesium stays the same metal in both reactions.","This is not related to oxygen content."]},
+  {level:"Diagram Interpretation", q:"In the calcium and water investigation diagram, why is an upside-down funnel placed over the metal?", options:["To keep the metal warm","To trap and collect the gas produced","To stop the water from evaporating","To protect the beaker from breaking"], correct:1,
+   feedback:["The funnel is not for temperature control.","Correct! The funnel traps gas so it can be collected in the test tube.","The funnel does not control evaporation.","The funnel is not for protecting the beaker."]},
+  {level:"Vocabulary", q:"What does it mean to say gold is 'inert'?", options:["Gold reacts slowly with water only","Gold does not react, or reacts extremely slowly, with other substances","Gold reacts only with steam","Gold reacts strongly with acids"], correct:1,
+   feedback:["Inert means much more than 'slow with water'.","Correct! Inert metals barely react with anything.","This is not what inert means.","Inert metals do not react strongly with anything."]},
+  {level:"Recall", q:"What is the test for hydrogen gas?", options:["Glowing splint relights","Limewater turns cloudy","Lighted splint makes a squeaky pop","Litmus paper turns red"], correct:2,
+   feedback:["That test is for oxygen.","That test is for carbon dioxide.","Correct! A lighted splint makes a squeaky pop in hydrogen gas.","That test is for acids."]},
+  {level:"Application", q:"Why is copper a good metal for water pipes?", options:["It is the cheapest metal available","It does not react with water","It reacts quickly to seal small leaks","It changes colour to show damage"], correct:1,
+   feedback:["Cost is not the scientific reason given here.","Correct! Copper does not react with water, so it does not corrode.","This is not a real property of copper.","This is not correct."]},
+  {level:"Cambridge Challenge", q:"Jamila's results show Metal X bubbles rapidly and moves on the surface of the water, more than calcium but less vigorously than potassium. Where should Metal X most likely sit in the reactivity series?", options:["Below calcium","Between calcium and potassium","Above potassium","Below silver"], correct:1,
+   feedback:["The evidence shows Metal X is more reactive than calcium.","Correct! Metal X reacts more than calcium but less than potassium, so it sits between them.","The evidence shows potassium reacts more violently than Metal X.","Silver shows almost no reaction, which does not match Metal X's evidence."]},
+  {level:"Analyse", q:"A classmate says: 'Copper is completely inert.' What is the best evaluation of this statement?", options:["This is correct, because copper does not react with water","This is incorrect, because 'inert' means barely reacting with almost anything, not just water","This is correct, because copper is a metal","This is incorrect, because copper reacts violently with water"], correct:1,
+   feedback:["Not reacting with water alone does not prove something is fully inert.","Correct! True inertness applies much more broadly than just water.","Being a metal does not make something inert.","Copper does not react violently with water."]}
+];
+
+const quizContainer = document.getElementById('quizContainer');
+let quizAnswered = new Array(quizData.length).fill(false);
+let quizCorrectCount = 0;
+
+quizData.forEach((item, qi)=>{
+  const card = document.createElement('div');
+  card.className = 'quiz-card';
+  card.innerHTML = `
+    <div class="qlabel">${item.level}</div>
+    <div class="qtext">${qi+1}. ${item.q}</div>
+    <div class="qoptions" id="qopts-${qi}"></div>
+    <div class="qfeedback" id="qfeedback-${qi}"></div>
+  `;
+  quizContainer.appendChild(card);
+  const optsWrap = card.querySelector(`#qopts-${qi}`);
+  item.options.forEach((opt, oi)=>{
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'qoption';
+    btn.textContent = opt;
+    btn.addEventListener('click', ()=>checkAnswer(qi, oi, btn));
+    optsWrap.appendChild(btn);
+  });
+});
+
+function checkAnswer(qi, oi, btnEl){
+  if(quizAnswered[qi]) return;
+  quizAnswered[qi] = true;
+  const item = quizData[qi];
+  const optsWrap = document.getElementById(`qopts-${qi}`);
+  [...optsWrap.children].forEach((b, idx)=>{
+    b.disabled = true;
+    if(idx === item.correct) b.classList.add('correct');
+    if(idx === oi && oi !== item.correct) b.classList.add('incorrect');
+  });
+  const fb = document.getElementById(`qfeedback-${qi}`);
+  const isCorrect = oi === item.correct;
+  if(isCorrect) quizCorrectCount++;
+  fb.textContent = (isCorrect ? "✅ Correct! " : "⚠ Try again next time. ") + item.feedback[oi];
+  fb.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+}
+
+function finishQuiz(){
+  const total = quizData.length;
+  const answeredCount = quizAnswered.filter(Boolean).length;
+  const pct = Math.round((quizCorrectCount/total)*100);
+  let msg = "";
+  if(pct >= 80) msg = "Excellent work! You understand this section very well.";
+  else if(pct >= 50) msg = "Good effort! Review the concepts you missed, then try again.";
+  else msg = "Keep practising — re-read the Core Concepts section and try the quiz again.";
+  document.getElementById('quizScore').textContent =
+    `You answered ${answeredCount} of ${total} questions. Score: ${quizCorrectCount}/${total} (${answeredCount? pct : 0}%). ${msg}`;
+}
+</script>
+</body>
+</html>
