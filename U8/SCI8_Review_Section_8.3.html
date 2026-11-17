@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 8.3 — Metals and their reactions with oxygen</title>
+<style>
+:root {
+  --primary: #007D8C;
+  --primary-dark: #005F6B;
+  --primary-light: #EAF8FA;
+
+  --blue: #1F6FB2;
+  --blue-light: #EAF3FC;
+
+  --green: #2E7D32;
+  --green-light: #EDF8EE;
+
+  --orange: #F39C12;
+  --orange-light: #FFF4E6;
+
+  --purple: #7E57C2;
+  --purple-light: #F3ECFD;
+
+  --red: #D84343;
+  --red-light: #FDECEC;
+
+  --grey: #666666;
+  --grey-light: #F5F5F5;
+
+  --background: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #E1E5EA;
+  --text: #1F2937;
+  --muted: #6B7280;
+
+  --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+h1, h2, h3, h4 { line-height: 1.25; }
+
+/* Hero */
+.hero-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 32px 24px;
+  border-radius: 0 0 var(--radius) var(--radius);
+  margin-bottom: 16px;
+}
+.hero-eyebrow { font-size: 13px; letter-spacing: 1px; opacity: 0.9; text-transform: uppercase; }
+.hero-unit { font-size: 15px; opacity: 0.95; margin-top: 6px; }
+.hero-title { font-size: clamp(26px, 5vw, 36px); margin: 8px 0 6px; font-weight: 700; }
+.hero-subtitle { font-size: 15px; opacity: 0.95; }
+.source-badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.source-badge {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+/* Nav */
+.nav-strip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  position: sticky;
+  top: 8px;
+  z-index: 10;
+}
+.nav-strip a {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nav-strip a:hover, .nav-strip a:focus { background: var(--primary-light); outline: none; }
+
+/* Section container */
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+  scroll-margin-top: 60px;
+}
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.section-header .icon { font-size: 22px; }
+.section-header h2 { margin: 0; font-size: 22px; color: var(--primary-dark); }
+.section-subtitle { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+
+/* Callouts */
+.callout { border-radius: var(--radius); padding: 14px 16px; margin: 12px 0; font-size: 15px; border: 1px solid; }
+.callout.info { background: var(--blue-light); border-color: var(--blue); }
+.callout.success { background: var(--green-light); border-color: var(--green); }
+.callout.warning, .callout.misconception { background: var(--red-light); border-color: var(--red); }
+.callout.challenge { background: var(--purple-light); border-color: var(--purple); }
+.callout.realworld { background: var(--orange-light); border-color: var(--orange); }
+.callout b { display: block; margin-bottom: 4px; }
+
+/* Grids */
+.vocab-grid, .teachback-grid, .flash-wrap { display: grid; gap: 14px; }
+.vocab-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+
+.vocab-card, .concept-card, .diagram-card, .thinking-card, .realworld-card, .exam-card, .parent-card, .reflection-card, .workbook-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  background: var(--surface);
+}
+.vocab-card { background: var(--green-light); border-color: var(--green); }
+.vocab-card h4 { margin: 0 0 4px; color: var(--green); font-size: 18px; }
+.vocab-ipa { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.vocab-card p { margin: 4px 0; font-size: 14px; }
+.vocab-tag { display: inline-block; font-size: 11px; background: rgba(0,0,0,0.06); border-radius: 6px; padding: 2px 6px; margin-bottom: 6px; }
+
+.concept-card { background: var(--blue-light); border-color: var(--blue); margin-bottom: 14px; }
+.concept-card h3 { margin: 0 0 8px; color: var(--blue); font-size: 19px; }
+.concept-card .key-sentence { font-weight: 600; background: rgba(255,255,255,0.6); padding: 8px 10px; border-radius: 8px; margin-top: 8px; }
+
+.diagram-card { margin-bottom: 18px; }
+.diagram-card h3 { color: var(--blue); font-size: 18px; margin-top: 0; }
+.diagram-card svg { width: 100%; height: auto; display: block; margin: 10px 0; }
+.diagram-caption { font-size: 13px; color: var(--muted); }
+
+.thinking-card { background: var(--green-light); border-color: var(--green); margin-bottom: 14px; }
+.thinking-card h3 { margin-top: 0; color: var(--green); font-size: 18px; }
+.thinking-card textarea { width: 100%; min-height: 60px; border-radius: 8px; border: 1px solid var(--border); padding: 8px; font-family: inherit; font-size: 14px; resize: vertical; }
+
+.realworld-card { background: var(--orange-light); border-color: var(--orange); margin-bottom: 14px; }
+.realworld-card h3 { margin-top: 0; color: #b5720a; font-size: 18px; }
+
+/* Flashcards */
+.flash-wrap { grid-template-columns: 1fr; }
+.flashcard-stage { max-width: 480px; margin: 0 auto; }
+.flashcard {
+  perspective: 1200px;
+  height: 200px;
+  cursor: pointer;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.flashcard-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+  font-size: 16px; font-weight: 600;
+  background: var(--purple-light);
+}
+.flashcard-face.back { transform: rotateY(180deg); background: #fff; font-weight: 400; }
+.flash-controls { display: flex; gap: 10px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+.flash-counter { text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--grey-light); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: #ececec; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-neutral { background: var(--purple-light); color: var(--purple); }
+button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* Quiz */
+.quiz-card { border: 1px solid var(--purple); background: var(--purple-light); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; }
+.quiz-card h4 { margin: 0 0 10px; font-size: 15px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-options label { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; cursor: pointer; font-size: 14px; }
+.quiz-options label:hover { border-color: var(--purple); }
+.quiz-feedback { margin-top: 10px; padding: 10px; border-radius: 8px; font-size: 14px; display: none; }
+.quiz-feedback.correct { background: var(--green-light); color: var(--green); display: block; }
+.quiz-feedback.incorrect { background: var(--red-light); color: var(--red); display: block; }
+.quiz-score-box { text-align: center; padding: 20px; }
+.quiz-score-box .big { font-size: 32px; font-weight: 700; color: var(--purple); }
+
+/* Workbook */
+.workbook-card { background: var(--orange-light); border-color: var(--orange); }
+.workbook-flow div { margin-bottom: 8px; }
+.workbook-flow b { color: #b5720a; }
+
+/* Teach-back */
+.teachback-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.teachback-grid .level { border-radius: var(--radius); padding: 14px; border: 2px solid; }
+.level.bronze { border-color: #a97142; background: #fbeee3; }
+.level.silver { border-color: #9aa1a9; background: #f1f3f4; }
+.level.gold { border-color: #d4a017; background: #fff8e1; }
+.level.platinum { border-color: var(--purple); background: var(--purple-light); }
+.level h4 { margin: 0 0 6px; }
+
+/* Exam */
+.exam-card { background: #fff; border-color: var(--purple); margin-bottom: 12px; }
+.exam-card h4 { margin: 0 0 6px; color: var(--purple); }
+
+/* Parent */
+.parent-card { background: var(--grey-light); }
+.parent-card ol { padding-left: 20px; }
+.parent-card li { margin-bottom: 8px; }
+
+/* Reflection */
+.reflection-card label { display: block; margin: 8px 0; font-size: 15px; }
+.confidence-scale { display: flex; gap: 6px; margin: 6px 0 14px; }
+.confidence-scale span { flex: 1; text-align: center; padding: 6px; border-radius: 8px; background: var(--grey-light); font-size: 13px; }
+.reflection-card textarea { width: 100%; min-height: 50px; border-radius: 8px; border: 1px solid var(--border); padding: 8px; font-family: inherit; }
+
+/* Metadata */
+.metadata-footer {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+@media print {
+  .nav-strip, .flash-controls, .quiz-options, .btn-primary, .btn-secondary, .btn-success, .btn-neutral { display: none !important; }
+}
+</style>
+</head>
+<body>
+<header class="hero-header">
+  <div class="hero-eyebrow">Cambridge Lower Secondary Science • Stage 8</div>
+  <div class="hero-unit">Unit 8 — Chemical Reactions · Section 8.3</div>
+  <h1 class="hero-title">Metals and their reactions with oxygen</h1>
+  <p class="hero-subtitle">Reactivity • Oxidation • Rust • Protecting Metals</p>
+  <div class="source-badges">
+    <span class="source-badge">📘 Learner Book Verified</span>
+    <span class="source-badge">📗 Workbook Verified</span>
+    <span class="source-badge">🧑‍🏫 Teacher Resource Verified</span>
+    <span class="source-badge">📝 Progression Tests Reviewed</span>
+  </div>
+</header>
+
+<nav class="nav-strip" aria-label="Section navigation">
+  <a href="#roadmap">Roadmap</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#concepts">Concepts</a>
+  <a href="#diagrams">Diagrams</a>
+  <a href="#thinking">Thinking</a>
+  <a href="#realworld">Real World</a>
+  <a href="#flashcards">Flashcards</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#workbook">Workbook</a>
+  <a href="#teachback">Teach-Back</a>
+  <a href="#exam">Exam Skills</a>
+  <a href="#parent">Parent Check</a>
+  <a href="#reflection">Reflection</a>
+</nav>
+
+<main>
+
+<!-- ROADMAP -->
+<section class="section-card" id="roadmap">
+  <div class="section-header"><span class="icon">🗺️</span><h2>What this section is about</h2></div>
+  <p>Metals are all around us — in bridges, coins, cutlery, and buildings. But metals do not stay the same forever. Many of them slowly react with the oxygen in the air. This is called an <strong>oxidation reaction</strong>.</p>
+  <p>In this section, you will learn why some metals react with oxygen quickly, why some react very slowly, and why some barely react at all. You will also learn why iron <em>rusts</em>, and how people protect iron so it lasts longer.</p>
+  <div class="callout info">
+    <b>Why it matters</b>
+    Understanding how metals react with oxygen helps engineers choose the right metal for bridges, ships, pipes, and tools — and helps you understand why old iron objects fall apart over time.
+  </div>
+  <h3>Learning objectives</h3>
+  <ul>
+    <li>I can describe how different metals react with oxygen.</li>
+    <li>I can compare how reactive different metals are, using evidence.</li>
+    <li>I can explain the conditions needed for iron to rust.</li>
+    <li>I can suggest ways to protect iron from rusting.</li>
+  </ul>
+  <p class="section-subtitle">Roadmap: Vocabulary → Concepts → Diagrams → Thinking → Real World → Practice → Workbook → Reflection</p>
+</section>
+
+<!-- VOCABULARY -->
+<section class="section-card" id="vocabulary">
+  <div class="section-header"><span class="icon">🔤</span><h2>Vocabulary Master Pack</h2></div>
+  <p class="section-subtitle">Learn these words before you read the concepts below. This will make reading much easier.</p>
+
+  <h3>A. Core Science Vocabulary</h3>
+  <div class="vocab-grid">
+    <div class="vocab-card">
+      <span class="vocab-tag">Core</span>
+      <h4>reactive</h4>
+      <div class="vocab-ipa">/riˈæk.tɪv/ · re‑ac‑tive</div>
+      <p><strong>Simple meaning:</strong> Able to change quickly when it meets another substance.</p>
+      <p><strong>Scientific meaning:</strong> A reactive metal combines with oxygen (or other substances) easily and quickly.</p>
+      <p><strong>Vietnamese:</strong> dễ phản ứng</p>
+      <p><em>"Sodium is far more reactive than iron."</em></p>
+    </div>
+    <div class="vocab-card">
+      <span class="vocab-tag">Core</span>
+      <h4>oxidation</h4>
+      <div class="vocab-ipa">/ˌɒk.sɪˈdeɪ.ʃən/ · ox‑i‑da‑tion</div>
+      <p><strong>Simple meaning:</strong> A reaction where a substance joins with oxygen.</p>
+      <p><strong>Scientific meaning:</strong> Oxidation is the name for a reaction between a metal and oxygen.</p>
+      <p><strong>Vietnamese:</strong> sự oxy hóa</p>
+      <p><em>"Rusting is an example of an oxidation reaction."</em></p>
+      <p><strong>Tip:</strong> Notice the word "oxi" inside — it links to oxygen.</p>
+    </div>
+    <div class="vocab-card">
+      <span class="vocab-tag">Core</span>
+      <h4>oxide</h4>
+      <div class="vocab-ipa">/ˈɒk.saɪd/ · ox‑ide</div>
+      <p><strong>Simple meaning:</strong> A new substance made when a metal joins with oxygen.</p>
+      <p><strong>Scientific meaning:</strong> Metal + oxygen → metal oxide.</p>
+      <p><strong>Vietnamese:</strong> oxit</p>
+      <p><em>"Iron oxide is the brown substance we call rust."</em></p>
+    </div>
+    <div class="vocab-card">
+      <span class="vocab-tag">Core</span>
+      <h4>rust</h4>
+      <div class="vocab-ipa">/rʌst/ · rust</div>
+      <p><strong>Simple meaning:</strong> The orange-brown substance formed when iron reacts.</p>
+      <p><strong>Scientific meaning:</strong> Rust is iron oxide, formed when iron reacts with both oxygen and water.</p>
+      <p><strong>Vietnamese:</strong> gỉ sắt</p>
+      <p><em>"The old bicycle was covered in rust."</em></p>
+    </div>
+    <div class="vocab-card">
+      <span class="vocab-tag">Core</span>
+      <h4>inert</h4>
+      <div class="vocab-ipa">/ɪˈnɜːt/ · in‑ert</div>
+      <p><strong>Simple meaning:</strong> Does not react with other substances.</p>
+      <p><strong>Scientific meaning:</strong> An inert metal, such as gold, does not react with oxygen.</p>
+      <p><strong>Vietnamese:</strong> trơ (không phản ứng)</p>
+      <p><em>"Gold is inert, so gold jewellery never rusts."</em></p>
+    </div>
+  </div>
+
+  <h3>B. Reading Support Vocabulary</h3>
+  <div class="vocab-grid">
+    <div class="vocab-card" style="background:var(--blue-light); border-color:var(--blue);">
+      <h4>prevent</h4>
+      <div class="vocab-ipa">/prɪˈvent/ · pre‑vent</div>
+      <p><strong>Meaning:</strong> To stop something from happening.</p>
+      <p><strong>Vietnamese:</strong> ngăn chặn</p>
+      <p><em>"Paint can prevent iron from rusting."</em></p>
+    </div>
+    <div class="vocab-card" style="background:var(--blue-light); border-color:var(--blue);">
+      <h4>collapses</h4>
+      <div class="vocab-ipa">/kəˈlæps.ɪz/ · col‑lap‑ses</div>
+      <p><strong>Meaning:</strong> Suddenly falls down or breaks apart.</p>
+      <p><strong>Vietnamese:</strong> sụp đổ</p>
+      <p><em>"A very rusty bridge collapses because the metal has weakened."</em></p>
+    </div>
+    <div class="vocab-card" style="background:var(--blue-light); border-color:var(--blue);">
+      <h4>dull</h4>
+      <div class="vocab-ipa">/dʌl/ · dull</div>
+      <p><strong>Meaning:</strong> Not bright or shiny.</p>
+      <p><strong>Vietnamese:</strong> xỉn màu</p>
+      <p><em>"The shiny metal surface soon becomes dull."</em></p>
+    </div>
+    <div class="vocab-card" style="background:var(--blue-light); border-color:var(--blue);">
+      <h4>damp</h4>
+      <div class="vocab-ipa">/dæmp/ · damp</div>
+      <p><strong>Meaning:</strong> Slightly wet.</p>
+      <p><strong>Vietnamese:</strong> ẩm ướt</p>
+      <p><em>"Iron left in damp air will slowly rust."</em></p>
+    </div>
+  </div>
+
+  <h3>C. Scientific Skills Vocabulary</h3>
+  <div class="vocab-grid">
+    <div class="vocab-card" style="background:var(--orange-light); border-color:var(--orange);">
+      <h4>predict</h4>
+      <div class="vocab-ipa">/prɪˈdɪkt/</div>
+      <p><strong>Meaning:</strong> To say what you think will happen, using your science knowledge.</p>
+      <p><strong>Vietnamese:</strong> dự đoán</p>
+    </div>
+    <div class="vocab-card" style="background:var(--orange-light); border-color:var(--orange);">
+      <h4>compare</h4>
+      <div class="vocab-ipa">/kəmˈpeə(r)/</div>
+      <p><strong>Meaning:</strong> To look at how two or more things are similar or different.</p>
+      <p><strong>Vietnamese:</strong> so sánh</p>
+    </div>
+    <div class="vocab-card" style="background:var(--orange-light); border-color:var(--orange);">
+      <h4>evidence</h4>
+      <div class="vocab-ipa">/ˈev.ɪ.dəns/</div>
+      <p><strong>Meaning:</strong> Facts or observations that support an idea.</p>
+      <p><strong>Vietnamese:</strong> bằng chứng</p>
+    </div>
+    <div class="vocab-card" style="background:var(--orange-light); border-color:var(--orange);">
+      <h4>fair test</h4>
+      <div class="vocab-ipa">/feə(r) test/</div>
+      <p><strong>Meaning:</strong> A test where only one variable is changed and all others stay the same.</p>
+      <p><strong>Vietnamese:</strong> thí nghiệm công bằng</p>
+    </div>
+    <div class="vocab-card" style="background:var(--orange-light); border-color:var(--orange);">
+      <h4>variable</h4>
+      <div class="vocab-ipa">/ˈveə.ri.ə.bl/</div>
+      <p><strong>Meaning:</strong> Something in an experiment that can change or be changed.</p>
+      <p><strong>Vietnamese:</strong> biến số</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTS -->
+<section class="section-card" id="concepts">
+  <div class="section-header"><span class="icon">💡</span><h2>Core Concepts</h2></div>
+
+  <div class="concept-card">
+    <h3>1. Metals react with oxygen — this is called oxidation</h3>
+    <p>Many metals react with oxygen if they get hot enough. This is an <strong>oxidation reaction</strong>, and it makes a new substance called a <strong>metal oxide</strong>.</p>
+    <p>The general word equation is always the same shape:</p>
+    <p class="key-sentence">metal + oxygen → metal oxide</p>
+    <p>Not every metal reacts at the same speed. Magnesium reacts quickly and brightly. Iron reacts much more slowly. This difference in speed tells us how <strong>reactive</strong> a metal is.</p>
+  </div>
+
+  <div class="concept-card">
+    <h3>2. Some metals are so reactive they react without being heated</h3>
+    <p>Sodium, potassium and calcium are so reactive that they react with oxygen in the air <strong>at room temperature</strong> — no heating needed. When these metals are cut, the surface is shiny, but it quickly turns dull as an oxide layer forms.</p>
+    <p>This oxide layer is actually useful: it covers the metal and stops more oxygen from reaching it. But because these metals are so reactive, they must be stored under oil so that no air can reach them at all.</p>
+    <div class="callout misconception">
+      <b>Common misunderstanding</b>
+      Some students think "unreactive metal = safer to handle." In fact, very reactive metals like sodium can be dangerous, which is why we never heat them in the classroom.
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <h3>3. Some metals barely react with oxygen at all</h3>
+    <p>Metals such as gold do not react with oxygen. We describe gold as <strong>inert</strong>. Silver reacts only very slowly — if left uncleaned, it slowly turns black as silver oxide forms.</p>
+    <p class="key-sentence">The less reactive a metal is, the slower (or less likely) it reacts with oxygen.</p>
+  </div>
+
+  <div class="concept-card">
+    <h3>4. Rusting — a special reaction of iron</h3>
+    <p>When iron is left in damp air, it reacts with oxygen to form an orange-brown solid called iron oxide, better known as <strong>rust</strong>.</p>
+    <p class="key-sentence">iron + oxygen → iron oxide</p>
+    <p>Rusting is important to know about because it is <strong>not useful</strong> — it changes iron so that it no longer has its strong, useful properties. A rusted iron girder can weaken so much that a structure collapses.</p>
+    <div class="callout warning">
+      <b>Key fact — remember this carefully</b>
+      Rusting only happens when <strong>both water and oxygen</strong> are present. If either one is missing, the iron will not rust — even though the reaction takes a long time either way, because iron is not very reactive.
+    </div>
+  </div>
+
+  <div class="concept-card">
+    <h3>5. Protecting iron from rusting</h3>
+    <p>Because rusting is a problem, people protect iron in different ways:</p>
+    <ul>
+      <li><strong>Painting</strong> — a layer of paint stops oxygen in the air from reaching the iron.</li>
+      <li><strong>Galvanising</strong> — covering iron with a layer of zinc, which also keeps oxygen away from the iron.</li>
+    </ul>
+    <p>Both methods work using the same idea: if oxygen (or water) cannot reach the iron, the iron cannot rust.</p>
+  </div>
+</section>
+
+<!-- DIAGRAMS -->
+<section class="section-card" id="diagrams">
+  <div class="section-header"><span class="icon">📊</span><h2>Diagram Mastery</h2></div>
+
+  <div class="diagram-card">
+    <h3>Diagram 1 — Comparing how metals react with oxygen</h3>
+    <svg viewBox="0 0 700 300" role="img" aria-labelledby="d1title d1desc">
+      <title id="d1title">Reactivity ladder showing how quickly metals react with oxygen</title>
+      <desc id="d1desc">A vertical ladder from most reactive at the top to least reactive at the bottom, showing sodium potassium calcium, then magnesium, then iron, then gold and silver.</desc>
+      <line x1="60" y1="20" x2="60" y2="270" stroke="#1F6FB2" stroke-width="3"/>
+      <polygon points="60,10 50,28 70,28" fill="#1F6FB2"/>
+      <text x="75" y="20" font-size="13" fill="#1F6FB2" font-family="Segoe UI, Arial">Increasing reactivity with oxygen</text>
+
+      <rect x="120" y="30" width="520" height="50" rx="10" fill="#FDECEC" stroke="#D84343"/>
+      <text x="140" y="52" font-size="15" font-weight="700" fill="#7a1f1f" font-family="Segoe UI, Arial">Sodium, Potassium, Calcium</text>
+      <text x="140" y="70" font-size="12" fill="#7a1f1f" font-family="Segoe UI, Arial">React with oxygen at room temperature — stored under oil</text>
+
+      <rect x="120" y="100" width="520" height="50" rx="10" fill="#FFF4E6" stroke="#F39C12"/>
+      <text x="140" y="122" font-size="15" font-weight="700" fill="#8a5a06" font-family="Segoe UI, Arial">Magnesium</text>
+      <text x="140" y="140" font-size="12" fill="#8a5a06" font-family="Segoe UI, Arial">Reacts quickly with oxygen when heated</text>
+
+      <rect x="120" y="170" width="520" height="50" rx="10" fill="#EAF3FC" stroke="#1F6FB2"/>
+      <text x="140" y="192" font-size="15" font-weight="700" fill="#124a7a" font-family="Segoe UI, Arial">Iron</text>
+      <text x="140" y="210" font-size="12" fill="#124a7a" font-family="Segoe UI, Arial">Reacts slowly — rusts only with water AND oxygen present</text>
+
+      <rect x="120" y="240" width="520" height="50" rx="10" fill="#EDF8EE" stroke="#2E7D32"/>
+      <text x="140" y="262" font-size="15" font-weight="700" fill="#1c4f1e" font-family="Segoe UI, Arial">Gold, Silver</text>
+      <text x="140" y="280" font-size="12" fill="#1c4f1e" font-family="Segoe UI, Arial">Gold is inert; silver reacts extremely slowly</text>
+    </svg>
+    <p class="diagram-caption"><strong>What it shows:</strong> Metals do not all react with oxygen at the same speed. <strong>Notice:</strong> the position of a metal tells you how reactive it is. <strong>Common mistake:</strong> thinking all metals react the same way — reactivity is always relative, comparing one metal to another.</p>
+  </div>
+
+  <div class="diagram-card">
+    <h3>Diagram 2 — Investigating why iron rusts</h3>
+    <svg viewBox="0 0 700 260" role="img" aria-labelledby="d2title d2desc">
+      <title id="d2title">Four test tubes investigating the conditions needed for rusting</title>
+      <desc id="d2desc">Four sealed or open test tubes each containing an iron nail under different conditions of air and water, used to test which conditions cause rusting.</desc>
+
+      <g font-family="Segoe UI, Arial" font-size="12" fill="#1F2937">
+        <rect x="20" y="40" width="130" height="150" rx="8" fill="#EAF3FC" stroke="#1F6FB2"/>
+        <text x="85" y="30" text-anchor="middle" font-weight="700">Tube 1</text>
+        <rect x="70" y="60" width="30" height="110" fill="#ffffff" stroke="#666"/>
+        <line x1="85" y1="70" x2="85" y2="160" stroke="#999" stroke-width="6"/>
+        <text x="85" y="200" text-anchor="middle">moist air</text>
+        <text x="85" y="216" text-anchor="middle" font-style="italic">open tube</text>
+
+        <rect x="195" y="40" width="130" height="150" rx="8" fill="#EAF3FC" stroke="#1F6FB2"/>
+        <text x="260" y="30" text-anchor="middle" font-weight="700">Tube 2</text>
+        <rect x="245" y="60" width="30" height="110" fill="#ffffff" stroke="#666"/>
+        <rect x="245" y="120" width="30" height="50" fill="#bcdff5"/>
+        <line x1="260" y1="70" x2="260" y2="160" stroke="#999" stroke-width="6"/>
+        <text x="260" y="200" text-anchor="middle">water + air</text>
+        <text x="260" y="216" text-anchor="middle" font-style="italic">open tube</text>
+
+        <rect x="370" y="40" width="130" height="150" rx="8" fill="#FFF4E6" stroke="#F39C12"/>
+        <text x="435" y="30" text-anchor="middle" font-weight="700">Tube 3</text>
+        <rect x="420" y="60" width="30" height="110" fill="#ffffff" stroke="#666"/>
+        <circle cx="415" cy="150" r="5" fill="#d8b06a"/><circle cx="425" cy="160" r="5" fill="#d8b06a"/><circle cx="435" cy="150" r="5" fill="#d8b06a"/>
+        <line x1="435" y1="70" x2="435" y2="140" stroke="#999" stroke-width="6"/>
+        <rect x="418" y="55" width="34" height="8" fill="#8a5a06"/>
+        <text x="435" y="200" text-anchor="middle">dry air</text>
+        <text x="435" y="216" text-anchor="middle" font-style="italic">calcium chloride + stopper</text>
+
+        <rect x="545" y="40" width="130" height="150" rx="8" fill="#EDF8EE" stroke="#2E7D32"/>
+        <text x="610" y="30" text-anchor="middle" font-weight="700">Tube 4</text>
+        <rect x="595" y="60" width="30" height="110" fill="#ffffff" stroke="#666"/>
+        <rect x="595" y="120" width="30" height="50" fill="#bcdff5"/>
+        <rect x="595" y="110" width="30" height="10" fill="#d4a017"/>
+        <line x1="610" y1="70" x2="610" y2="160" stroke="#999" stroke-width="6"/>
+        <rect x="588" y="55" width="44" height="8" fill="#1c4f1e"/>
+        <text x="610" y="200" text-anchor="middle">boiled water</text>
+        <text x="610" y="216" text-anchor="middle" font-style="italic">oil layer + stopper</text>
+      </g>
+    </svg>
+    <p class="diagram-caption"><strong>What it shows:</strong> the same type of iron nail in four different conditions. <strong>Notice:</strong> only tubes with both water and air present will show strong rusting. <strong>Common mistake:</strong> forgetting that the same type of nail must be used in every tube, or it would not be a fair test.</p>
+  </div>
+
+  <div class="diagram-card">
+    <h3>Diagram 3 — The general word equation for oxidation</h3>
+    <svg viewBox="0 0 700 140" role="img" aria-labelledby="d3title d3desc">
+      <title id="d3title">Word equation showing metal plus oxygen forming metal oxide</title>
+      <desc id="d3desc">A general reaction diagram: metal plus oxygen produces metal oxide, with iron plus oxygen producing iron oxide (rust) as an example below.</desc>
+      <g font-family="Segoe UI, Arial">
+        <rect x="20" y="15" width="140" height="45" rx="8" fill="#EAF3FC" stroke="#1F6FB2"/>
+        <text x="90" y="42" text-anchor="middle" font-size="15" fill="#124a7a">metal</text>
+        <text x="180" y="42" text-anchor="middle" font-size="18" fill="#1F2937">+</text>
+        <rect x="205" y="15" width="140" height="45" rx="8" fill="#EAF3FC" stroke="#1F6FB2"/>
+        <text x="275" y="42" text-anchor="middle" font-size="15" fill="#124a7a">oxygen</text>
+        <text x="375" y="42" text-anchor="middle" font-size="20" fill="#1F2937">→</text>
+        <rect x="410" y="15" width="200" height="45" rx="8" fill="#EDF8EE" stroke="#2E7D32"/>
+        <text x="510" y="42" text-anchor="middle" font-size="15" fill="#1c4f1e">metal oxide</text>
+
+        <rect x="20" y="85" width="140" height="45" rx="8" fill="#FDECEC" stroke="#D84343"/>
+        <text x="90" y="112" text-anchor="middle" font-size="15" fill="#7a1f1f">iron</text>
+        <text x="180" y="112" text-anchor="middle" font-size="18" fill="#1F2937">+</text>
+        <rect x="205" y="85" width="140" height="45" rx="8" fill="#FDECEC" stroke="#D84343"/>
+        <text x="275" y="112" text-anchor="middle" font-size="15" fill="#7a1f1f">oxygen</text>
+        <text x="375" y="112" text-anchor="middle" font-size="20" fill="#1F2937">→</text>
+        <rect x="410" y="85" width="200" height="45" rx="8" fill="#FDECEC" stroke="#D84343"/>
+        <text x="510" y="112" text-anchor="middle" font-size="15" fill="#7a1f1f">iron oxide (rust)</text>
+      </g>
+    </svg>
+    <p class="diagram-caption"><strong>What it shows:</strong> every metal-oxygen reaction follows this same pattern. <strong>Notice:</strong> only the name of the metal and its oxide change. <strong>Common mistake:</strong> writing "rust" instead of "iron oxide" in a word equation — always use the chemical name.</p>
+  </div>
+</section>
+
+<!-- THINKING -->
+<section class="section-card" id="thinking">
+  <div class="section-header"><span class="icon">🧠</span><h2>Scientific Thinking</h2></div>
+
+  <div class="thinking-card">
+    <h3>1. Interpreting evidence</h3>
+    <p>Look at the four test tubes in Diagram 2. Tube 1 (moist air, open) went rusty. Tube 3 (dry air, stoppered) did not rust at all.</p>
+    <p><strong>Your task:</strong> Using evidence from these two tubes only, explain what this tells you about the conditions needed for rusting.</p>
+    <textarea placeholder="Write your explanation here..." aria-label="Answer for interpreting evidence"></textarea>
+  </div>
+
+  <div class="thinking-card">
+    <h3>2. Comparing observations</h3>
+    <p>A student heats magnesium and iron separately in a Bunsen flame. The magnesium burns brightly and quickly. The iron glows slowly and does not burn brightly.</p>
+    <p><strong>Your task:</strong> Which metal is more reactive with oxygen? Justify your answer using the observations given.</p>
+    <textarea placeholder="Write your explanation here..." aria-label="Answer for comparing observations"></textarea>
+  </div>
+
+  <div class="thinking-card">
+    <h3>3. Making a prediction</h3>
+    <p>Copper is less reactive than iron, but more reactive than gold.</p>
+    <p><strong>Your task:</strong> Predict what would happen if a piece of copper were left in damp air for many months. Explain your reasoning.</p>
+    <textarea placeholder="Write your prediction here..." aria-label="Answer for making a prediction"></textarea>
+  </div>
+</section>
+
+<!-- REAL WORLD -->
+<section class="section-card" id="realworld">
+  <div class="section-header"><span class="icon">🌍</span><h2>Real World Science</h2></div>
+
+  <div class="realworld-card">
+    <h3>Shipwrecks and old iron structures</h3>
+    <p><strong>Situation:</strong> An old iron ship left on the coast turns orange-brown and eventually falls apart.</p>
+    <p><strong>Science connection:</strong> Sea air is often damp, giving both the water and oxygen iron needs to rust.</p>
+    <p><strong>Why it matters:</strong> Engineers must plan for rusting when building anything from iron near water.</p>
+  </div>
+
+  <div class="realworld-card">
+    <h3>Painted gates and galvanised fences</h3>
+    <p><strong>Situation:</strong> Iron gates are often painted, and iron fences are often coated in zinc (galvanised).</p>
+    <p><strong>Science connection:</strong> Both coatings stop oxygen and water from reaching the iron underneath.</p>
+    <p><strong>Why it matters:</strong> This keeps structures safe and strong for much longer.</p>
+  </div>
+
+  <div class="realworld-card">
+    <h3>Storing reactive metals safely</h3>
+    <p><strong>Situation:</strong> In science labs, sodium, potassium and calcium are stored under oil.</p>
+    <p><strong>Science connection:</strong> The oil stops oxygen and moisture in the air from reaching these very reactive metals.</p>
+    <p><strong>Why it matters:</strong> Without the oil, these metals could react dangerously with air or moisture.</p>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="section-card" id="flashcards">
+  <div class="section-header"><span class="icon">🃏</span><h2>Interactive Flashcards</h2></div>
+  <p class="section-subtitle">Read the front. Try to answer before you flip.</p>
+  <div class="flashcard-stage">
+    <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flashcard, press to flip">
+      <div class="flashcard-inner">
+        <div class="flashcard-face front" id="flashFront"></div>
+        <div class="flashcard-face back" id="flashBack"></div>
+      </div>
+    </div>
+    <div class="flash-controls">
+      <button class="btn-secondary" onclick="flashPrev()">◀ Previous</button>
+      <button class="btn-neutral" onclick="flipFlash()">Flip</button>
+      <button class="btn-secondary" onclick="flashNext()">Next ▶</button>
+      <button class="btn-neutral" onclick="shuffleFlash()">🔀 Shuffle</button>
+    </div>
+    <p class="flash-counter" id="flashCounter"></p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section-card" id="quiz">
+  <div class="section-header"><span class="icon">✅</span><h2>Interactive Mini Quiz</h2></div>
+  <p class="section-subtitle">Choose your answer, then press "Check Answer" for feedback.</p>
+  <div id="quizContainer"></div>
+  <div style="text-align:center; margin-top:10px;">
+    <button class="btn-success" onclick="finishQuiz()">Finish Quiz</button>
+  </div>
+  <div class="quiz-score-box" id="quizScoreBox" style="display:none;"></div>
+</section>
+
+<!-- WORKBOOK PREVIEW -->
+<section class="section-card" id="workbook">
+  <div class="section-header"><span class="icon">📗</span><h2>Workbook Preview</h2></div>
+  <p class="section-subtitle">This will help you prepare for <strong>Exercise 8.3: Why does iron rust?</strong> It will not give you the answers.</p>
+  <div class="workbook-card">
+    <div class="workbook-flow">
+      <div><b>Learning Objective:</b> Use what you know about the conditions needed for rusting to explain an investigation with iron nails.</div>
+      <div><b>Hint 1:</b> Look carefully at what each test tube contains — is air present? Is water present? Both conditions matter.</div>
+      <div><b>Hint 2:</b> Remember that a stoppered tube keeps air (and its moisture) away from the nail inside.</div>
+      <div><b>Thinking Tip:</b> When asked "is this an expected result?", compare the actual conditions in the tube to the conditions rust really needs.</div>
+      <div><b>Reminder:</b> Try to answer every question yourself first. Use this lesson to check your understanding, not to find the answers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACH BACK -->
+<section class="section-card" id="teachback">
+  <div class="section-header"><span class="icon">🎓</span><h2>Teach-Back Challenge</h2></div>
+  <p class="section-subtitle">Explain this section in your own words. Try to reach Platinum!</p>
+  <div class="teachback-grid">
+    <div class="level bronze">
+      <h4>🥉 Bronze</h4>
+      <p>Say the word equation for a metal reacting with oxygen, and name one reactive and one unreactive metal.</p>
+    </div>
+    <div class="level silver">
+      <h4>🥈 Silver</h4>
+      <p>In your own words, explain why some metals react with oxygen faster than others.</p>
+    </div>
+    <div class="level gold">
+      <h4>🥇 Gold</h4>
+      <p>Use the four test-tube investigation to explain exactly why iron needs both water and oxygen to rust.</p>
+    </div>
+    <div class="level platinum">
+      <h4>🏆 Platinum</h4>
+      <p>Teach a younger student: explain why painting and galvanising both protect iron, using the idea of oxygen and water being kept away.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM INTELLIGENCE -->
+<section class="section-card" id="exam">
+  <div class="section-header"><span class="icon">🧭</span><h2>Exam Intelligence</h2></div>
+  <p class="section-subtitle">These skills appear in the available Cambridge assessment material for this topic.</p>
+
+  <div class="exam-card">
+    <h4>Writing word equations</h4>
+    <p>You may be asked to write a word equation for a metal reacting with oxygen (for example, magnesium + oxygen → magnesium oxide). Always write the metal oxide name correctly — do not write "rust" as a chemical name.</p>
+  </div>
+  <div class="exam-card">
+    <h4>Explaining the word "inert"</h4>
+    <p>You may be asked to explain why a metal such as gold is described as inert. A strong answer explains that the metal does not react with oxygen (or other substances).</p>
+  </div>
+  <div class="exam-card">
+    <h4>Identifying variables in a rusting investigation</h4>
+    <p>Assessment questions often ask you to identify the variable being changed, a variable that must be controlled, or a conclusion based on a table of rusting results. Read the table carefully and quote the data in your answer.</p>
+  </div>
+  <div class="exam-card">
+    <h4>Using a reactivity list</h4>
+    <p>You may be given a list or chart of metals in order of reactivity and asked to predict how a metal will behave, based on its position in the list.</p>
+  </div>
+</section>
+
+<!-- PARENT CHECK -->
+<section class="section-card" id="parent">
+  <div class="section-header"><span class="icon">👪</span><h2>Parent Check</h2></div>
+  <p class="section-subtitle">Simple questions a parent can ask out loud. Answers are not provided — this is for discussion.</p>
+  <div class="parent-card">
+    <ol>
+      <li>What happens when a metal reacts with oxygen? What is the new substance called?</li>
+      <li>Can you name a metal that reacts with oxygen very quickly, and one that barely reacts at all?</li>
+      <li>What two things does iron need in order to rust?</li>
+      <li>Why do we store sodium, potassium and calcium under oil?</li>
+      <li>Can you suggest two ways to stop iron from rusting?</li>
+      <li>Why is rusting a problem for buildings and bridges?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="section-card" id="reflection">
+  <div class="section-header"><span class="icon">🔎</span><h2>Reflection</h2></div>
+  <div class="reflection-card">
+    <label><input type="checkbox"> I can describe how metals react with oxygen.</label>
+    <label><input type="checkbox"> I can compare how reactive different metals are.</label>
+    <label><input type="checkbox"> I can explain what conditions are needed for iron to rust.</label>
+    <label><input type="checkbox"> I can suggest ways to protect iron.</label>
+
+    <p>How confident do you feel about this section?</p>
+    <div class="confidence-scale">
+      <span>😕 Not yet</span><span>🙂 A little</span><span>😀 Good</span><span>🤩 Very confident</span>
+    </div>
+
+    <p>Which vocabulary word is still difficult for you?</p>
+    <textarea placeholder="Write here..."></textarea>
+
+    <p style="margin-top:14px;">Do you feel ready to try the Workbook?</p>
+    <div class="confidence-scale">
+      <span>Not yet</span><span>Almost</span><span>Yes, ready!</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="metadata-footer">
+  Cambridge Lower Secondary Science Stage 8 Self-Study Coach · Unit 8, Section 8.3<br>
+  Output O1 — Section Review HTML · UI Version 2.1 · Project Version 1.0<br>
+  Sources: Learner Book · Workbook · Teacher Resource · Progression Tests
+</footer>
+
+<script>
+// ---------- Flashcards ----------
+const flashData = [
+  {front:"reactive", back:"Able to react quickly with another substance. Example: sodium is very reactive."},
+  {front:"oxidation", back:"A reaction where a substance joins with oxygen. Example: rusting is an oxidation reaction."},
+  {front:"oxide", back:"A new substance made when a metal joins with oxygen. Example: iron oxide."},
+  {front:"inert", back:"Does not react with other substances. Example: gold is inert."},
+  {front:"What is the general word equation for a metal reacting with oxygen?", back:"metal + oxygen → metal oxide"},
+  {front:"What is rust, chemically?", back:"Iron oxide — formed when iron reacts with both oxygen and water."},
+  {front:"Why must sodium, potassium and calcium be stored under oil?", back:"Because they are so reactive that they react with oxygen and moisture in the air."},
+  {front:"Which conditions are needed for iron to rust?", back:"Both water AND oxygen must be present."},
+  {front:"Name two ways to protect iron from rusting.", back:"Painting, and galvanising (coating with zinc)."},
+  {front:"Look at Diagram 2: which tube has dry air only?", back:"Tube 3 — it contains calcium chloride, which absorbs moisture, and is stoppered."},
+  {front:"Is copper more or less reactive than iron?", back:"Copper is less reactive than iron."},
+  {front:"What does 'fair test' mean?", back:"A test where only one variable changes and all other conditions stay the same."}
+];
+let flashOrder = flashData.map((_, i) => i);
+let flashIndex = 0;
+let isFlipped = false;
+
+function renderFlash() {
+  const item = flashData[flashOrder[flashIndex]];
+  document.getElementById('flashFront').textContent = item.front;
+  document.getElementById('flashBack').textContent = item.back;
+  document.getElementById('flashcard').classList.remove('flipped');
+  isFlipped = false;
+  document.getElementById('flashCounter').textContent = `Card ${flashIndex + 1} of ${flashData.length}`;
+}
+function flipFlash() {
+  isFlipped = !isFlipped;
+  document.getElementById('flashcard').classList.toggle('flipped', isFlipped);
+}
+function flashNext() { flashIndex = (flashIndex + 1) % flashData.length; renderFlash(); }
+function flashPrev() { flashIndex = (flashIndex - 1 + flashData.length) % flashData.length; renderFlash(); }
+function shuffleFlash() {
+  for (let i = flashOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [flashOrder[i], flashOrder[j]] = [flashOrder[j], flashOrder[i]];
+  }
+  flashIndex = 0;
+  renderFlash();
+}
+document.getElementById('flashcard').addEventListener('click', flipFlash);
+document.getElementById('flashcard').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipFlash(); } });
+renderFlash();
+
+// ---------- Quiz ----------
+const quizData = [
+  {
+    q: "1. What is the general word equation for a metal reacting with oxygen?",
+    options: ["metal + oxygen → metal oxide", "metal + oxide → oxygen", "oxygen + oxide → metal"],
+    correct: 0,
+    feedback: ["✅ Correct! This pattern applies to every metal-oxygen reaction.", "⚠ Try again. Think about what the reactants and product are.", "⚠ Try again. Look at the order: reactants first, then the product."]
+  },
+  {
+    q: "2. Which metal is described as inert because it does not react with oxygen?",
+    options: ["Gold", "Sodium", "Iron"],
+    correct: 0,
+    feedback: ["✅ Correct! Gold does not react with oxygen at all.", "⚠ Not quite. Sodium is one of the most reactive metals.", "⚠ Not quite. Iron does react with oxygen, just slowly."]
+  },
+  {
+    q: "3. Which two conditions are needed for iron to rust?",
+    options: ["Heat and light", "Water and oxygen", "Oxygen and cold temperatures"],
+    correct: 1,
+    feedback: ["⚠ Try again. Think about the test tube investigation.", "✅ Correct! Both water and oxygen must be present for rusting.", "⚠ Try again. Temperature is not the key factor here."]
+  },
+  {
+    q: "4. True or False: Sodium is more reactive with oxygen than magnesium.",
+    options: ["True", "False"],
+    correct: 0,
+    feedback: ["✅ Correct! Sodium reacts with oxygen even without heating, unlike magnesium.", "⚠ Try again. Remember sodium reacts at room temperature."]
+  },
+  {
+    q: "5. Why are sodium, potassium and calcium stored under oil?",
+    options: ["To make them heavier", "To stop oxygen and moisture from reaching them", "To make them shinier"],
+    correct: 1,
+    feedback: ["⚠ Try again. Think about what oil is blocking.", "✅ Correct! The oil keeps air and moisture away from these very reactive metals.", "⚠ Try again. This is about safety, not appearance."]
+  },
+  {
+    q: "6. Look at Diagram 2. Which tube is designed to have dry air and no moisture?",
+    options: ["Tube 1", "Tube 2", "Tube 3"],
+    correct: 2,
+    feedback: ["⚠ Try again. Tube 1 is open to moist air.", "⚠ Try again. Tube 2 has water and air.", "✅ Correct! Tube 3 uses calcium chloride to dry the air."]
+  },
+  {
+    q: "7. What is the correct chemical name for rust?",
+    options: ["Iron oxide", "Iron oxygen", "Oxide iron"],
+    correct: 0,
+    feedback: ["✅ Correct! Rust is the everyday name for iron oxide.", "⚠ Try again. Check the word equation pattern.", "⚠ Try again. Word order matters in chemical names."]
+  },
+  {
+    q: "8. A student heats magnesium and it burns brightly. A student heats iron and it only glows slowly. What can we conclude?",
+    options: ["Iron is more reactive than magnesium", "Magnesium is more reactive than iron", "Both metals are equally reactive"],
+    correct: 1,
+    feedback: ["⚠ Try again. Look again at the speed of reaction.", "✅ Correct! Magnesium reacting faster and more brightly shows it is more reactive.", "⚠ Try again. The observations are clearly different."]
+  },
+  {
+    q: "9. Which is a way to protect iron from rusting?",
+    options: ["Leaving it in damp air", "Painting it", "Storing it under oil"],
+    correct: 1,
+    feedback: ["⚠ Try again. Damp air causes rusting, it does not prevent it.", "✅ Correct! Paint blocks oxygen from reaching the iron.", "⚠ Storing under oil is used for very reactive metals like sodium, not usually for iron."]
+  },
+  {
+    q: "10. Cambridge Challenge: A metal is more reactive than iron but less reactive than sodium. Which statement is most likely true?",
+    options: ["It reacts faster with oxygen than iron, but does not need to be stored under oil like sodium", "It never reacts with oxygen at all", "It reacts slower with oxygen than gold"],
+    correct: 0,
+    feedback: ["✅ Correct! Its reactivity sits between iron and sodium, so this description fits.", "⚠ Try again. Being less reactive than sodium does not mean no reaction at all.", "⚠ Try again. This metal is more reactive than iron, so it must also be more reactive than gold."]
+  }
+];
+let quizScore = 0;
+let quizAnswered = new Array(quizData.length).fill(false);
+
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  quizData.forEach((item, qi) => {
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.innerHTML = `
+      <h4>${item.q}</h4>
+      <div class="quiz-options">
+        ${item.options.map((opt, oi) => `
+          <label><input type="radio" name="q${qi}" value="${oi}"> ${opt}</label>
+        `).join('')}
+      </div>
+      <button class="btn-primary" style="margin-top:10px;" onclick="checkAnswer(${qi})">Check Answer</button>
+      <div class="quiz-feedback" id="feedback${qi}"></div>
+    `;
+    container.appendChild(card);
+  });
+}
+function checkAnswer(qi) {
+  const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+  const fb = document.getElementById(`feedback${qi}`);
+  if (!selected) {
+    fb.className = 'quiz-feedback incorrect';
+    fb.style.display = 'block';
+    fb.textContent = 'Please select an answer first.';
+    return;
+  }
+  const val = parseInt(selected.value);
+  const correct = val === quizData[qi].correct;
+  fb.className = 'quiz-feedback ' + (correct ? 'correct' : 'incorrect');
+  fb.textContent = quizData[qi].feedback[val];
+  if (correct && !quizAnswered[qi]) { quizScore++; quizAnswered[qi] = true; }
+}
+function finishQuiz() {
+  const box = document.getElementById('quizScoreBox');
+  const total = quizData.length;
+  const pct = Math.round((quizScore / total) * 100);
+  let msg = "Nice effort! Review the concepts above and try again.";
+  if (pct >= 80) msg = "Excellent work! You understand this section well.";
+  else if (pct >= 50) msg = "Good progress! A quick review of the Concept cards will help.";
+  box.style.display = 'block';
+  box.innerHTML = `<div class="big">${quizScore} / ${total} (${pct}%)</div><p>${msg}</p><p>Suggested review: Core Concepts and Diagram Mastery.</p>`;
+}
+renderQuiz();
+</script>
+</body>
+</html>
